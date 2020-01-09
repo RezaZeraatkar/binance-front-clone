@@ -1,0 +1,6 @@
+export const GET_DAILY_STATS_ASYNCH = 'GET_DAILY_STATS_ASYNCH';
+export const GET_DAILY_STATS = 'GET_DAILY_STATS';
+
+// OrderBook
+export const GET_ORDER_BOOK_ASYNCH = 'GET_ORDER_BOOK_ASYNCH';
+export const GET_ORDER_BOOK = 'GET_ORDER_BOOK';

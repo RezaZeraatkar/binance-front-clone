@@ -1,0 +1,79 @@
+{
+  "name": "cubex",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.4.0",
+    "@testing-library/user-event": "^7.1.2",
+    "antd": "^3.26.3",
+    "axios": "^0.19.0",
+    "babel-plugin-import": "^1.13.0",
+    "customize-cra": "^0.9.1",
+    "json-server": "^0.15.1",
+    "less": "^3.10.3",
+    "less-loader": "^5.0.0",
+    "numeral": "^2.0.6",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-app-rewired": "^2.1.5",
+    "react-custom-scrollbars": "^4.2.1",
+    "react-dom": "^16.12.0",
+    "react-icons": "^3.8.0",
+    "react-redux": "^7.1.3",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.3.0",
+    "react-window-size": "^1.2.2",
+    "redux": "^4.0.4",
+    "redux-saga": "^1.1.3",
+    "redux-thunk": "^2.3.0",
+    "styled-components": "^4.4.1"
+  },
+  "scripts": {
+    "start": "react-app-rewired start",
+    "dev": "concurrently \"cd server && npm run start\" \"npm run start\"",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.3",
+    "concurrently": "^5.0.2",
+    "eslint": "^6.7.2",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-html": "^6.0.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-jam3": "^0.2.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-react-hooks": "^2.3.0",
+    "husky": "^3.1.0",
+    "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1",
+    "redux-devtools-extension": "^2.13.8"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged",
+      "bypass": "--no-verify"
+    }
+  },
+  "proxy": "http://localhost:5000"
+}

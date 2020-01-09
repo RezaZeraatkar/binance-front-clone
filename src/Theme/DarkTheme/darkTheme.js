@@ -1,0 +1,3 @@
+function DarkTheme(type) {
+    switch
+}
