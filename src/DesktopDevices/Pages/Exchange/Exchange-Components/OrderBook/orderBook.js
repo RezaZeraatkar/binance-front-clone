@@ -17,74 +17,80 @@ import bidsSvg from '../../../../assets/bidsSvg.svg';
 
 const { TabPane } = Tabs;
 
-function callback (key) {
-  console.log(key);
+function callback(key) {
+  // console.log(key);
 }
 
-export default function orderBook ({ orderBookData, dailyStatsData }) {
+export default function orderBook({ orderBookData, dailyStatsData }) {
   return (
     <TabsWrapper>
-      <Tabs onChange={callback} type='card' defaultActiveKey='1'>
+      <Tabs onChange={callback} type="card" defaultActiveKey="1">
         <TabPane
           tab={
             <input
-              type='image'
+              type="image"
               src={ordersSvg}
-              alt='orders'
+              alt="orders"
               style={{ height: '22px', width: '30px' }}
             />
           }
-          key='1'
+          key="1"
         >
           <OrderBookWrapper>
             <SellOrdersList
-              bids={orderBookData.bids}
+              asks={orderBookData.asks}
               limit={20}
               dailyStats={dailyStatsData}
+              showTableHeader={true}
             />
             <BuyOrdersList
-              asks={orderBookData.asks}
+              bids={orderBookData.bids}
               dailyStats={dailyStatsData}
               limit={20}
-              show={true}
+              showLastChangeStats={true}
             />
           </OrderBookWrapper>
         </TabPane>
         <TabPane
           tab={
             <input
-              type='image'
+              type="image"
               src={asksSvg}
-              alt='asks'
+              alt="asks"
               style={{ height: '22px', width: '30px' }}
             />
           }
-          key='2'
+          key="2"
         >
-          <BuyOrdersList
-            asks={orderBookData.asks}
-            dailyStats={dailyStatsData}
-            limit={100}
-            show={true}
-          />
+          <OrderBookWrapper>
+            <BuyOrdersList
+              bids={orderBookData.bids}
+              dailyStats={dailyStatsData}
+              limit={100}
+              showLastChangeStats={true}
+            />
+          </OrderBookWrapper>
         </TabPane>
         <TabPane
           tab={
             <input
-              type='image'
+              type="image"
               src={bidsSvg}
-              alt='bids'
+              alt="bids"
               style={{ height: '22px', width: '30px' }}
             />
           }
-          key='3'
+          key="3"
         >
-          <SellOrdersList
-            bids={orderBookData.bids}
-            dailyStats={dailyStatsData}
-            limit={100}
-            show={true}
-          />
+          <OrderBookWrapper>
+            <SellOrdersList
+              asks={orderBookData.asks}
+              dailyStats={dailyStatsData}
+              limit={100}
+              showLastChangeStats={true}
+              showTableHeader={true}
+            />
+          </OrderBookWrapper>
         </TabPane>
       </Tabs>
       {/* Groups */}

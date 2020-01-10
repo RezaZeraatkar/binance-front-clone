@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const OrderBookLastChange = styled.div`
-  display: ${props => (props.show ? 'flex' : 'none')};
+  display: ${props => (props.showLastChangeStats ? 'flex' : 'none')};
   align-items: center;
   justify-content: space-between;
   font-size: 18px;

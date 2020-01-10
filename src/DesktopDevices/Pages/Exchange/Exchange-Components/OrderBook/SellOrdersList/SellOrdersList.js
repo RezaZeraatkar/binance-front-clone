@@ -14,7 +14,7 @@ const CustomTableSettings = styled.div`
     position: absolute;
     display: block;
     content: ' ';
-    width: 60%;
+    width: 100%;
     height: 20px;
     background-color: rgb(229, 87, 87);
     opacity: 0.1;
@@ -37,17 +37,20 @@ const columns = [
   },
 ];
 
-export default function SellOrdersList (props) {
+export default function SellOrdersList(props) {
   return (
     <TableWrapper>
       <CustomTableSettings>
         <Table
-          size='small'
+          size="small"
           columns={columns}
           pagination={false}
           dataSource={orderBookDataLoader(props)}
           footer={() => (
-            <OrderBookLastChange show={props.show} orders={props.dailyStats} />
+            <OrderBookLastChange
+              showLastChangeStats={props.showLastChangeStats}
+              orders={props.dailyStats}
+            />
           )}
         />
       </CustomTableSettings>

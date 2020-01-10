@@ -23,11 +23,10 @@ const MatchedPrice = styled.span`
   color: #333;
 `;
 
-function BidsAsks ({ ordersData }) {
-  console.log(ordersData);
+function BidsAsks({ ordersData }) {
   return (
     <StyledBidsAsks>
-      <ColorizedText sign='neg'>
+      <ColorizedText sign="neg">
         <span>{numeral(ordersData.lastPrice).format('0.00')}</span>
         <ArrowIcons>
           <FaLongArrowAltDown

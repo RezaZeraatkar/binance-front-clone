@@ -19,7 +19,7 @@ class LimitForm extends React.Component {
     });
   };
 
-  render () {
+  render() {
     return (
       <OrderFormsWrapper>
         <OrderForms>

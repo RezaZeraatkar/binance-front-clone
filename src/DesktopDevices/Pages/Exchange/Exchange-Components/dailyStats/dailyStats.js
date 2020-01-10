@@ -1,54 +1,46 @@
 import React from 'react';
 import { Row, Col } from 'antd';
+import numeral from 'numeral';
 
 // Styles
 import { StyledDailyStats } from './styled-dailystats';
 import ColorizedText from '../../../../UI/Typography/Text/ColorizedText';
 import ThemeMode from '../ThemeMode/ThemeMode';
 
-function toFixedFormater (num) {
-  if (num) {
-    return Number(num).toFixed(2);
-  } else {
-    return '';
-  }
-}
-
-export default function dailyStats (props) {
+export default function dailyStats(props) {
   return (
     <StyledDailyStats>
-      <Row type='flex' justify='space-around'>
+      <Row type="flex" justify="space-around">
         <Col xs={3}>{props.dailyStatsData.symbol}</Col>
         <Col xs={4}>
-          <div>Last Price</div>{' '}
-          <ColorizedText sign='neg'>
-            {toFixedFormater(props.dailyStatsData.lastPrice)}
+          <div style={{ fontSize: 12 }}>Last Price</div>
+          <ColorizedText sign="neg">
+            {numeral(Number(props.dailyStatsData.lastPrice)).format('0,000.00')}
           </ColorizedText>
         </Col>
         <Col xs={4}>
-          <div>24h Change</div>
-          <ColorizedText sign='pos'>
-            {toFixedFormater(props.dailyStatsData.priceChange)} +
-            {props.dailyStatsData.priceChangePercent}
+          <div style={{ fontSize: 12 }}>24h Change</div>
+          <ColorizedText sign="pos">
+            {numeral(Number(props.dailyStatsData.priceChange)).format('0.00')}{' '}
+            {Number(props.dailyStatsData.priceChangePercent).toFixed(2)}
           </ColorizedText>
         </Col>
         <Col xs={3}>
-          <div>24h High</div>
+          <div style={{ fontSize: 12 }}>24h High</div>
           <ColorizedText>
-            {toFixedFormater(props.dailyStatsData.highPrice)}
+            {numeral(props.dailyStatsData.highPrice).format('0,000.00')}
           </ColorizedText>
         </Col>
         <Col xs={3}>
-          <div>24h Low</div>
+          <div style={{ fontSize: 12 }}>24h Low</div>
           <ColorizedText>
-            {' '}
-            {toFixedFormater(props.dailyStatsData.lowPrice)}
+            {numeral(props.dailyStatsData.lowPrice).format('0,000.00')}
           </ColorizedText>
         </Col>
         <Col xs={4}>
-          <div>24h Volume</div>
+          <div style={{ fontSize: 12 }}>24h Volume</div>
           <ColorizedText>
-            {toFixedFormater(props.dailyStatsData.quoteVolume)}
+            {numeral(props.dailyStatsData.quoteVolume).format('000,000,000.00')}
           </ColorizedText>
         </Col>
         <Col xs={2}>

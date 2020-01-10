@@ -11,7 +11,7 @@ import OrderBookLastChange from '../OrderBookLastChange/orderBookLastChange';
 
 const CustomTableSettings = styled.div`
   & .ant-table-wrapper .ant-table-thead {
-    display: none;
+    display: table-header-group;
   }
   & .ant-table-wrapper .ant-table-tbody tr::after {
     position: absolute;
@@ -27,31 +27,37 @@ const CustomTableSettings = styled.div`
 
 const columns = [
   {
+    title: 'Price(USDT)',
     dataIndex: 'price',
   },
   {
+    title: 'Amount (BTC)',
     dataIndex: 'amount',
   },
   {
+    title: 'Total(USDT)',
     dataIndex: 'total',
   },
 ];
 
-function sellOrdersList (props) {
+function buyOrdersList(props) {
   return (
     <TableWrapper>
       <CustomTableSettings>
         <Table
-          size='small'
+          size="small"
           columns={columns}
           dataSource={orderBookDataLoader(props)}
           pagination={false}
           title={() => (
-            <OrderBookLastChange orders={props.dailyStats} show={props.show} />
+            <OrderBookLastChange
+              orders={props.dailyStats}
+              showLastChangeStats={props.showLastChangeStats}
+            />
           )}
         />
       </CustomTableSettings>
     </TableWrapper>
   );
 }
-export default sellOrdersList;
+export default buyOrdersList;

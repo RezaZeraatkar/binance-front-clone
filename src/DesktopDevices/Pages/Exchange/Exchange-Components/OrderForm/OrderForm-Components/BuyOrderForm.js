@@ -16,7 +16,7 @@ class BuyOrderForm extends React.Component {
     console.log('changed', value);
   };
 
-  render () {
+  render() {
     return (
       <Form onSubmit={this.handleSubmit}>
         <Form.Item>
@@ -48,8 +48,8 @@ class BuyOrderForm extends React.Component {
         </Form.Item>
         <Form.Item>
           <div style={{ margin: 'auto' }}>
-            <Link to='/login'>Log in</Link> Or{' '}
-            <Link to='/register'>register now to trade</Link>
+            <Link to="/login">Log in</Link> Or{' '}
+            <Link to="/register">register now to trade</Link>
           </div>
         </Form.Item>
       </Form>
@@ -57,6 +57,6 @@ class BuyOrderForm extends React.Component {
   }
 }
 
-const WrappedBuyOrderForm = Form.create({ name: 'normal_login' })(BuyOrderForm);
+const WrappedBuyOrderForm = Form.create({ name: 'BuyOrderForm' })(BuyOrderForm);
 
 export default WrappedBuyOrderForm;

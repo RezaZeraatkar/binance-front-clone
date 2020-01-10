@@ -7,9 +7,9 @@ import BidsAsks from './StyledOBLastChanges/styledBidsAsks';
 import More from './StyledOBLastChanges/styledMore';
 import MarketStatus from './StyledOBLastChanges/styledMarketStatus';
 
-export default function orderBookLastChange ({ orders, show }) {
+export default function orderBookLastChange({ orders, showLastChangeStats }) {
   return (
-    <StyledOrderBookLastChange show={show}>
+    <StyledOrderBookLastChange showLastChangeStats={showLastChangeStats}>
       <BidsAsks ordersData={orders} />
       <div
         style={{
@@ -19,7 +19,7 @@ export default function orderBookLastChange ({ orders, show }) {
           flex: '0 0 26%',
         }}
       >
-        <More to='en/orderbook/btcusd'>More</More>
+        <More to="en/orderbook/btcusd">More</More>
         <MarketStatus>
           <FaSignal />
         </MarketStatus>

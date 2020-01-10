@@ -15,7 +15,6 @@ const ListWrapper = styled.div`
   }
 
   & .ant-table-wrapper .ant-table-thead tr th {
-    /* display: none; */
     border: 0px;
   }
 
@@ -64,7 +63,7 @@ const TableWrapper = styled.div`
   }
 `;
 
-function TableWrapperHOC (props) {
+function TableWrapperHOC(props) {
   return (
     <TableWrapper>
       <ListWrapper>{props.children}</ListWrapper>
