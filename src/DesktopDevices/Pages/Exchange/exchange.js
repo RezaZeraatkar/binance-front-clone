@@ -33,9 +33,7 @@ export default function Exchange () {
                 <OrderBook />
                 <div>
                   <div style={{ minHeight: '463px' }}>Chart</div>
-                  <div>
-                    <OrderForm />
-                  </div>
+                  <OrderForm />
                 </div>
               </Container>
             </Row>

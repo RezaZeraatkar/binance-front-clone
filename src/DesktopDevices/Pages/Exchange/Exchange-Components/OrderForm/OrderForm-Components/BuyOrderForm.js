@@ -1,6 +1,14 @@
 import React from 'react';
-import { Form, InputNumber } from 'antd';
+import { Form, Row } from 'antd';
 import { Link } from 'react-router-dom';
+
+// Components
+import RatioButtons from '../OrderForm-Components/RatioButtons';
+import FormType from '../OrderForm-Components/FormType';
+
+// Styled Compoents
+import InputNumber from '../../../../../UI/Inputs/InputNumber';
+import LinkConatiner from '../../../../../UI/Links/LinkContainer';
 
 class BuyOrderForm extends React.Component {
   handleSubmit = e => {
@@ -16,41 +24,56 @@ class BuyOrderForm extends React.Component {
     console.log('changed', value);
   };
 
-  render() {
+  render () {
     return (
       <Form onSubmit={this.handleSubmit}>
         <Form.Item>
+          <FormType type='Buy' what='BTC' wallet='USDT' />
+        </Form.Item>
+        <Form.Item label='Price'>
           <InputNumber
             defaultValue={7965.18}
             min={0.01}
             step={0.01}
             formatter={value => `${value}`}
             onChange={this.onChange}
+            suffix='USDT'
+            size='small'
           />
         </Form.Item>
-        <Form.Item>
+        <Form.Item label='Amount'>
           <InputNumber
             defaultValue={7965.18}
             min={0.01}
             step={0.01}
             formatter={value => `${value}`}
             onChange={this.onChange}
+            suffix='BTC'
+            size='small'
           />
         </Form.Item>
-        <Form.Item>
+        <Form.Item label='ratios' className='hiddenLabel'>
+          <RatioButtons />
+        </Form.Item>
+        <Form.Item label='Total'>
           <InputNumber
             defaultValue={7965.18}
             min={0.01}
             step={0.01}
             formatter={value => `${value}`}
             onChange={this.onChange}
+            size='small'
+            suffix='USDT'
           />
         </Form.Item>
+        <Form.Item></Form.Item>
         <Form.Item>
-          <div style={{ margin: 'auto' }}>
-            <Link to="/login">Log in</Link> Or{' '}
-            <Link to="/register">register now to trade</Link>
-          </div>
+          <Row type='flex' justify='center'>
+            <LinkConatiner>
+              <Link to='/login'>Log in</Link> Or{' '}
+              <Link to='/register'>Register now </Link>to trade
+            </LinkConatiner>
+          </Row>
         </Form.Item>
       </Form>
     );
