@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Icon } from 'antd';
 
-const FormTypeContainer = styled.div`
+const WalletContainer = styled.div`
   display: flex;
   justify-content: space-between;
 `;
@@ -13,7 +13,7 @@ const ActionType = styled.div`
   color: #333333;
 `;
 
-const Wallet = styled.div`
+const WalletWrapper = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -26,17 +26,17 @@ const Wallet = styled.div`
   }
 `;
 
-export default function FormType ({ type, what, wallet }) {
+export default function Wallet ({ type, what, wallet }) {
   return (
-    <FormTypeContainer>
+    <WalletContainer>
       <ActionType>
         {type} {what}
       </ActionType>
-      <Wallet>
+      <WalletWrapper>
         <Icon type='wallet' style={{ width: 20 }} />
         <div>–</div>
         <span style={{ fontSize: 12 }}>{wallet}</span>
-      </Wallet>
-    </FormTypeContainer>
+      </WalletWrapper>
+    </WalletContainer>
   );
 }

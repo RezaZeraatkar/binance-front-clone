@@ -31,7 +31,7 @@ export default function Exchange () {
             <Row>
               <Container>
                 <OrderBook />
-                <div>
+                <div style={{ flex: '75%', marginLeft: '5px' }}>
                   <div style={{ minHeight: '463px' }}>Chart</div>
                   <OrderForm />
                 </div>

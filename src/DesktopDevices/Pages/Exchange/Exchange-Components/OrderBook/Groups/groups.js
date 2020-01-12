@@ -1,6 +1,9 @@
 import React from 'react';
 import { Select } from 'antd';
 
+// styled components
+import StyledSelect from '../../../../../UI/Select/StyledSelect';
+
 const { Option } = Select;
 
 function handleChange (value) {
@@ -18,18 +21,13 @@ export default function groups () {
         alignItems: 'center',
       }}
     >
-      <div style={{ marginRight: '2px' }}>groups</div>
+      <div style={{ marginRight: '2px', color: '#999999' }}>groups</div>
       <div>
-        <Select
-          defaultValue='2'
-          style={{ width: 100, fontSize: 12, border: 0, borderRadius: 0 }}
-          onChange={handleChange}
-          size='small'
-        >
-          <Option value='0'>0 Decimal</Option>
-          <Option value='1'>1 Decimal</Option>
-          <Option value='2'>2 Decimals</Option>
-        </Select>
+        <StyledSelect defaultValue='2' onChange={handleChange} size='small'>
+          <Option value='0'>0 decimal</Option>
+          <Option value='1'>1 decimal</Option>
+          <Option value='2'>2 decimals</Option>
+        </StyledSelect>
       </div>
     </div>
   );

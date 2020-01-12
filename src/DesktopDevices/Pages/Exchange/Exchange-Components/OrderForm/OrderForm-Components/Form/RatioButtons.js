@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from 'antd';
 
 // Styled Components
-import ButtonWrapper from '../../../../../UI/Buttons/ButtonWrapper';
+import ButtonWrapper from '../../../../../../UI/Buttons/ButtonWrapper';
 
 export default function RatioButtons () {
   return (
