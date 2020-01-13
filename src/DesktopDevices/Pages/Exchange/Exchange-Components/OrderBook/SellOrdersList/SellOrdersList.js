@@ -15,8 +15,8 @@ const CustomTableSettings = styled.div`
     display: block;
     content: ' ';
     width: 100%;
-    height: 20px;
-    background-color: rgb(229, 87, 87);
+    height: 19px;
+    background-color: #e886b5;
     opacity: 0.1;
     right: 0;
   }
@@ -26,23 +26,27 @@ const columns = [
   {
     title: 'Price(USDT)',
     dataIndex: 'price',
+    width: '30%',
   },
   {
     title: 'Amount (BTC)',
     dataIndex: 'amount',
+    width: '30%',
   },
   {
     title: 'Total(USDT)',
     dataIndex: 'total',
+    width: '40%',
   },
 ];
 
-export default function SellOrdersList(props) {
+export default function SellOrdersList (props) {
   return (
     <TableWrapper>
       <CustomTableSettings>
         <Table
-          size="small"
+          scroll={props.fixedFooter ? { y: 882 } : false}
+          size='small'
           columns={columns}
           pagination={false}
           dataSource={orderBookDataLoader(props)}

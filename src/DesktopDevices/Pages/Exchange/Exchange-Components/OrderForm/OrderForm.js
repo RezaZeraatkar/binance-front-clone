@@ -17,8 +17,8 @@ const { TabPane } = Tabs;
 const STOP_LIMIT_INFO =
   'A Stop-Limit order is an order to buy or sell a coin once the price reaches a specified price.';
 const OCO_LIMIT_INFO =
-  'OCO order:To place a stop-limit order and a limit order at the same time. When either of the order' +
-  +' pairs is triggered, the other order will be cancelled. And if either of the order pairs is cancelled,' +
+  'OCO order: To place a stop-limit order and a limit order at the same time. When either of the order' +
+  ' pairs is triggered, the other order will be cancelled. And if either of the order pairs is cancelled,' +
   'the other order will be cancelled, too.';
 
 function callback (key) {

@@ -30,9 +30,13 @@ export default function Exchange () {
             </Row>
             <Row>
               <Container>
+                {/* orderbook component */}
                 <OrderBook />
+                {/* chart and orderfrom components */}
                 <div style={{ flex: '75%', marginLeft: '5px' }}>
-                  <div style={{ minHeight: '463px' }}>Chart</div>
+                  <div style={{ minHeight: '463px', marginBottom: 24 }}>
+                    Chart
+                  </div>
                   <OrderForm />
                 </div>
               </Container>

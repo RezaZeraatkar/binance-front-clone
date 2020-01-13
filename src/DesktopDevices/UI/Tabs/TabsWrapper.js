@@ -2,9 +2,9 @@ import styled from 'styled-components';
 
 const TabsWrapper = styled.div`
   position: relative;
-  flex: 25%;
-  margin-right: 5px;
+  flex: 0 1 285px;
   min-width: 285px;
+  margin-right: 5px;
   & .ant-tabs-bar {
     background-color: #f7f7f7;
     margin: 0px;
@@ -14,6 +14,7 @@ const TabsWrapper = styled.div`
     border: 1px solid rgb(230, 230, 230);
     border-bottom: 0px;
   }
+  /* ant nav header style*/
   & .ant-tabs-nav div {
     display: flex;
     align-items: center;

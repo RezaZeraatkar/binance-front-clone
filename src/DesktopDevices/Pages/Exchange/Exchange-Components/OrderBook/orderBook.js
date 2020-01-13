@@ -1,5 +1,6 @@
 import React from 'react';
 import { Tabs } from 'antd';
+import { Scrollbars } from 'react-custom-scrollbars';
 
 // Components
 import OrderBookWrapper from './OrderBookStyles/OrderBookWrapper';
@@ -23,7 +24,7 @@ function callback (key) {
 
 export default function orderBook ({ orderBookData, dailyStatsData }) {
   return (
-    <TabsWrapper>
+    <TabsWrapper className='tabs-wrapper'>
       <Tabs onChange={callback} type='card' defaultActiveKey='1'>
         <TabPane
           tab={
@@ -39,15 +40,18 @@ export default function orderBook ({ orderBookData, dailyStatsData }) {
           <OrderBookWrapper className='order-book-wrapper'>
             <SellOrdersList
               asks={orderBookData.asks}
-              limit={21}
+              limit={23}
               dailyStats={dailyStatsData}
               showTableHeader={true}
+              noScroll
             />
             <BuyOrdersList
               bids={orderBookData.bids}
               dailyStats={dailyStatsData}
-              limit={21}
+              limit={23}
               showLastChangeStats={true}
+              noScroll
+              noTitle
             />
           </OrderBookWrapper>
         </TabPane>
@@ -68,6 +72,8 @@ export default function orderBook ({ orderBookData, dailyStatsData }) {
               dailyStats={dailyStatsData}
               limit={100}
               showLastChangeStats={true}
+              noScroll
+              fixedHeader
             />
           </OrderBookWrapper>
         </TabPane>
@@ -89,6 +95,8 @@ export default function orderBook ({ orderBookData, dailyStatsData }) {
               limit={100}
               showLastChangeStats={true}
               showTableHeader={true}
+              noScroll
+              fixedFooter
             />
           </OrderBookWrapper>
         </TabPane>
