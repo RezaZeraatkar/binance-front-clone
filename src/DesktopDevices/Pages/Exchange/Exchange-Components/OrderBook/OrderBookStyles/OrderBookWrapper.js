@@ -7,7 +7,6 @@ const OrderBookWrapper = styled.div`
   font-size: 12px;
   width: 285px;
   min-width: 285px;
-  border: 1px solid rgb(230, 230, 230);
   border-top: 0px;
 `;
 

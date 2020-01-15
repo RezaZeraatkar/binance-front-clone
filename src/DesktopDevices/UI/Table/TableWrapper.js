@@ -2,8 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 
 const TableWrapper = styled.div`
-  & .ant-table-wrapper .ant-table-content td span {
-    padding: 0 5px;
+  & .ant-table-wrapper {
+    border: 1px solid #e6e6e6;
+    border-top: 0px;
+  }
+  & .ant-table-wrapper .ant-table-content td {
+    padding: 0 5px !important;
   }
   /* table header styles */
   & .ant-table-wrapper thead tr th:last-child {
@@ -53,80 +57,3 @@ function TableWrapperHOC (props) {
 }
 
 export default TableWrapperHOC;
-
-// ListWrapper
-// & .ant-table-wrapper .ant-table-header table {
-//   width: 100%;
-// }
-// & .ant-table-wrapper .ant-table-tbody tr {
-//   display: flex;
-//   justify-content: space-between;
-// }
-// & span.ant-table-column-title {
-//   color: #999999 !important;
-// }
-// & .ant-table-wrapper .ant-table {
-//   border: 0px;
-//   width: 100%;
-// }
-
-// & .ant-table-wrapper .ant-table-thead tr {
-//   display: flex;
-// }
-
-// & .ant-table-wrapper .ant-table-thead tr th {
-//   border: 0px;
-//   flex: 33%;
-// }
-
-// & .ant-table-content .ant-table-body {
-//   background-color: transparent !important;
-//   width: 100%;
-// }
-
-// & .ant-table-wrapper .ant-table-tbody tr {
-//   cursor: pointer;
-// }
-
-// & .ant-table-wrapper .ant-table-tbody tr td {
-//   border-bottom: 2px solid white;
-//   color: #333;
-// }
-
-// TableWrapper
-
-// & table {
-//   font-size: 12px;
-// }
-// /* head */
-// & table tr th span {
-//   padding: 0px 2px;
-// }
-// & table tr th:nth-child(1) {
-//   text-align: left;
-// }
-// & table tr th:nth-child(2) {
-//   text-align: left;
-// }
-// & table tr th:nth-child(3) {
-//   text-align: right;
-// }
-// /* Rows */
-// & table tr {
-//   height: 21px;
-// }
-// & table tr td:nth-child(1) {
-//   text-align: left;
-//   & > span {
-//     padding-left: 8px;
-//   }
-// }
-// & table tr td:nth-child(2) {
-//   text-align: center;
-//   padding-right: 8px !important;
-//   margin-left: 8px !important;
-// }
-// & table tr td:nth-child(3) {
-//   text-align: right;
-//   padding-right: 8px !important;
-// }

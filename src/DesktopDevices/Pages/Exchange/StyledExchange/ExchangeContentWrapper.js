@@ -7,9 +7,9 @@ const ExchangeContentWrapper = styled.div`
   max-width: 1400px;
   display: flex;
   justify-content: space-around;
+  flex-direction: column;
   & > div:first-child {
     flex: 80%;
-    margin-right: 5px;
   }
   & > div:not(:first-child) {
     flex: 20%;

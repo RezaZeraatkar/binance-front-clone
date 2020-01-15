@@ -1,14 +1,14 @@
 import React from 'react';
 import { Icon, Tooltip } from 'antd';
 
-import Theme from '../../../../../Theme/ThemeProvider';
+import Theme from '../../../../../../Theme/ThemeProvider';
 
 const DarkMode = <span>Dark Mode</span>;
 const LightMode = <span>Light Mode</span>;
 
-export default function ThemeMode() {
+export default function ThemeMode () {
   return (
-    <div style={{ display: 'flex' }}>
+    <div style={{ display: 'flex', flex: '1 1 auto' }}>
       <div
         style={{
           border: '1px solid rgb(230,230,230)',
@@ -21,8 +21,8 @@ export default function ThemeMode() {
           cursor: 'pointer',
         }}
       >
-        <Tooltip placement="bottomRight" title={LightMode}>
-          <Icon type="bulb" style={{ color: Theme.Colors.WarningColor }} />
+        <Tooltip placement='bottomRight' title={LightMode}>
+          <Icon type='bulb' style={{ color: Theme.Colors.WarningColor }} />
         </Tooltip>
       </div>
       <div
@@ -37,8 +37,8 @@ export default function ThemeMode() {
           cursor: 'pointer',
         }}
       >
-        <Tooltip placement="bottomLeft" title={DarkMode}>
-          <Icon type="bulb" />
+        <Tooltip placement='bottomLeft' title={DarkMode}>
+          <Icon type='bulb' />
         </Tooltip>
       </div>
     </div>

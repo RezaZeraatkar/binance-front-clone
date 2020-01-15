@@ -12,10 +12,16 @@ function textColorHandler (sign) {
 
 const ColorizedText = styled.span`
   display: flex;
+  flex: auto;
   align-items: center;
   font-size: ${props => (props.fontSize ? props.fontSize : 'inherit')};
   font-weight: ${props => (props.fontWeight ? props.fontWeight : 'bold')};
   color: ${props => textColorHandler(props.sign)};
+  & span {
+    font-size: 12px;
+    color: #333333;
+    margin-left: 4px;
+  }
 `;
 
 export default ColorizedText;

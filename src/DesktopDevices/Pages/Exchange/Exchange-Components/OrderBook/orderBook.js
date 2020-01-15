@@ -1,6 +1,6 @@
 import React from 'react';
 import { Tabs } from 'antd';
-import { Scrollbars } from 'react-custom-scrollbars';
+// import { Scrollbars } from 'react-custom-scrollbars';
 
 // Components
 import OrderBookWrapper from './OrderBookStyles/OrderBookWrapper';
