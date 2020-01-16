@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 // component
-import OrderBook from './orderBook';
+import OrderBook from '../../Exchange-Components/OrderBook/orderBook';
 
 // Actions
 import { getOrderBookAction } from '../../../../../ReduxStore/Actions/getOrderBookAction';
 
 class OrderBookContainer extends Component {
-  componentDidMount() {
+  componentDidMount () {
     this.props.orderBookLoader('BTCUSDT');
   }
-  render() {
+  render () {
     return (
       <OrderBook
         orderBookData={this.props.orderBookData}
@@ -21,14 +21,14 @@ class OrderBookContainer extends Component {
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps (state) {
   return {
     orderBookData: state.orderBook,
     dailyStatsData: state.dailyStats,
   };
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps (dispatch) {
   return {
     orderBookLoader: symbol => getOrderBookAction(dispatch, symbol),
   };

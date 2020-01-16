@@ -1,5 +1,6 @@
 import React from 'react';
 import { Row } from 'antd';
+import numeral from 'numeral';
 
 // Styles
 import ColorizedText from '../../../../../UI/Typography/Text/ColorizedText';
@@ -9,14 +10,15 @@ function DataLoader (eachItem, withData) {
     case 'last_price':
       return (
         <ColorizedText sign='pos'>
-          {withData.lastPrice} <span> ${withData.lastPrice}</span>
+          {numeral(withData.lastPrice).format('0,000.00')}{' '}
+          <span> ${numeral(withData.lastPrice).format('0,000.00')}</span>
         </ColorizedText>
       );
-
     case '24h_change':
       return (
-        <ColorizedText sign='pos'>
-          {withData.priceChange} {withData.priceChangePercent}
+        <ColorizedText sign='neg'>
+          {numeral(withData.priceChange).format('0.00')}{' '}
+          {Number(withData.priceChangePercent).toFixed(2)}
         </ColorizedText>
       );
     case '24h_high':

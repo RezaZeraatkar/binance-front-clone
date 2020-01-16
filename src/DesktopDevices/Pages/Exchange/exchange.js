@@ -4,14 +4,14 @@ import { Row } from 'antd';
 
 // Exchange-Components
 import InfoBar from './Exchange-Components/InfoBar/InfoBar';
-import OrderBook from './Exchange-Components/OrderBook/OrderBook-Container';
 import Chart from './Exchange-Components/Chart/Chart';
 import OrderForm from './Exchange-Components/OrderForm/OrderForm';
-import CryptoPairs from './Exchange-Components/CryptoPairs/CryptoPairs-Container';
 import TradingHistory from './Exchange-Components/TradingHistory/TradingHistory';
 
 // Exchange-Containers
-import DailyStats from './Exchange-Containers/DailyStats-Container/dailyStats-Container';
+import DailyStatsContainer from './Exchange-Containers/DailyStats-Container/dailyStats-Container';
+import OrderBookContainer from './Exchange-Containers/OrderBook-Container/OrderBook-Container';
+import CryptoPairsContainer from './Exchange-Containers/CryptoPairs-Container/CryptoPairs-Container';
 
 // Styles
 import StyledExchange from './StyledExchange/StyledExchange';
@@ -44,11 +44,11 @@ class Exchange extends Component {
             <ExchangeLeftContent>
               <Row>
                 <Row>
-                  <DailyStats />
+                  <DailyStatsContainer />
                 </Row>
                 <Row>
                   <Container>
-                    <OrderBook />
+                    <OrderBookContainer />
                     <ChartAndFormsWrapper>
                       <Chart />
                       <OrderForm />
@@ -60,7 +60,7 @@ class Exchange extends Component {
             {/* crypto Pairs  | trade history  | recent market activity */}
             <ExchangeRightContent>
               <Row>
-                <CryptoPairs />
+                <CryptoPairsContainer />
               </Row>
               <Row>
                 <TradingHistory />
