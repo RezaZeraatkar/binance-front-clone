@@ -1,36 +1,35 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 
 // Components
 import Cryptopairs from '../../Exchange-Components/CryptoPairs/Cryptopairs';
 
 // actions
+import getCryptoPairsAction from '../../../../../ReduxStore/Actions/getCryptoPairsAction';
 
 class CryptoPairsContainer extends Component {
-  componentDidMount () {
-    axios.get('/pairs').then(response => console.log(response.data));
+  componentDidMount() {
+    this.props.getCryptoPairs();
   }
 
-  render () {
-    return <Cryptopairs />;
+  render() {
+    return <Cryptopairs pairsData={this.props.pairsData} />;
   }
 }
 
-// function mapStateToProps (state) {
-//   return {
-//     StatsData: state.dailyStats,
-//   };
-// }
+function mapStateToProps(state) {
+  return {
+    pairsData: state.cryptoPairs,
+  };
+}
 
-// function mapDispatchToProps (dispatch) {
-//   return {
-//     getDailyStats: symbol => getDailyStatsAction(dispatch, symbol),
-//   };
-// }
+function mapDispatchToProps(dispatch) {
+  return {
+    getCryptoPairs: () => getCryptoPairsAction(dispatch),
+  };
+}
 
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps,
-// )(CryptoPairsContainer);
-export default CryptoPairsContainer;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(CryptoPairsContainer);

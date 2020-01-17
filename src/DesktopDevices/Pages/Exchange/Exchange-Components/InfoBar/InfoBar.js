@@ -2,16 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 
 const InfoBarWrapper = styled.div`
-  background-color: rgb(35, 29, 46);
+  background-color: #262626;
 `;
 
 const StyledInfoBarItems = styled.div`
-  background-color: rgb(35, 29, 46);
+  background-color: #262626;
   display: flex;
   justify-content: space-between;
   position: relative;
   margin: auto;
   max-width: 1460px;
+  min-width: 987px;
   color: #b6b7b6;
 `;
 
@@ -74,10 +75,10 @@ const items = [
   },
 ];
 
-function InfoBarItems () {
+function InfoBarItems() {
   const InfoItems = items.map(item => (
     <Li key={item.text}>
-      <Link href={item.address} rel='noopener noreferrer' target='_blank'>
+      <Link href={item.address} rel="noopener noreferrer" target="_blank">
         <Span>{item.text}</Span>
         <i style={{ flex: '0 1 25%' }}>{item.pages}</i>
       </Link>
@@ -85,7 +86,7 @@ function InfoBarItems () {
   ));
   return (
     <InfoBarWrapper>
-      <StyledInfoBarItems className='ds-info-bar'>
+      <StyledInfoBarItems className="ds-info-bar">
         <Ul>{InfoItems}</Ul>
       </StyledInfoBarItems>
     </InfoBarWrapper>

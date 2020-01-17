@@ -26,8 +26,8 @@ const MatchedPrice = styled.span`
 function BidsAsks({ ordersData }) {
   return (
     <StyledBidsAsks>
-      <ColorizedText sign="neg">
-        <span>{numeral(ordersData.lastPrice).format('0.00')}</span>
+      <ColorizedText sign="pos" fontSize="18px">
+        {numeral(ordersData.lastPrice).format('0.00')}
         <ArrowIcons>
           <FaLongArrowAltDown
             style={{ fontSize: '0.876em', lineHeight: '100%' }}

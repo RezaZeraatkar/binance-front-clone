@@ -5,6 +5,7 @@ const StyledLayout = styled.div`
   & .ant-layout-header {
     display: flex;
     align-items: center;
+    background-color: #1e2126;
     & .ant-menu-item-selected {
       background-color: unset;
     }

@@ -3,7 +3,7 @@ import axios from 'axios';
 import * as actionTypes from '../Action_Types/Action_Types';
 
 // sagas workers === action creators
-function * addDailyStatsToStore (action) {
+function* addDailyStatsToStore(action) {
   // action.payload is accessible here!
   // console.log(action.symbol);
   try {
@@ -12,7 +12,7 @@ function * addDailyStatsToStore (action) {
       .then(response => response.data);
     // dispatch action to reducer
     yield put({
-      type: actionTypes.GET_DAILY_STATS_ASYNCH,
+      type: actionTypes.GET_DAILY_STATS_ASYNC,
       payload: dailyStatsData,
     });
   } catch (err) {
@@ -20,13 +20,13 @@ function * addDailyStatsToStore (action) {
   }
 }
 
-function * addOrderBookToStore (action) {
+function* addOrderBookToStore(action) {
   try {
     const orderBook = yield axios
       .get('/order-book')
       .then(response => response.data);
     yield put({
-      type: actionTypes.GET_ORDER_BOOK_ASYNCH,
+      type: actionTypes.GET_ORDER_BOOK_ASYNC,
       payload: orderBook,
     });
   } catch (err) {
@@ -34,9 +34,24 @@ function * addOrderBookToStore (action) {
   }
 }
 
-export default function * rootSaga () {
+function* addCryptoPairsToStore(action) {
+  try {
+    const cryptoPairs = yield axios
+      .get('./pairs')
+      .then(response => response.data);
+    yield put({
+      type: actionTypes.GET_CRYPTO_PAIRS_ASYNC,
+      payload: cryptoPairs,
+    });
+  } catch (err) {
+    console.log('[GET_CRYPTO_PAIRS_ERROR]: ', err);
+  }
+}
+
+export default function* rootSaga() {
   yield all([
     takeLatest(actionTypes.GET_DAILY_STATS, addDailyStatsToStore),
     takeLatest(actionTypes.GET_ORDER_BOOK, addOrderBookToStore),
+    takeLatest(actionTypes.GET_CRYPTO_PAIRS, addCryptoPairsToStore),
   ]);
 }

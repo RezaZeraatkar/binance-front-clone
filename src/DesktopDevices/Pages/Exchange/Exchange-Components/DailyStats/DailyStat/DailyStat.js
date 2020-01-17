@@ -5,18 +5,20 @@ import numeral from 'numeral';
 // Styles
 import ColorizedText from '../../../../../UI/Typography/Text/ColorizedText';
 
-function DataLoader (eachItem, withData) {
+function DataLoader(eachItem, withData) {
   switch (eachItem.type) {
     case 'last_price':
       return (
-        <ColorizedText sign='pos'>
-          {numeral(withData.lastPrice).format('0,000.00')}{' '}
-          <span> ${numeral(withData.lastPrice).format('0,000.00')}</span>
+        <ColorizedText sign="pos">
+          {numeral(withData.lastPrice).format('0,000.00')}
+          <ColorizedText fontSize="12px" style={{ marginLeft: 4 }}>
+            ${numeral(withData.lastPrice).format('0,000.00')}
+          </ColorizedText>
         </ColorizedText>
       );
     case '24h_change':
       return (
-        <ColorizedText sign='neg'>
+        <ColorizedText sign="neg">
           {numeral(withData.priceChange).format('0.00')}{' '}
           {Number(withData.priceChangePercent).toFixed(2)}
         </ColorizedText>
@@ -32,7 +34,7 @@ function DataLoader (eachItem, withData) {
   }
 }
 
-export default function LastPrice ({ statsData, staticData }) {
+export default function LastPrice({ statsData, staticData }) {
   console.log('[statsData]: ', statsData);
   console.log('[staticData]: ', staticData);
 
@@ -45,7 +47,7 @@ export default function LastPrice ({ statsData, staticData }) {
 
   return (
     <Row
-      type='flex'
+      type="flex"
       style={{
         flex: '80%',
         marginTop: '5px',

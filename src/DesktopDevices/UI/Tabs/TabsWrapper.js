@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 const TabsWrapper = styled.div`
   position: relative;
-  flex: 0 1 285px;
-  min-width: 285px;
+  flex: 0 1 280px;
+  min-width: 280px;
   & .ant-tabs-bar {
     background-color: #f7f7f7;
     margin: 0px;

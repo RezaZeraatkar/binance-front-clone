@@ -27,9 +27,9 @@ class Exchange extends Component {
     themeMode: 'light',
   };
 
-  render () {
+  render() {
     return (
-      <StyledExchange className='ds-styled-exchange'>
+      <StyledExchange className="ds-styled-exchange">
         {/* Info Bar */}
         <Row>
           <InfoBar />

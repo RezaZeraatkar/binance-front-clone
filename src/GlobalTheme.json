@@ -5,6 +5,8 @@
   "@menu-bg": "#12161C",
   "@menu-item-color": "white",
   "@menu-item-active-border-width": "0px",
+  "@menu-dark-color": "white",
+  "@menu-dark-bg": "#1E2126",
   "@btn-primary-color": "rgb(33, 40, 51)",
   "@btn-primary-bg": "#F0B91C",
   "@btn-font-size-sm": "12px",

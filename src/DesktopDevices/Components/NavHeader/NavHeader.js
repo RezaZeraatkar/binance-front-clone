@@ -13,25 +13,25 @@ import Currency from './Currency/Currency';
 import MenuWrapper from './StyledHeader/MenuWrapper';
 
 // ******************** NavHeader Component ********************
-export default function NavHeader () {
+export default function NavHeader() {
   return (
-    <MenuWrapper className='ds-menu-wrapper'>
-      <Menu theme='dark' mode='horizontal'>
+    <MenuWrapper className="ds-menu-wrapper">
+      <Menu theme="dark" mode="horizontal">
         <Menu.Item>
           <Logo />
         </Menu.Item>
         <Menu.Item>
-          <Link to='/markets' text='Markets'>
+          <Link to="/markets" text="Markets">
             Markets
           </Link>
         </Menu.Item>
         <Menu.Item>
-          <Link to='/exchange' text='Exchange'>
+          <Link to="/exchange" text="Exchange">
             Exchange
           </Link>
         </Menu.Item>
       </Menu>
-      <Menu theme='dark' mode='horizontal'>
+      <Menu theme="dark" mode="horizontal">
         <Menu.Item>
           <Login />
         </Menu.Item>
