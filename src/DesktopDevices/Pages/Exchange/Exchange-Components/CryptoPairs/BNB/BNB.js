@@ -1,8 +1,7 @@
 import React from 'react';
-
 // Components
 import PairsTable from '../PairsTable/PairsTable';
 
-export default function Favorites ({ favorites }) {
-  return <PairsTable data={favorites} />;
+export default function BNB ({ bnbData }) {
+  return <PairsTable data={bnbData['0']} />;
 }

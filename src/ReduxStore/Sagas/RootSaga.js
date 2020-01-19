@@ -1,15 +1,15 @@
-import { all, takeLatest, put } from 'redux-saga/effects';
+import { all, takeLatest, put, call } from 'redux-saga/effects';
 import axios from 'axios';
 import * as actionTypes from '../Action_Types/Action_Types';
 
 // sagas workers === action creators
-function* addDailyStatsToStore(action) {
+function * addDailyStatsToStore (action) {
   // action.payload is accessible here!
   // console.log(action.symbol);
   try {
-    const dailyStatsData = yield axios
-      .get('/daily-stats')
-      .then(response => response.data);
+    const dailyStatsData = yield call(() =>
+      axios.get('/daily-stats').then(response => response.data),
+    );
     // dispatch action to reducer
     yield put({
       type: actionTypes.GET_DAILY_STATS_ASYNC,
@@ -20,11 +20,11 @@ function* addDailyStatsToStore(action) {
   }
 }
 
-function* addOrderBookToStore(action) {
+function * addOrderBookToStore (action) {
   try {
-    const orderBook = yield axios
-      .get('/order-book')
-      .then(response => response.data);
+    const orderBook = yield call(() =>
+      axios.get('/order-book').then(response => response.data),
+    );
     yield put({
       type: actionTypes.GET_ORDER_BOOK_ASYNC,
       payload: orderBook,
@@ -34,11 +34,11 @@ function* addOrderBookToStore(action) {
   }
 }
 
-function* addCryptoPairsToStore(action) {
+function * addCryptoPairsToStore (action) {
   try {
-    const cryptoPairs = yield axios
-      .get('./pairs')
-      .then(response => response.data);
+    const cryptoPairs = yield call(() =>
+      axios.get('./pairs').then(response => response.data),
+    );
     yield put({
       type: actionTypes.GET_CRYPTO_PAIRS_ASYNC,
       payload: cryptoPairs,
@@ -48,7 +48,7 @@ function* addCryptoPairsToStore(action) {
   }
 }
 
-export default function* rootSaga() {
+export default function * rootSaga () {
   yield all([
     takeLatest(actionTypes.GET_DAILY_STATS, addDailyStatsToStore),
     takeLatest(actionTypes.GET_ORDER_BOOK, addOrderBookToStore),

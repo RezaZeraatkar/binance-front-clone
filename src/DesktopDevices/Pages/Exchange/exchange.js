@@ -6,7 +6,7 @@ import { Row } from 'antd';
 import InfoBar from './Exchange-Components/InfoBar/InfoBar';
 import Chart from './Exchange-Components/Chart/Chart';
 import OrderForm from './Exchange-Components/OrderForm/OrderForm';
-import TradingHistory from './Exchange-Components/TradingHistory/TradingHistory';
+// import TradingHistory from './Exchange-Components/TradingHistory/TradingHistory';
 
 // Exchange-Containers
 import DailyStatsContainer from './Exchange-Containers/DailyStats-Container/dailyStats-Container';
@@ -27,9 +27,9 @@ class Exchange extends Component {
     themeMode: 'light',
   };
 
-  render() {
+  render () {
     return (
-      <StyledExchange className="ds-styled-exchange">
+      <StyledExchange className='ds-styled-exchange'>
         {/* Info Bar */}
         <Row>
           <InfoBar />
@@ -62,9 +62,7 @@ class Exchange extends Component {
               <Row>
                 <CryptoPairsContainer />
               </Row>
-              <Row>
-                <TradingHistory />
-              </Row>
+              <Row>{/* <TradingHistory /> */}</Row>
               <Row>recent market activity</Row>
             </ExchangeRightContent>
           </ExchangeContent>

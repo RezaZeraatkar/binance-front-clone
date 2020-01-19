@@ -30,7 +30,6 @@ class BuyOrderForm extends React.Component {
 
   render () {
     const { whichForm } = this.props;
-    console.log(whichForm);
     return (
       <Form onSubmit={this.handleSubmit}>
         <Form.Item>

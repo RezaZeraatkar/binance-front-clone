@@ -48,9 +48,6 @@ const OrderFormsContainer = styled.div`
       color: #f0b90b !important;
       background-color: #f7f7f7 !important;
     }
-    & .ant-tabs-tab:hover {
-      color: #f0b90b !important;
-    }
   }
 `;
 export default OrderFormsContainer;

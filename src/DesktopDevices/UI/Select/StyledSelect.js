@@ -10,6 +10,9 @@ const styledSelect = styled(Select)`
     box-shadow: transparent;
     box-shadow: 0 0 0 0 #d9d9d9 !important;
   }
+  &.ant-select-focused .ant-select-selection {
+    border: 1px solid #f0b90b !important;
+  }
 `;
 
 export default styledSelect;

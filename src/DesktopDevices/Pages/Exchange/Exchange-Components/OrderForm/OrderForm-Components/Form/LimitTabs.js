@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Popover } from 'antd';
 import { FaQuestionCircle } from 'react-icons/fa';
+import Item from 'antd/lib/list/Item';
 
 const LimitTabsWrapper = styled.div`
   display: flex;
@@ -20,6 +21,7 @@ export default function LimitTabs ({ text, infoContent, url }) {
           alignItems: 'center',
         }}
       >
+        <span style={{ color: '#000', marginRight: 5 }}>|</span>
         <Popover
           className='pop-over-wrapper'
           placement='bottom'
@@ -27,7 +29,7 @@ export default function LimitTabs ({ text, infoContent, url }) {
           trigger='click'
           style={{ flex: '30%' }}
         >
-          <FaQuestionCircle />
+          <FaQuestionCircle style={{ color: '#000' }} />
         </Popover>
       </div>
     </LimitTabsWrapper>

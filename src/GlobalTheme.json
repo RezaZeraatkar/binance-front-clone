@@ -29,6 +29,7 @@
   "@form-item-margin-bottom": "5px",
   "@input-color": "rgb(51,51,51)",
   "@input-number-hover-border-color": "#F0B90B",
+  "@input-hover-border-color": "#F0B90B",
   "@tabs-horizontal-padding": "8px 16px",
   "@tabs-title-font-size": "0.9em",
   "@tabs-ink-bar-color": "transparent",
@@ -39,5 +40,12 @@
   "@tabs-active-color": "transparent",
   "@outline-color": "transparent",
   "@link-hover-color": "#F0B90B",
-  "@link-active-color": "#F0B90B"
+  "@link-active-color": "#F0B90B",
+  "@radio-button-hover-color": "#F0B90B",
+  "@radio-button-active-color": "#F0B90B",
+  "@shadow-1-up": "0 0 0 0",
+  "@shadow-1-down": "0 0 0 0",
+  "@shadow-1-left": "0 0 0 0",
+  "@shadow-1-right": "0 0 0 0",
+  "@shadow-2": "0 0 0 0"
 }

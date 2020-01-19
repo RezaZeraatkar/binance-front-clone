@@ -2,23 +2,26 @@ import React from 'react';
 import { Row } from 'antd';
 import numeral from 'numeral';
 
+// Components
+import WithLoading from '../../../../../HOCs/withLoading/withLoading';
+
 // Styles
 import ColorizedText from '../../../../../UI/Typography/Text/ColorizedText';
 
-function DataLoader(eachItem, withData) {
+function DataLoader (eachItem, withData) {
   switch (eachItem.type) {
     case 'last_price':
       return (
-        <ColorizedText sign="pos">
+        <ColorizedText sign='pos'>
           {numeral(withData.lastPrice).format('0,000.00')}
-          <ColorizedText fontSize="12px" style={{ marginLeft: 4 }}>
+          <ColorizedText fontSize='12px' style={{ marginLeft: 4 }}>
             ${numeral(withData.lastPrice).format('0,000.00')}
           </ColorizedText>
         </ColorizedText>
       );
     case '24h_change':
       return (
-        <ColorizedText sign="neg">
+        <ColorizedText sign='neg'>
           {numeral(withData.priceChange).format('0.00')}{' '}
           {Number(withData.priceChangePercent).toFixed(2)}
         </ColorizedText>
@@ -34,10 +37,7 @@ function DataLoader(eachItem, withData) {
   }
 }
 
-export default function LastPrice({ statsData, staticData }) {
-  console.log('[statsData]: ', statsData);
-  console.log('[staticData]: ', staticData);
-
+export default function DailyStat ({ statsData, staticData }) {
   const dailyStatTemplate = staticData.map(statItem => (
     <div style={{ flex: '1 1 auto', whiteSpace: 'nowrap' }} key={statItem.id}>
       <div style={{ fontSize: 12 }}>{statItem.title}</div>
@@ -47,7 +47,7 @@ export default function LastPrice({ statsData, staticData }) {
 
   return (
     <Row
-      type="flex"
+      type='flex'
       style={{
         flex: '80%',
         marginTop: '5px',
@@ -56,7 +56,12 @@ export default function LastPrice({ statsData, staticData }) {
         overflow: 'hidden',
       }}
     >
-      {dailyStatTemplate}
+      <WithLoading
+        spinner={null}
+        isLoading={Object.keys(statsData).length === 0}
+      >
+        {dailyStatTemplate}
+      </WithLoading>
     </Row>
   );
 }
