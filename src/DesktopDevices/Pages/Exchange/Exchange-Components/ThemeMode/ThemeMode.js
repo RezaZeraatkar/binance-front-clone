@@ -1,7 +1,9 @@
 import React from 'react';
-import { Icon, Tooltip } from 'antd';
+import { Tooltip } from 'antd';
+import { FiSun } from 'react-icons/fi';
+import { FaRegMoon } from 'react-icons/fa';
 
-import Theme from '../../../../../../Theme/ThemeProvider';
+import Theme from '../../../../../Theme/ThemeProvider';
 
 const DarkMode = <span>Dark Mode</span>;
 const LightMode = <span>Light Mode</span>;
@@ -22,7 +24,11 @@ export default function ThemeMode () {
         }}
       >
         <Tooltip placement='bottomRight' title={LightMode}>
-          <Icon type='bulb' style={{ color: Theme.Colors.WarningColor }} />
+          <FiSun
+            style={{
+              color: Theme.Colors.WarningColor,
+            }}
+          />
         </Tooltip>
       </div>
       <div
@@ -38,7 +44,7 @@ export default function ThemeMode () {
         }}
       >
         <Tooltip placement='bottomLeft' title={DarkMode}>
-          <Icon type='bulb' />
+          <FaRegMoon />
         </Tooltip>
       </div>
     </div>

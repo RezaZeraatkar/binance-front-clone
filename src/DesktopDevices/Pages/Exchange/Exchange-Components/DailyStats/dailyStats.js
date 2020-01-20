@@ -5,7 +5,7 @@ import { Row } from 'antd';
 // DailyStats Components
 import Symbol from './Symbol/Symbol';
 import DailyStat from './DailyStat/DailyStat';
-import ThemeMode from './ThemeMode/ThemeMode';
+import ThemeMode from '../ThemeMode/ThemeMode';
 
 // Styles
 import { StyledDailyStats } from './styled-dailystats';
