@@ -22,6 +22,8 @@ const columns = [
     dataIndex: 'pair',
     width: '30%',
     align: 'left',
+    defaultSortOrder: 'ascend',
+    sorter: (a, b) => a.pair.localeCompare(b.pair),
   },
   {
     title: 'Price',
@@ -38,16 +40,6 @@ const columns = [
     sorter: (a, b) => a.change - b.change,
   },
 ];
-
-// const data = [];
-// for (let i = 0; i < 100; i++) {
-//   data.push({
-//     key: i,
-//     pair: `BTC/USDT`,
-//     price: 0.002417,
-//     change: `0.25%`,
-//   });
-// }
 
 export default function PairsTable ({ data }) {
   return (

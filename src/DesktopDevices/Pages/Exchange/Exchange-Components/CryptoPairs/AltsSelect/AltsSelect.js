@@ -9,8 +9,8 @@ function handleChange (value) {
 const { Option } = StyledSelect;
 
 export default function AltsSelect ({ altsData }) {
-  console.log('[ALTSDATA]: ', altsData['2']);
-  const ALTSData = altsData['2'];
+  // console.log('[ALTSDATA]: ', altsData['2']);
+  // const ALTSData = altsData['2'];
   return (
     <StyledSelect defaultValue='ALTS' size='small'>
       <Option value='ALTS'>ALTS</Option>

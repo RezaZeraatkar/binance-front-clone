@@ -9,8 +9,8 @@ function handleChange (value) {
 const { Option } = StyledSelect;
 
 export default function Usd$Select ({ usdData }) {
-  console.log('[USDDATA]: ', usdData['3']);
-  const ALTSData = usdData['3'];
+  // console.log('[USDDATA]: ', usdData['3']);
+  // const ALTSData = usdData['3'];
   return (
     <StyledSelect defaultValue='USD$' size='small'>
       <Option value='USD$'>USD$</Option>
