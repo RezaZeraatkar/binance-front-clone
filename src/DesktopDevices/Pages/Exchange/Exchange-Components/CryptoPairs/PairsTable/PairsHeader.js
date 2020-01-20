@@ -65,22 +65,26 @@ export default class PairsHeader extends Component {
   state = {
     value: 1,
   };
-  onChange = e => {
+  onRadioChange = e => {
     console.log('radio checked', e.target.value);
     this.setState({
       value: e.target.value,
     });
+  };
+  onSearchChange = e => {
+    let searchedText = e.target.value;
+    this.props.onSearchFilter(searchedText);
   };
   render () {
     return (
       <PairsHeaderWrapper>
         <StyledSearch
           placeholder='search ...'
-          onSearch={value => console.log(value)}
+          onChange={this.onSearchChange}
           size='small'
         />
         <RadioGroupWrapper
-          onChange={this.onChange}
+          onChange={this.onRadioChange}
           value={this.state.value}
           size='small'
         >

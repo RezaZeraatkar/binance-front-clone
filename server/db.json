@@ -4,6 +4,7 @@
       "BNB": [
         {
           "symbol": "ADABNB",
+          "isFavorite": "false",
           "priceChange": "0.00004400",
           "priceChangePercent": "1.857",
           "weightedAvgPrice": "0.00242360",
@@ -27,6 +28,7 @@
         },
         {
           "symbol": "AEBNB",
+          "isFavorite": "false",
           "priceChange": "-0.00019000",
           "priceChangePercent": "-1.996",
           "weightedAvgPrice": "0.00940061",
@@ -50,6 +52,7 @@
         },
         {
           "symbol": "AGIBNB",
+          "isFavorite": "false",
           "priceChange": "0.00006200",
           "priceChangePercent": "6.019",
           "weightedAvgPrice": "0.00109154",
@@ -73,6 +76,7 @@
         },
         {
           "symbol": "AIONBNB",
+          "isFavorite": "false",
           "priceChange": "0.00009300",
           "priceChangePercent": "2.592",
           "weightedAvgPrice": "0.00367376",
@@ -96,6 +100,7 @@
         },
         {
           "symbol": "ALGOBNB",
+          "isFavorite": "false",
           "priceChange": "0.00038000",
           "priceChangePercent": "2.720",
           "weightedAvgPrice": "0.01413487",
@@ -119,6 +124,7 @@
         },
         {
           "symbol": "AMBBNB",
+          "isFavorite": "false",
           "priceChange": "0.00003500",
           "priceChangePercent": "4.242",
           "weightedAvgPrice": "0.00088295",
@@ -142,6 +148,7 @@
         },
         {
           "symbol": "ANKRBNB",
+          "isFavorite": "false",
           "priceChange": "0.00000050",
           "priceChangePercent": "0.657",
           "weightedAvgPrice": "0.00007707",
@@ -165,6 +172,7 @@
         },
         {
           "symbol": "APPCBNB",
+          "isFavorite": "false",
           "priceChange": "0.00013000",
           "priceChangePercent": "8.366",
           "weightedAvgPrice": "0.00165053",
@@ -188,6 +196,7 @@
         },
         {
           "symbol": "ARPABNB",
+          "isFavorite": "false",
           "priceChange": "-0.00001000",
           "priceChangePercent": "-1.905",
           "weightedAvgPrice": "0.00052869",
@@ -211,6 +220,7 @@
         },
         {
           "symbol": "ATOMBNB",
+          "isFavorite": "false",
           "priceChange": "-0.00380000",
           "priceChangePercent": "-1.449",
           "weightedAvgPrice": "0.25932755",
@@ -234,6 +244,7 @@
         },
         {
           "symbol": "BANDBNB",
+          "isFavorite": "false",
           "priceChange": "0.00011000",
           "priceChangePercent": "0.780",
           "weightedAvgPrice": "0.01397733",
@@ -261,6 +272,7 @@
       "BTC": [
         {
           "symbol": "ADABTC",
+          "isFavorite": "false",
           "priceChange": "-0.00000003",
           "priceChangePercent": "-0.636",
           "weightedAvgPrice": "0.00000476",
@@ -284,6 +296,7 @@
         },
         {
           "symbol": "ADXBTC",
+          "isFavorite": "false",
           "priceChange": "0.00000047",
           "priceChangePercent": "5.491",
           "weightedAvgPrice": "0.00000888",
@@ -307,6 +320,7 @@
         },
         {
           "symbol": "AGIBTC",
+          "isFavorite": "false",
           "priceChange": "0.00000011",
           "priceChangePercent": "5.419",
           "weightedAvgPrice": "0.00000215",
@@ -330,6 +344,7 @@
         },
         {
           "symbol": "AIONBTC",
+          "isFavorite": "false",
           "priceChange": "0.00000012",
           "priceChangePercent": "1.705",
           "weightedAvgPrice": "0.00000718",
@@ -353,6 +368,7 @@
         },
         {
           "symbol": "ALGOBTC",
+          "isFavorite": "false",
           "priceChange": "0.00000032",
           "priceChangePercent": "1.159",
           "weightedAvgPrice": "0.00002766",
@@ -376,6 +392,7 @@
         },
         {
           "symbol": "AMBBTC",
+          "isFavorite": "false",
           "priceChange": "0.00000003",
           "priceChangePercent": "1.829",
           "weightedAvgPrice": "0.00000170",
@@ -399,6 +416,7 @@
         },
         {
           "symbol": "ANKRBTC",
+          "isFavorite": "false",
           "priceChange": "0.00000000",
           "priceChangePercent": "0.000",
           "weightedAvgPrice": "0.00000015",
@@ -422,6 +440,7 @@
         },
         {
           "symbol": "APPCBTC",
+          "isFavorite": "false",
           "priceChange": "0.00000019",
           "priceChangePercent": "6.169",
           "weightedAvgPrice": "0.00000322",
@@ -445,6 +464,7 @@
         },
         {
           "symbol": "ARDRBTC",
+          "isFavorite": "false",
           "priceChange": "-0.00000001",
           "priceChangePercent": "-0.207",
           "weightedAvgPrice": "0.00000473",
@@ -468,6 +488,7 @@
         },
         {
           "symbol": "ARKBTC",
+          "isFavorite": "false",
           "priceChange": "-0.00000025",
           "priceChangePercent": "-1.492",
           "weightedAvgPrice": "0.00001674",
@@ -496,6 +517,7 @@
         "ETH": [
           {
             "symbol": "ADAETH",
+            "isFavorite": "false",
             "priceChange": "-0.00000166",
             "priceChangePercent": "-0.656",
             "weightedAvgPrice": "0.00025373",
@@ -519,6 +541,7 @@
           },
           {
             "symbol": "ADXETH",
+            "isFavorite": "false",
             "priceChange": "0.00002440",
             "priceChangePercent": "5.309",
             "weightedAvgPrice": "0.00047885",
@@ -542,6 +565,7 @@
           },
           {
             "symbol": "AEETH",
+            "isFavorite": "false",
             "priceChange": "-0.00005200",
             "priceChangePercent": "-5.078",
             "weightedAvgPrice": "0.00098356",
@@ -565,6 +589,7 @@
           },
           {
             "symbol": "AGIETH",
+            "isFavorite": "false",
             "priceChange": "0.00000324",
             "priceChangePercent": "2.939",
             "weightedAvgPrice": "0.00011491",
@@ -588,6 +613,7 @@
           },
           {
             "symbol": "AIONETH",
+            "isFavorite": "false",
             "priceChange": "0.00000600",
             "priceChangePercent": "1.592",
             "weightedAvgPrice": "0.00038533",
@@ -611,6 +637,7 @@
           },
           {
             "symbol": "AMBETH",
+            "isFavorite": "false",
             "priceChange": "0.00000178",
             "priceChangePercent": "2.016",
             "weightedAvgPrice": "0.00009292",
@@ -634,6 +661,7 @@
           },
           {
             "symbol": "APPCETH",
+            "isFavorite": "false",
             "priceChange": "0.00000950",
             "priceChangePercent": "5.702",
             "weightedAvgPrice": "0.00017254",
@@ -657,6 +685,7 @@
           },
           {
             "symbol": "ARDRETH",
+            "isFavorite": "false",
             "priceChange": "-0.00000015",
             "priceChangePercent": "-0.058",
             "weightedAvgPrice": "0.00025141",
@@ -680,6 +709,7 @@
           },
           {
             "symbol": "ARKETH",
+            "isFavorite": "false",
             "priceChange": "-0.00002200",
             "priceChangePercent": "-2.439",
             "weightedAvgPrice": "0.00089214",
@@ -703,6 +733,7 @@
           },
           {
             "symbol": "BCDETH",
+            "isFavorite": "false",
             "priceChange": "-0.00003000",
             "priceChangePercent": "-0.693",
             "weightedAvgPrice": "0.00469062",
@@ -728,6 +759,7 @@
         "TRX": [
           {
             "symbol": "BTTTRX",
+            "isFavorite": "false",
             "priceChange": "0.00000000",
             "priceChangePercent": "0.000",
             "weightedAvgPrice": "0.02161307",
@@ -751,6 +783,7 @@
           },
           {
             "symbol": "WINTRX",
+            "isFavorite": "false",
             "priceChange": "-0.00008000",
             "priceChangePercent": "-1.365",
             "weightedAvgPrice": "0.00585276",
@@ -776,6 +809,7 @@
         "XRP": [
           {
             "symbol": "TRXXRP",
+            "isFavorite": "false",
             "priceChange": "0.00058000",
             "priceChangePercent": "0.796",
             "weightedAvgPrice": "0.07327018",
@@ -799,6 +833,7 @@
           },
           {
             "symbol": "XZCXRP",
+            "isFavorite": "false",
             "priceChange": "-0.32000000",
             "priceChangePercent": "-1.425",
             "weightedAvgPrice": "22.74734155",
@@ -828,6 +863,7 @@
         "USDT": [
           {
             "symbol": "ADAUSDT",
+            "isFavorite": "false",
             "priceChange": "-0.00088000",
             "priceChangePercent": "-2.127",
             "weightedAvgPrice": "0.04151258",
@@ -851,6 +887,7 @@
           },
           {
             "symbol": "ALGOUSDT",
+            "isFavorite": "false",
             "priceChange": "-0.00170000",
             "priceChangePercent": "-0.698",
             "weightedAvgPrice": "0.24086197",
@@ -874,6 +911,7 @@
           },
           {
             "symbol": "ANKRUSDT",
+            "isFavorite": "false",
             "priceChange": "-0.00002300",
             "priceChangePercent": "-1.748",
             "weightedAvgPrice": "0.00130840",
@@ -897,6 +935,7 @@
           },
           {
             "symbol": "ARPAUSDT",
+            "isFavorite": "false",
             "priceChange": "-0.00049000",
             "priceChangePercent": "-5.332",
             "weightedAvgPrice": "0.00890119",
@@ -920,6 +959,7 @@
           },
           {
             "symbol": "ATOMUSDT",
+            "isFavorite": "false",
             "priceChange": "-0.20800000",
             "priceChangePercent": "-4.559",
             "weightedAvgPrice": "4.39010354",
@@ -943,6 +983,7 @@
           },
           {
             "symbol": "BANDUSDT",
+            "isFavorite": "false",
             "priceChange": "-0.00490000",
             "priceChangePercent": "-1.993",
             "weightedAvgPrice": "0.24185532",
@@ -966,6 +1007,7 @@
           },
           {
             "symbol": "BATUSDT",
+            "isFavorite": "false",
             "priceChange": "-0.00230000",
             "priceChangePercent": "-1.045",
             "weightedAvgPrice": "0.21820245",
@@ -989,6 +1031,7 @@
           },
           {
             "symbol": "BCHUSDT",
+            "isFavorite": "false",
             "priceChange": "-11.77000000",
             "priceChangePercent": "-3.554",
             "weightedAvgPrice": "325.20723306",
@@ -1012,6 +1055,7 @@
           },
           {
             "symbol": "BEAMUSDT",
+            "isFavorite": "false",
             "priceChange": "-0.01270000",
             "priceChangePercent": "-2.136",
             "weightedAvgPrice": "0.58445769",
@@ -1035,6 +1079,7 @@
           },
           {
             "symbol": "BNBUSDT",
+            "isFavorite": "false",
             "priceChange": "-0.62090000",
             "priceChangePercent": "-3.561",
             "weightedAvgPrice": "17.05481547",
@@ -1058,6 +1103,7 @@
           },
           {
             "symbol": "BTTUSDT",
+            "isFavorite": "false",
             "priceChange": "-0.00001380",
             "priceChangePercent": "-3.759",
             "weightedAvgPrice": "0.00036105",
@@ -1081,6 +1127,7 @@
           },
           {
             "symbol": "BTCUSDT",
+            "isFavorite": "false",
             "priceChange": "-115.78000000",
             "priceChangePercent": "-1.320",
             "weightedAvgPrice": "8724.64263528",
@@ -1106,6 +1153,7 @@
         "BUSD": [
           {
             "symbol": "ADABUSD",
+            "isFavorite": "false",
             "priceChange": "-0.00068000",
             "priceChangePercent": "-1.642",
             "weightedAvgPrice": "0.04157977",
@@ -1129,6 +1177,7 @@
           },
           {
             "symbol": "BCHBUSD",
+            "isFavorite": "false",
             "priceChange": "-11.71000000",
             "priceChangePercent": "-3.542",
             "weightedAvgPrice": "326.72644912",
@@ -1152,6 +1201,7 @@
           },
           {
             "symbol": "BNBBUSD",
+            "isFavorite": "false",
             "priceChange": "-0.67270000",
             "priceChangePercent": "-3.855",
             "weightedAvgPrice": "16.97562252",
@@ -1175,6 +1225,7 @@
           },
           {
             "symbol": "BTCBUSD",
+            "isFavorite": "false",
             "priceChange": "-123.60000000",
             "priceChangePercent": "-1.411",
             "weightedAvgPrice": "8706.57117389",
@@ -1198,6 +1249,7 @@
           },
           {
             "symbol": "EOSBUSD",
+            "isFavorite": "false",
             "priceChange": "-0.08670000",
             "priceChangePercent": "-2.328",
             "weightedAvgPrice": "3.67490781",
@@ -1221,6 +1273,7 @@
           },
           {
             "symbol": "ETCBUSD",
+            "isFavorite": "false",
             "priceChange": "0.64050000",
             "priceChangePercent": "8.573",
             "weightedAvgPrice": "7.63370829",
@@ -1244,6 +1297,7 @@
           },
           {
             "symbol": "ETHBUSD",
+            "isFavorite": "false",
             "priceChange": "-2.38000000",
             "priceChangePercent": "-1.455",
             "weightedAvgPrice": "162.44165001",
@@ -1267,6 +1321,7 @@
           },
           {
             "symbol": "EURBUSD",
+            "isFavorite": "false",
             "priceChange": "-0.00300000",
             "priceChangePercent": "-0.269",
             "weightedAvgPrice": "1.11561505",
@@ -1290,6 +1345,7 @@
           },
           {
             "symbol": "LINKBUSD",
+            "isFavorite": "false",
             "priceChange": "0.01400000",
             "priceChangePercent": "0.574",
             "weightedAvgPrice": "2.38859923",
@@ -1313,6 +1369,7 @@
           },
           {
             "symbol": "LTCBUSD",
+            "isFavorite": "false",
             "priceChange": "-1.30000000",
             "priceChangePercent": "-2.262",
             "weightedAvgPrice": "56.93433571",
@@ -1336,6 +1393,7 @@
           },
           {
             "symbol": "QTUMBUSD",
+            "isFavorite": "false",
             "priceChange": "-0.08600000",
             "priceChangePercent": "-4.392",
             "weightedAvgPrice": "1.92539736",
@@ -1359,6 +1417,7 @@
           },
           {
             "symbol": "TRXBUSD",
+            "isFavorite": "false",
             "priceChange": "-0.00060000",
             "priceChangePercent": "-3.505",
             "weightedAvgPrice": "0.01688717",
@@ -1382,6 +1441,7 @@
           },
           {
             "symbol": "VETBUSD",
+            "isFavorite": "false",
             "priceChange": "-0.00019400",
             "priceChangePercent": "-3.227",
             "weightedAvgPrice": "0.00585197",
@@ -1405,6 +1465,7 @@
           },
           {
             "symbol": "XLMBUSD",
+            "isFavorite": "false",
             "priceChange": "-0.00135000",
             "priceChangePercent": "-2.478",
             "weightedAvgPrice": "0.05362501",
@@ -1428,6 +1489,7 @@
           },
           {
             "symbol": "XRPBUSD",
+            "isFavorite": "false",
             "priceChange": "-0.01023000",
             "priceChangePercent": "-4.349",
             "weightedAvgPrice": "0.22781655",

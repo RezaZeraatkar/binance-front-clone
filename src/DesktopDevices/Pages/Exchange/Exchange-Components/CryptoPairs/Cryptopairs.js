@@ -13,13 +13,12 @@ import UsdSelect from './Usd$Select/Usd$Select';
 
 // styles
 import TabsWrapper from '../../../../UI/Tabs/TabsWrapper';
-import IconWrapper from '../../../../UI/Icon/IconWrapper';
+import FavoriteTabIcon from '../../../../UI/Icon/FavoriteTabIcon';
 
 const { TabPane } = Tabs;
 
 export default class Cryptopairs extends Component {
   state = {
-    pairs: [],
     favorites: [],
     isfavorite: false,
   };
@@ -37,13 +36,14 @@ export default class Cryptopairs extends Component {
 
   render () {
     const { pairsData } = this.props;
+    console.log('[pairsData]: ', this.state);
     const isLoading = Object.keys(pairsData).length === 0;
 
     return (
       <TabsWrapper className='tabs-wrapper' flex='100%'>
         <Tabs onChange={this.callback} type='card' defaultActiveKey='3'>
           <TabPane
-            tab={<IconWrapper isfavorite={`${this.state.isFavorite}`} />}
+            tab={<FavoriteTabIcon isfavorite={`${this.state.isFavorite}`} />}
             key='1'
           >
             <WithLoading isLoading={isLoading}>

@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { Popover } from 'antd';
 import { FaQuestionCircle } from 'react-icons/fa';
-import Item from 'antd/lib/list/Item';
 
 const LimitTabsWrapper = styled.div`
   display: flex;
