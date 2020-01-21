@@ -56,6 +56,15 @@ export default function SellOrdersList (props) {
               orders={props.dailyStats}
             />
           )}
+          onRow={(record, rowIndex) => {
+            return {
+              onClick: event => {}, // click row
+              onDoubleClick: event => {}, // double click row
+              onContextMenu: event => {}, // right button click row
+              onMouseEnter: event => {}, // mouse enter row
+              onMouseLeave: event => {}, // mouse leave row
+            };
+          }}
         />
       </CustomTableSettings>
     </TableWrapper>

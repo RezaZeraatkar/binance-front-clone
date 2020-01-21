@@ -10,7 +10,12 @@ import { getOrderBookAction } from '../../../../../ReduxStore/Actions/getOrderBo
 class OrderBookContainer extends Component {
   componentDidMount () {
     this.props.orderBookLoader('BTCUSDT');
+    // this.timer = setInterval(() => this.props.orderBookLoader('BTCUSDT'), 1000);
   }
+  // componentWillUnmount () {
+  //   clearInterval(this.timer);
+  //   this.timer = null;
+  // }
   render () {
     return (
       <OrderBook
