@@ -15,13 +15,25 @@ app.get('/exchange-info', async (req, res) => {
 });
 
 app.get('/daily-stats', async (req, res) => {
-  let daily_stats = await client.dailyStats({ symbol: 'ZECPAX' });
+  let daily_stats = await client.dailyStats({ symbol: 'BTCUSDT' });
   res.status(200).send(daily_stats);
 });
 
 app.get('/order-book', async (req, res) => {
   let order_books = await client.book({ symbol: 'BTCUSDT' });
   res.status(200).send(order_books);
+});
+
+app.get('/recent-trades', async (req, res) => {
+  let recent_trades = await client.trades({ symbol: 'BTCUSDT' });
+  res.status(200).send(recent_trades);
+});
+
+// PORT
+let PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log('Server Running');
 });
 
 // app.get('/currency-pairs', async (req, res) => {
@@ -237,15 +249,3 @@ app.get('/order-book', async (req, res) => {
 //     return console.log('[GET_CURRENCYPAIRS_ERROR]: ', err);
 //   }
 // });
-
-app.get('/recent-trades', async (req, res) => {
-  let recent_trades = await client.trades({ symbol: 'BTCUSDT' });
-  res.status(200).send(recent_trades);
-});
-
-// PORT
-let PORT = process.env.PORT || 5000;
-
-app.listen(PORT, () => {
-  console.log('Server Running');
-});

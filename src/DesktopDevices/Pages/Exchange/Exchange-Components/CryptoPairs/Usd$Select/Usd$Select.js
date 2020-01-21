@@ -2,9 +2,9 @@ import React from 'react';
 
 import StyledSelect from '../../../../../UI/Select/StyledSelect';
 
-function handleChange (value) {
-  console.log(`selected ${value}`);
-}
+// function handleChange (value) {
+//   console.log(`selected ${value}`);
+// }
 
 const { Option } = StyledSelect;
 

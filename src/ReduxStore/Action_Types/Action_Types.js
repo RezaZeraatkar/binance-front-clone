@@ -9,3 +9,7 @@ export const GET_ORDER_BOOK = 'GET_ORDER_BOOK';
 // CryptoPairs
 export const GET_CRYPTO_PAIRS_ASYNC = 'GET_CRYPTO_PAIRS_ASYNC';
 export const GET_CRYPTO_PAIRS = 'GET_CRYPTO_PAIRS';
+
+// Trade History
+export const GET_TRADE_HISTORY_ASYNC = 'GET_TRADE_HISTORY_ASYNC';
+export const GET_TRADE_HISTORY = 'GET_TRADE_HISTORY';

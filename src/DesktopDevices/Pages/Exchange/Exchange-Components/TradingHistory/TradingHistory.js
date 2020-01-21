@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Table } from 'antd';
 import styled from 'styled-components';
+
+// Actions
+import getTradeHistoryAction from '../../../../../ReduxStore/Actions/getTradeHistoryAction';
 
 // Components
 // import TableDataLoader from './TableDataLoader/TableDataLoader';
@@ -8,21 +12,23 @@ import styled from 'styled-components';
 // styles
 import TableWrapper from '../../../../UI/Table/TableWrapper';
 
-const CustomTableSettings = styled.div``;
+const CustomTableSettings = styled.div`
+  & .ant-table-content {
+    border: 1px solid #e6e6e6;
+    border-top: 0px;
+  }
+`;
 
 const columns = [
   {
-    title: 'Pair',
     dataIndex: 'pair',
     width: '30%',
   },
   {
-    title: 'Price',
     dataIndex: 'price',
     width: '30%',
   },
   {
-    title: 'Change',
     dataIndex: 'change',
     width: '40%',
   },
@@ -38,18 +44,44 @@ for (let i = 0; i < 100; i++) {
   });
 }
 
-export default function Favorites () {
-  return (
-    <TableWrapper>
-      <CustomTableSettings>
-        <Table
-          scroll={{ y: 312 }}
-          size='small'
-          columns={columns}
-          pagination={false}
-          dataSource={data}
-        />
-      </CustomTableSettings>
-    </TableWrapper>
-  );
+class TradeHistory extends Component {
+  componentDidMount () {
+    this.props.getTradeHistory();
+  }
+  render () {
+    console.log(this.props);
+
+    return (
+      <TableWrapper>
+        <CustomTableSettings>
+          <Table
+            scroll={{ y: 312 }}
+            size='small'
+            columns={columns}
+            pagination={false}
+            dataSource={data}
+            title={() => (
+              <div style={{ fontWeight: 'bold', fontSize: 14, marginTop: 10 }}>
+                Trade History
+              </div>
+            )}
+          />
+        </CustomTableSettings>
+      </TableWrapper>
+    );
+  }
 }
+
+function mapStateToProps (state) {
+  return {
+    tradeHistoryData: state.tradeHistory,
+  };
+}
+
+function mapDispatchToProps (dispatch) {
+  return {
+    getTradeHistory: () => getTradeHistoryAction(dispatch),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TradeHistory);

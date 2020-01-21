@@ -36,16 +36,10 @@
   "@drawer-header-padding": "0px",
   "@drawer-body-padding": "0px",
   "@menu-item-active-bg": "#1d2227",
-  "@shadow-color": "transparent",
   "@tabs-active-color": "transparent",
   "@outline-color": "transparent",
   "@link-hover-color": "#F0B90B",
   "@link-active-color": "#F0B90B",
   "@radio-button-hover-color": "#F0B90B",
-  "@radio-button-active-color": "#F0B90B",
-  "@shadow-1-up": "0 0 0 0",
-  "@shadow-1-down": "0 0 0 0",
-  "@shadow-1-left": "0 0 0 0",
-  "@shadow-1-right": "0 0 0 0",
-  "@shadow-2": "0 0 0 0"
+  "@radio-button-active-color": "#F0B90B"
 }
