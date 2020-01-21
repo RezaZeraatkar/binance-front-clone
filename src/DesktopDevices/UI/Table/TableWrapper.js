@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 const TableWrapper = styled.div`
   & .ant-table-wrapper {
-    border: 1px solid #e6e6e6;
     border-top: 0px;
   }
   & .ant-table-wrapper .ant-table-content td {

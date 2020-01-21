@@ -4,7 +4,9 @@ const TabsWrapper = styled.div`
   position: relative;
   flex: 0 1 280px;
   min-width: 280px;
-  & .anticon {
+  border: 1px solid #e6e6e6;
+
+  b & .anticon {
     margin: 0px !important;
   }
   & .ant-tabs-bar {
@@ -13,7 +15,6 @@ const TabsWrapper = styled.div`
     height: 35px;
     font-size: 12px;
     padding: 4px;
-    border: 1px solid #e6e6e6;
     border-bottom: 0px;
   }
   & .ant-tabs-nav-container {
