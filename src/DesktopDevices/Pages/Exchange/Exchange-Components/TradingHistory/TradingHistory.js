@@ -1,13 +1,9 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
 import { Table } from 'antd';
 import styled from 'styled-components';
 
-// Actions
-import getTradeHistoryAction from '../../../../../ReduxStore/Actions/getTradeHistoryAction';
-
 // Components
-// import TableDataLoader from './TableDataLoader/TableDataLoader';
+import tradeHistoryDataLoader from './TradeHistoryDataLoader';
 
 // styles
 import TableWrapper from '../../../../UI/Table/TableWrapper';
@@ -21,16 +17,22 @@ const CustomTableSettings = styled.div`
 
 const columns = [
   {
-    dataIndex: 'pair',
-    width: '30%',
-  },
-  {
+    title: 'Price',
     dataIndex: 'price',
-    width: '30%',
+    width: '40%',
+    align: 'center',
   },
   {
-    dataIndex: 'change',
-    width: '40%',
+    title: 'Amount',
+    dataIndex: 'qty',
+    width: '30%',
+    align: 'center',
+  },
+  {
+    title: 'Time',
+    dataIndex: 'time',
+    width: '30%',
+    align: 'center',
   },
 ];
 
@@ -44,44 +46,25 @@ for (let i = 0; i < 100; i++) {
   });
 }
 
-class TradeHistory extends Component {
-  componentDidMount () {
-    this.props.getTradeHistory();
-  }
-  render () {
-    console.log(this.props);
-
-    return (
-      <TableWrapper>
-        <CustomTableSettings>
-          <Table
-            scroll={{ y: 312 }}
-            size='small'
-            columns={columns}
-            pagination={false}
-            dataSource={data}
-            title={() => (
-              <div style={{ fontWeight: 'bold', fontSize: 14, marginTop: 10 }}>
-                Trade History
-              </div>
-            )}
-          />
-        </CustomTableSettings>
-      </TableWrapper>
-    );
-  }
+function TradeHistory ({ tradeHistoryData }) {
+  return (
+    <TableWrapper>
+      <CustomTableSettings>
+        <Table
+          scroll={{ y: 312 }}
+          size='small'
+          columns={columns}
+          pagination={false}
+          dataSource={tradeHistoryDataLoader(tradeHistoryData)}
+          title={() => (
+            <div style={{ fontWeight: 'bold', fontSize: 14, marginTop: 10 }}>
+              Trade History
+            </div>
+          )}
+        />
+      </CustomTableSettings>
+    </TableWrapper>
+  );
 }
 
-function mapStateToProps (state) {
-  return {
-    tradeHistoryData: state.tradeHistory,
-  };
-}
-
-function mapDispatchToProps (dispatch) {
-  return {
-    getTradeHistory: () => getTradeHistoryAction(dispatch),
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(TradeHistory);
+export default TradeHistory;

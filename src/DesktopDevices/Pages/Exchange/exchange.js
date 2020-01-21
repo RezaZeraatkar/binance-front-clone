@@ -6,12 +6,12 @@ import { Row } from 'antd';
 import InfoBar from './Exchange-Components/InfoBar/InfoBar';
 import Chart from './Exchange-Components/Chart/Chart';
 import OrderForm from './Exchange-Components/OrderForm/OrderForm';
-import TradingHistory from './Exchange-Components/TradingHistory/TradingHistory';
 
 // Exchange-Containers
 import DailyStatsContainer from './Exchange-Containers/DailyStats-Container/dailyStats-Container';
 import OrderBookContainer from './Exchange-Containers/OrderBook-Container/OrderBook-Container';
 import CryptoPairsContainer from './Exchange-Containers/CryptoPairs-Container/CryptoPairs-Container';
+import TradeHistoryContainer from './Exchange-Containers/TradeHistory-Container/TradeHistory-Container';
 
 // Styles
 import StyledExchange from './StyledExchange/StyledExchange';
@@ -63,7 +63,7 @@ class Exchange extends Component {
                 <CryptoPairsContainer />
               </Row>
               <Row>
-                <TradingHistory />
+                <TradeHistoryContainer />
               </Row>
               <Row>recent market activity</Row>
             </ExchangeRightContent>
