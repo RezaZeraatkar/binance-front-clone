@@ -1,16 +1,21 @@
 import React from 'react';
+import styled from 'styled-components';
+const SymbolWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+`;
 
 export default function Symbol ({ symbolData }) {
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        alignItems: 'baseline',
-        flex: '1 1 auto',
-      }}
-    >
-      {symbolData}
-    </div>
+    <SymbolWrapper>
+      <div
+        style={{
+          paddingRight: '15px',
+        }}
+      >
+        {symbolData}
+      </div>
+    </SymbolWrapper>
   );
 }

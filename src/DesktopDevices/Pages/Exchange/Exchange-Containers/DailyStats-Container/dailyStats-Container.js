@@ -39,14 +39,14 @@ class dailyStats extends Component {
   };
   componentDidMount () {
     this.props.getDailyStats('BTCUSD');
-    this.tick = setInterval(() => {
-      this.props.getDailyStats('BTCUSD');
-    }, 1000);
+    // this.tick = setInterval(() => {
+    //   this.props.getDailyStats('BTCUSD');
+    // }, 1000);
   }
 
-  componentWillUnmount () {
-    clearInterval(this.tick);
-  }
+  // componentWillUnmount () {
+  //   clearInterval(this.tick);
+  // }
 
   render () {
     return (

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 
 function textColorHandler (sign) {
@@ -20,7 +20,7 @@ const ColorizedText = styled.span`
   color: ${props => textColorHandler(props.sign)};
 `;
 
-class ColorizedTextContainer extends Component {
+class ColorizedTextContainer extends PureComponent {
   state = {
     sign: 'default',
   };
