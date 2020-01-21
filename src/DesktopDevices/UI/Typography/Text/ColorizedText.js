@@ -1,6 +1,7 @@
+import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 
-function textColorHandler(sign) {
+function textColorHandler (sign) {
   if (sign === 'neg') {
     return '#FF007A';
   } else if (sign === 'pos') {
@@ -19,4 +20,26 @@ const ColorizedText = styled.span`
   color: ${props => textColorHandler(props.sign)};
 `;
 
-export default ColorizedText;
+class ColorizedTextContainer extends PureComponent {
+  state = {
+    sign: 'default',
+  };
+
+  componentDidUpdate (prevProps) {
+    if (prevProps.onData !== this.props.onData) {
+      this.setState({
+        sign: prevProps.onData > this.props.onData ? 'neg' : 'pos',
+      });
+    }
+  }
+
+  render () {
+    return (
+      <ColorizedText sign={this.state.sign}>
+        {this.props.children}
+      </ColorizedText>
+    );
+  }
+}
+
+export default ColorizedTextContainer;

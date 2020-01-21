@@ -10,7 +10,7 @@ const LightMode = <span>Light Mode</span>;
 
 export default function ThemeMode () {
   return (
-    <div style={{ display: 'flex', flex: '1 1 auto' }}>
+    <div style={{ display: 'flex', flexWrap: 'wrap', marginRight: '7px' }}>
       <div
         style={{
           border: '1px solid rgb(230,230,230)',

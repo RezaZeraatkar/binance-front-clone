@@ -7,9 +7,7 @@ import ColorizedText from '../../../../../UI/Typography/Text/ColorizedText';
 
 function OrderBookDataLoader (props) {
   let tableRowTemplate = [];
-  const bids = props.bids;
-  let asks = props.asks;
-  const limit = props.limit;
+  const { bids, asks, limit } = props;
   if (asks) {
     tableRowTemplate = asks
       .slice(0, limit - 1)

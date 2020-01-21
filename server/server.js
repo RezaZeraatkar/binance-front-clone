@@ -10,23 +10,39 @@ app.use(cors());
 
 // API Roues
 app.get('/exchange-info', async (req, res) => {
-  let exchange_info = await client.exchangeInfo();
-  res.status(200).send(exchange_info);
+  try {
+    let exchange_info = await client.exchangeInfo();
+    res.status(200).send(exchange_info);
+  } catch (err) {
+    console.log('[/exchange-info] Server Api ERROR: ', err);
+  }
 });
 
 app.get('/daily-stats', async (req, res) => {
-  let daily_stats = await client.dailyStats({ symbol: 'BTCUSDT' });
-  res.status(200).send(daily_stats);
+  try {
+    let daily_stats = await client.dailyStats({ symbol: 'BTCUSDT' });
+    res.status(200).send(daily_stats);
+  } catch (err) {
+    console.log('[/daily-stats] Server Api ERROR: ', err);
+  }
 });
 
 app.get('/order-book', async (req, res) => {
-  let order_books = await client.book({ symbol: 'BTCUSDT' });
-  res.status(200).send(order_books);
+  try {
+    let order_books = await client.book({ symbol: 'BTCUSDT' });
+    res.status(200).send(order_books);
+  } catch (err) {
+    console.log('[/order-book] Server Api ERROR: ', err);
+  }
 });
 
 app.get('/recent-trades', async (req, res) => {
-  let recent_trades = await client.trades({ symbol: 'BTCUSDT' });
-  res.status(200).send(recent_trades);
+  try {
+    let recent_trades = await client.trades({ symbol: 'BTCUSDT' });
+    res.status(200).send(recent_trades);
+  } catch (err) {
+    console.log('[/recent-trades] Server Api ERROR: ', err);
+  }
 });
 
 // PORT

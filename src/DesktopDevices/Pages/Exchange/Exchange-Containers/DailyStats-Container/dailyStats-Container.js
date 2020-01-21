@@ -37,10 +37,18 @@ class dailyStats extends Component {
       },
     ],
   };
-  componentDidMount() {
+  componentDidMount () {
     this.props.getDailyStats('BTCUSD');
+    // this.tick = setInterval(() => {
+    //   this.props.getDailyStats('BTCUSD');
+    // }, 1000);
   }
-  render() {
+
+  // componentWillUnmount () {
+  //   clearInterval(this.tick);
+  // }
+
+  render () {
     return (
       <DailyStats
         dailyStatsData={this.props.dailyStatsData}
@@ -50,13 +58,13 @@ class dailyStats extends Component {
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps (state) {
   return {
     dailyStatsData: state.dailyStats,
   };
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps (dispatch) {
   return {
     getDailyStats: symbol => getDailyStatsAction(dispatch, symbol),
   };
