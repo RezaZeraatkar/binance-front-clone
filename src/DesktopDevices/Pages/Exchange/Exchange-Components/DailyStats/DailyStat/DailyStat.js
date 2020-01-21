@@ -7,24 +7,39 @@ import WithLoading from '../../../../../HOCs/withLoading/withLoading';
 
 // Styles
 import ColorizedText from '../../../../../UI/Typography/Text/ColorizedText';
+import IsPositiveText from '../../../../../UI/Typography/Text/IsPositiveText';
+
+function generateSign (price) {
+  if (price > 0) {
+    return '+';
+  } else if (price < 0) {
+    return '-';
+  } else {
+    return '';
+  }
+}
 
 function DataLoader (eachItem, withData) {
   switch (eachItem.type) {
     case 'last_price':
       return (
-        <ColorizedText sign='pos'>
+        <ColorizedText onData={withData.lastPrice}>
           {numeral(withData.lastPrice).format('0,000.00')}
-          <ColorizedText fontSize='12px' style={{ marginLeft: 4 }}>
+          <IsPositiveText
+            sign='neutral'
+            fontSize='12px'
+            style={{ marginLeft: 4 }}
+          >
             ${numeral(withData.lastPrice).format('0,000.00')}
-          </ColorizedText>
+          </IsPositiveText>
         </ColorizedText>
       );
     case '24h_change':
       return (
-        <ColorizedText sign='neg'>
+        <IsPositiveText sign={generateSign(withData.priceChange)}>
           {numeral(withData.priceChange).format('0.00')}{' '}
           {Number(withData.priceChangePercent).toFixed(2)}
-        </ColorizedText>
+        </IsPositiveText>
       );
     case '24h_high':
       return <ColorizedText>{withData.highPrice}</ColorizedText>;
@@ -39,7 +54,7 @@ function DataLoader (eachItem, withData) {
 
 export default function DailyStat ({ statsData, staticData }) {
   const dailyStatTemplate = staticData.map(statItem => (
-    <div style={{ flex: '1 1 auto', whiteSpace: 'nowrap' }} key={statItem.id}>
+    <div style={{ flex: '1 0 auto', whiteSpace: 'nowrap' }} key={statItem.id}>
       <div style={{ fontSize: 12 }}>{statItem.title}</div>
       {DataLoader(statItem, statsData)}
     </div>
