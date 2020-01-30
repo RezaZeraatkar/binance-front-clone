@@ -6,6 +6,7 @@ import { Row } from 'antd';
 import InfoBar from './Exchange-Components/InfoBar/InfoBar';
 import Chart from './Exchange-Components/Chart/Chart';
 import OrderForm from './Exchange-Components/OrderForm/OrderForm';
+import Table from '../../UI/Table/Table';
 
 // Exchange-Containers
 import DailyStatsContainer from './Exchange-Containers/DailyStats-Container/dailyStats-Container';
@@ -22,14 +23,47 @@ import ExchangeLeftContent from './StyledExchange/ExchangeLeftContent';
 import ExchangeRightContent from './StyledExchange/ExchangeRightContent';
 import ChartAndFormsWrapper from './StyledExchange/ChartAndFormsWrapper';
 
+const dataSource = [
+  {
+    key: '1',
+    name: 'Mike',
+    age: 32,
+    address: '10 Downing Street',
+  },
+  {
+    key: '2',
+    name: 'John',
+    age: 42,
+    address: '10 Downing Street',
+  },
+];
+
+const columns = [
+  {
+    title: 'Name',
+    dataIndex: 'name',
+    key: 'name',
+  },
+  {
+    title: 'Age',
+    dataIndex: 'age',
+    key: 'age',
+  },
+  {
+    title: 'Address',
+    dataIndex: 'address',
+    key: 'address',
+  },
+];
+
 class Exchange extends Component {
   state = {
     themeMode: 'light',
   };
 
-  render () {
+  render() {
     return (
-      <StyledExchange className='ds-styled-exchange'>
+      <StyledExchange className="ds-styled-exchange">
         {/* Info Bar */}
         <Row>
           <InfoBar />
@@ -70,6 +104,7 @@ class Exchange extends Component {
           </ExchangeContent>
           {/* open orders   |    my 24h order history */}
           <div>open orders | my 24h order history</div>
+          <Table columns={columns} dataSource={dataSource} />
         </ExchangeContentWrapper>
       </StyledExchange>
     );

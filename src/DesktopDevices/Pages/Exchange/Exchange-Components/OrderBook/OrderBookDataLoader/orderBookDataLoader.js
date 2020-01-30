@@ -5,7 +5,7 @@ import uuidv4 from 'uuid';
 // Styles
 import ColorizedText from '../../../../../UI/Typography/Text/ColorizedText';
 
-function OrderBookDataLoader (props) {
+function OrderBookDataLoader(props) {
   let tableRowTemplate = [];
   const { bids, asks, limit } = props;
   if (asks) {
@@ -15,7 +15,7 @@ function OrderBookDataLoader (props) {
       .map(ask => ({
         key: uuidv4(),
         price: (
-          <ColorizedText sign='neg' fontSize='12px' fontWeight='normal'>
+          <ColorizedText sign="neg" fontSize="12px" fontWeight="normal">
             {numeral(ask.price).format('0.00')}
           </ColorizedText>
         ),
@@ -26,7 +26,7 @@ function OrderBookDataLoader (props) {
     tableRowTemplate = bids.slice(0, limit - 1).map(bid => ({
       key: uuidv4(),
       price: (
-        <ColorizedText sign='pos' fontSize='12px' fontWeight='normal'>
+        <ColorizedText sign="pos" fontSize="12px" fontWeight="normal">
           {numeral(bid.price).format('0.00')}
         </ColorizedText>
       ),

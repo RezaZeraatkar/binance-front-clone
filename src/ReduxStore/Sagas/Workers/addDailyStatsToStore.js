@@ -2,7 +2,7 @@ import { put, call } from 'redux-saga/effects';
 import axios from 'axios';
 import * as actionTypes from '../../Action_Types/Action_Types';
 
-function * addDailyStatsToStore (action) {
+function* addDailyStatsToStore(action) {
   // action.payload is accessible here!
   // console.log(action.symbol);
   try {

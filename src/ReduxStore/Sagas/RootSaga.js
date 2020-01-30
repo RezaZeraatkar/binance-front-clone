@@ -7,7 +7,7 @@ import addOrderBookToStore from './Workers/addOrderBookToStore';
 import addCryptoPairsToStore from './Workers/addCryptoPairsToStore';
 import addTradeHistoryToStore from './Workers/addTradeHistoryToStore';
 
-export default function * rootSaga () {
+export default function* rootSaga() {
   yield all([
     takeLatest(actionTypes.GET_DAILY_STATS, addDailyStatsToStore),
     takeLatest(actionTypes.GET_ORDER_BOOK, addOrderBookToStore),

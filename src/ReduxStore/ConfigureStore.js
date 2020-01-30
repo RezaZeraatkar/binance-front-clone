@@ -9,7 +9,7 @@ import rootSaga from './Sagas/RootSaga';
 
 const sagaMiddleware = createSagaMiddleware();
 
-export default function configureStore (preloadedState) {
+export default function configureStore(preloadedState) {
   const middlewares = [sagaMiddleware];
   if (process.env.NODE_ENV === 'development') {
     middlewares.push(loggerMiddleware);

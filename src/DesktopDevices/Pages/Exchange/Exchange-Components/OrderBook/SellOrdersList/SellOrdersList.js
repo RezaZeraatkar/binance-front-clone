@@ -9,18 +9,7 @@ import OrderBookLastChange from '../OrderBookLastChange/orderBookLastChange';
 // styles
 import TableWrapper from '../../../../../UI/Table/TableWrapper';
 
-const CustomTableSettings = styled.div`
-  & .ant-table-wrapper .ant-table-tbody tr::after {
-    position: absolute;
-    display: block;
-    content: ' ';
-    width: 100%;
-    height: 19px;
-    background-color: #e886b5;
-    opacity: 0.1;
-    right: 0;
-  }
-`;
+const CustomTableSettings = styled.div``;
 
 const columns = [
   {
@@ -40,13 +29,13 @@ const columns = [
   },
 ];
 
-export default function SellOrdersList (props) {
+export default function SellOrdersList(props) {
   return (
     <TableWrapper>
       <CustomTableSettings>
         <Table
           scroll={props.fixedFooter ? { y: 882 } : false}
-          size='small'
+          size="small"
           columns={columns}
           pagination={false}
           dataSource={orderBookDataLoader(props)}
