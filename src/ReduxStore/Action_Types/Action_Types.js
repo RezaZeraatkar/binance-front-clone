@@ -3,6 +3,7 @@ export const GET_DAILY_STATS_ASYNC = 'GET_DAILY_STATS_ASYNC';
 export const GET_DAILY_STATS = 'GET_DAILY_STATS';
 
 // OrderBook
+export const GET_ORDER_BOOK_DATA = 'GET_ORDER_BOOK_DATA';
 export const GET_ORDER_BOOK_ASYNC = 'GET_ORDER_BOOK_ASYNC';
 export const GET_ORDER_BOOK = 'GET_ORDER_BOOK';
 

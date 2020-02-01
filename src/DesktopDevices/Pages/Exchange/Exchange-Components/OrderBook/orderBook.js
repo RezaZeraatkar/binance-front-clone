@@ -22,7 +22,11 @@ function callback(key) {
   // console.log(key);
 }
 
-export default function orderBook({ orderBookData, dailyStatsData }) {
+export default function orderBook({
+  orderBookData,
+  dailyStatsData,
+  isLoading,
+}) {
   return (
     <TabsWrapper className="tabs-wrapper">
       <Tabs onChange={callback} type="card" defaultActiveKey="1">
@@ -40,18 +44,19 @@ export default function orderBook({ orderBookData, dailyStatsData }) {
           <OrderBookWrapper className="order-book-wrapper">
             <SellOrdersList
               asks={orderBookData.asks}
-              limit={23}
+              limit={24}
               dailyStats={dailyStatsData}
               showTableHeader={true}
               noScroll
+              header={true}
             />
             <BuyOrdersList
               bids={orderBookData.bids}
               dailyStats={dailyStatsData}
-              limit={23}
+              limit={24}
               showLastChangeStats={true}
               noScroll
-              noTitle
+              header={false}
             />
           </OrderBookWrapper>
         </TabPane>
@@ -66,7 +71,7 @@ export default function orderBook({ orderBookData, dailyStatsData }) {
           }
           key="2"
         >
-          <OrderBookWrapper>
+          <OrderBookWrapper className="order-book-wrapper">
             <BuyOrdersList
               bids={orderBookData.bids}
               dailyStats={dailyStatsData}
@@ -74,6 +79,7 @@ export default function orderBook({ orderBookData, dailyStatsData }) {
               showLastChangeStats={true}
               noScroll
               fixedHeader
+              header={true}
             />
           </OrderBookWrapper>
         </TabPane>
@@ -88,7 +94,7 @@ export default function orderBook({ orderBookData, dailyStatsData }) {
           }
           key="3"
         >
-          <OrderBookWrapper>
+          <OrderBookWrapper className="order-book-wrapper">
             <SellOrdersList
               asks={orderBookData.asks}
               dailyStats={dailyStatsData}
@@ -97,6 +103,7 @@ export default function orderBook({ orderBookData, dailyStatsData }) {
               showTableHeader={true}
               noScroll
               fixedFooter
+              header={true}
             />
           </OrderBookWrapper>
         </TabPane>

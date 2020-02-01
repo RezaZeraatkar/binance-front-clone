@@ -1,81 +1,50 @@
 import React from 'react';
-import { Table } from 'antd';
-import styled from 'styled-components';
 
 // styles
 import TableWrapper from '../../../../../UI/Table/TableWrapper';
+import Table from '../../../../../UI/Table/Table';
 
 // components
 import orderBookDataLoader from '../OrderBookDataLoader/orderBookDataLoader';
 import OrderBookLastChange from '../OrderBookLastChange/orderBookLastChange';
 
-const CustomTableSettings = styled.div`
-  .ant-table-wrapper .ant-table-thead tr th span {
-    display: ${props => (props.noTitle ? 'none' : 'inline-block')};
-  }
-  & .ant-table-wrapper .ant-table-tbody tr::after {
-    position: absolute;
-    display: block;
-    content: ' ';
-    width: 60%;
-    height: 19px;
-    background-color: #70a800;
-    opacity: 0.1;
-    right: 0;
-  }
-`;
-
-const columns1 = [
+const columns = [
   {
     title: 'Price(USDT)',
     dataIndex: 'price',
     width: '30%',
+    key: 'price',
   },
   {
     title: 'Amount (BTC)',
     dataIndex: 'amount',
     width: '30%',
+    key: 'amount',
   },
   {
     title: 'Total(USDT)',
     dataIndex: 'total',
     width: '40%',
+    key: 'total',
   },
 ];
 
-const columns2 = [
-  {
-    dataIndex: 'price',
-    width: '30%',
-  },
-  {
-    dataIndex: 'amount',
-    width: '30%',
-  },
-  {
-    dataIndex: 'total',
-    width: '40%',
-  },
-];
-
-function buyOrdersList (props) {
+function buyOrdersList(props) {
   return (
     <TableWrapper>
-      <CustomTableSettings noTitle={props.noTitle}>
-        <Table
-          scroll={props.fixedHeader ? { y: 882 } : false}
-          size='small'
-          columns={props.noTitle ? columns2 : columns1}
-          dataSource={orderBookDataLoader(props)}
-          pagination={false}
-          title={() => (
-            <OrderBookLastChange
-              orders={props.dailyStats}
-              showLastChangeStats={props.showLastChangeStats}
-            />
-          )}
-        />
-      </CustomTableSettings>
+      <Table
+        type="buy"
+        columns={columns}
+        header={props.header}
+        dataSource={orderBookDataLoader(props)}
+        onRowClicked={(record, rowIndex) => console.log(record, rowIndex)}
+        title={() => (
+          <OrderBookLastChange
+            orders={props.dailyStats}
+            showLastChangeStats={props.showLastChangeStats}
+          />
+        )}
+      />
     </TableWrapper>
   );
 }

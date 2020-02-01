@@ -4,6 +4,8 @@ const StyledLayout = styled.div`
   /* Gloabl Header Styles */
   & .ant-layout-header {
     display: flex;
+    flex: 0 1 100% !important;
+    min-width: 1349px;
     align-items: center;
     background-color: #1e2126;
     & .ant-menu-item-selected {

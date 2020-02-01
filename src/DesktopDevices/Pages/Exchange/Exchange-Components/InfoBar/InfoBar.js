@@ -3,6 +3,8 @@ import styled from 'styled-components';
 
 const InfoBarWrapper = styled.div`
   background-color: #262626;
+  display: flex;
+  flex: 1 0 auto;
 `;
 
 const StyledInfoBarItems = styled.div`

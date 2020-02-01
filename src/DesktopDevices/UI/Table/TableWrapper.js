@@ -47,9 +47,9 @@ const TableWrapper = styled.div`
 
 const ListWrapper = styled.div``;
 
-function TableWrapperHOC (props) {
+function TableWrapperHOC(props) {
   return (
-    <TableWrapper className='table-wrapper'>
+    <TableWrapper className="table-wrapper">
       <ListWrapper>{props.children}</ListWrapper>
     </TableWrapper>
   );

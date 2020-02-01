@@ -9,9 +9,9 @@ import StyledLayout from './StyledLayout';
 
 const { Header, Footer, Content } = AntLayout;
 
-export default function Layout ({ children }) {
+export default function Layout({ children }) {
   return (
-    <StyledLayout className='ds_Layout'>
+    <StyledLayout className="ds_Layout">
       <Header>
         <NavHeader />
       </Header>

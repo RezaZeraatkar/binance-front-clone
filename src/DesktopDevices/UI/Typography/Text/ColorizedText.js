@@ -1,7 +1,8 @@
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
-function textColorHandler (sign) {
+function textColorHandler(sign) {
   if (sign === 'neg') {
     return '#FF007A';
   } else if (sign === 'pos') {
@@ -25,7 +26,7 @@ class ColorizedTextContainer extends PureComponent {
     sign: 'default',
   };
 
-  componentDidUpdate (prevProps) {
+  componentDidUpdate(prevProps) {
     if (prevProps.onData !== this.props.onData) {
       this.setState({
         sign: prevProps.onData > this.props.onData ? 'neg' : 'pos',
@@ -33,7 +34,7 @@ class ColorizedTextContainer extends PureComponent {
     }
   }
 
-  render () {
+  render() {
     return (
       <ColorizedText sign={this.state.sign}>
         {this.props.children}
@@ -41,5 +42,10 @@ class ColorizedTextContainer extends PureComponent {
     );
   }
 }
+
+ColorizedText.propTypes = {
+  children: PropTypes.element.isRequired,
+  sign: PropTypes.string,
+};
 
 export default ColorizedTextContainer;

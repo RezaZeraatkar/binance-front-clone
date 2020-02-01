@@ -5,8 +5,10 @@ const TabsWrapper = styled.div`
   flex: 0 1 280px;
   min-width: 280px;
   border: 1px solid #e6e6e6;
-
-  b & .anticon {
+  & .ant-tabs {
+    overflow: visible;
+  }
+  & .anticon {
     margin: 0px !important;
   }
   & .ant-tabs-bar {

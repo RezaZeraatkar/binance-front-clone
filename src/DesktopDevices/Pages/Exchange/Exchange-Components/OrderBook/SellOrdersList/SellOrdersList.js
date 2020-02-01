@@ -1,61 +1,51 @@
 import React from 'react';
-import { Table } from 'antd';
-import styled from 'styled-components';
 
 // components
 import orderBookDataLoader from '../OrderBookDataLoader/orderBookDataLoader';
+import Table from '../../../../../UI/Table/Table';
 import OrderBookLastChange from '../OrderBookLastChange/orderBookLastChange';
 
 // styles
 import TableWrapper from '../../../../../UI/Table/TableWrapper';
 
-const CustomTableSettings = styled.div``;
-
 const columns = [
   {
     title: 'Price(USDT)',
     dataIndex: 'price',
-    width: '30%',
+    key: 'price',
   },
   {
     title: 'Amount (BTC)',
     dataIndex: 'amount',
-    width: '30%',
+    key: 'amount',
   },
   {
     title: 'Total(USDT)',
     dataIndex: 'total',
-    width: '40%',
+    key: 'total',
   },
 ];
 
 export default function SellOrdersList(props) {
+  // function handleOnRowClick(data) {
+  //   console.log(data);
+  // }
+
   return (
     <TableWrapper>
-      <CustomTableSettings>
-        <Table
-          scroll={props.fixedFooter ? { y: 882 } : false}
-          size="small"
-          columns={columns}
-          pagination={false}
-          dataSource={orderBookDataLoader(props)}
-          footer={() => (
-            <OrderBookLastChange
-              showLastChangeStats={props.showLastChangeStats}
-              orders={props.dailyStats}
-            />
-          )}
-          onRow={(record, rowIndex) => {
-            return {
-              onClick: event => {}, // click row
-              onDoubleClick: event => {}, // double click row
-              onContextMenu: event => {}, // right button click row
-              onMouseEnter: event => {}, // mouse enter row
-              onMouseLeave: event => {}, // mouse leave row
-            };
-          }}
-        />
-      </CustomTableSettings>
+      <Table
+        type="sell"
+        header={props.header}
+        columns={columns}
+        dataSource={orderBookDataLoader(props)}
+        onRowClicked={(record, rowIndex) => console.log(record, rowIndex)}
+        footer={() => (
+          <OrderBookLastChange
+            orders={props.dailyStats}
+            showLastChangeStats={props.showLastChangeStats}
+          />
+        )}
+      />
     </TableWrapper>
   );
 }

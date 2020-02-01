@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-function textColorHandler (sign) {
+function textColorHandler(sign) {
   if (sign === '-') {
     return '#FF007A';
   } else if (sign === '+') {
@@ -17,5 +17,8 @@ const ColorizedText = styled.span`
   font-size: ${props => (props.fontSize ? props.fontSize : 'inherit')};
   font-weight: ${props => (props.fontWeight ? props.fontWeight : 'bold')};
   color: ${props => textColorHandler(props.sign)};
+  :hover {
+    font-weight: bold;
+  }
 `;
 export default ColorizedText;
