@@ -1,9 +1,6 @@
 import styled from 'styled-components';
 
 const TableWrapper = styled.div`
-  & span.ant-table-column-title {
-    /* color: #999999 !important; For Desktop */
-  }
   & .ant-table-wrapper .ant-table {
     border: 0px;
   }

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import Theme from '../../../../../../Theme/ThemeProvider';
 
 const TabsWrapper = styled.div`
   width: 100%;
@@ -34,8 +33,8 @@ const TabsWrapper = styled.div`
         background-color: #1f2833;
         font-size: 1rem;
         &.ant-tabs-tab-active {
-          color: ${Theme.Colors.WarningColor};
-          border-bottom: 2px solid ${Theme.Colors.WarningColor} !important;
+          color: #f0b90b;
+          border-bottom: 2px solid #f0b90b !important;
         }
       }
     }

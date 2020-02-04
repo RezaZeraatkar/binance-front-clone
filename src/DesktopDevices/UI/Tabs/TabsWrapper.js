@@ -4,7 +4,7 @@ const TabsWrapper = styled.div`
   position: relative;
   flex: 0 1 280px;
   min-width: 280px;
-  border: 1px solid #e6e6e6;
+  border: 1px solid ${props => props.theme.colors.border.primary};
   & .ant-tabs {
     overflow: visible;
   }
@@ -12,7 +12,7 @@ const TabsWrapper = styled.div`
     margin: 0px !important;
   }
   & .ant-tabs-bar {
-    background-color: #f7f7f7;
+    background-color: ${props => props.theme.colors.background.darkish};
     margin: 0px;
     height: 35px;
     font-size: 12px;
@@ -40,12 +40,13 @@ const TabsWrapper = styled.div`
     & .ant-tabs-tab {
       display: flex;
       justify-content: center;
-      flex: 1 0 auto;
+      flex: 1 1 auto;
       padding: 0 !important;
-      background-color: white !important;
-      border: 1px solid #e6e6e6 !important;
+      background-color: ${props =>
+        props.theme.colors.background.primary} !important;
+      border: 1px solid ${props => props.theme.colors.border.primary} !important;
       font-size: 12px;
-      color: #333333;
+      color: ${props => props.theme.colors.font.primary};
       border-radius: 0px !important;
       :last-child {
         margin-right: 0 !important;
@@ -60,7 +61,6 @@ const TabsWrapper = styled.div`
       color: #f0b90b !important;
       border: 1px solid #f0b90b !important;
       border-radius: 0px 0px 0px 0px;
-      background-color: #fff9e7 !important;
     }
   }
 

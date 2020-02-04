@@ -7,7 +7,7 @@ import BidsAsks from './StyledOBLastChanges/styledBidsAsks';
 import More from './StyledOBLastChanges/styledMore';
 import MarketStatus from './StyledOBLastChanges/styledMarketStatus';
 
-export default function orderBookLastChange ({ orders, showLastChangeStats }) {
+export default function orderBookLastChange({ orders, showLastChangeStats }) {
   return (
     <StyledOrderBookLastChange showLastChangeStats={showLastChangeStats}>
       <BidsAsks ordersData={orders} />
@@ -19,7 +19,7 @@ export default function orderBookLastChange ({ orders, showLastChangeStats }) {
           flex: '0 0 26%',
         }}
       >
-        <More to='en/orderbook/btcusd'>More</More>
+        <More to="en/orderbook/btcusd">More</More>
         <MarketStatus>
           <FaSignal />
         </MarketStatus>

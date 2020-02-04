@@ -1,7 +1,8 @@
 // Third Party Libs
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { ThemeProvider } from 'styled-components';
 import { Row } from 'antd';
-import uuid4 from 'uuid';
 
 // Exchange-Components
 import InfoBar from './Exchange-Components/InfoBar/InfoBar';
@@ -14,7 +15,12 @@ import OrderBookContainer from './Exchange-Containers/OrderBook-Container/OrderB
 import CryptoPairsContainer from './Exchange-Containers/CryptoPairs-Container/CryptoPairs-Container';
 import TradeHistoryContainer from './Exchange-Containers/TradeHistory-Container/TradeHistory-Container';
 
+// Actions
+import ThemeProviderAction from '../../../ReduxStore/Ui/ThemeProvider/actions';
+
 // Styles
+import { GlobalStyles } from '../../../Theme/GlobalTheme/globalStyles';
+import { darkMode, lightMode } from '../../../Theme';
 import StyledExchange from './StyledExchange/StyledExchange';
 import ExchangeContentWrapper from './StyledExchange/ExchangeContentWrapper';
 import Container from './StyledExchange/Container';
@@ -24,58 +30,82 @@ import ExchangeRightContent from './StyledExchange/ExchangeRightContent';
 import ChartAndFormsWrapper from './StyledExchange/ChartAndFormsWrapper';
 
 class Exchange extends Component {
-  state = {
-    themeMode: 'light',
-  };
-
+  componentDidMount() {
+    // set theme mode on initial render (theme is equal to either LIGHT_MODE or DARK_MODE)
+    let theme = window.localStorage.getItem('theme');
+    if (theme) {
+      this.props.dispatchThemeProvider(theme);
+    } else {
+      // if mode not available on localStorage
+      this.props.dispatchThemeProvider('LIGHT_MODE');
+    }
+  }
   render() {
-    console.log(uuid4());
+    const themeMode =
+      this.props.themeMode === 'LIGHT_MODE' ? lightMode : darkMode;
     return (
-      <StyledExchange className="ds-styled-exchange">
-        {/* Info Bar */}
-        <Row type="flex" style={{ width: '100%' }}>
-          <InfoBar />
-        </Row>
-        {/* Dailystats | orderbooks | Chart | orderforms | CryptoPairs | Trading History | Recent Market Acts
+      <ThemeProvider theme={themeMode}>
+        <GlobalStyles />
+        <StyledExchange className="ds-styled-exchange">
+          {/* Info Bar */}
+          <Row type="flex" style={{ width: '100%' }}>
+            <InfoBar />
+          </Row>
+          {/* Dailystats | orderbooks | Chart | orderforms | CryptoPairs | Trading History | Recent Market Acts
                       |         open orders   |    my 24h order history
           */}
-        <ExchangeContentWrapper themeMode={this.state.themeMode}>
-          {/* Dailystats | orderbooks | Chart | orderforms | CryptoPairs | Trading History | Recent Market Acts */}
-          <ExchangeContent>
-            {/* Dailystats | orderbooks | Chart | orderforms */}
-            <ExchangeLeftContent>
-              <Row>
+          <ExchangeContentWrapper>
+            {/* Dailystats | orderbooks | Chart | orderforms | CryptoPairs | Trading History | Recent Market Acts */}
+            <ExchangeContent>
+              {/* Dailystats | orderbooks | Chart | orderforms */}
+              <ExchangeLeftContent>
                 <Row>
-                  <DailyStatsContainer />
+                  <Row>
+                    <DailyStatsContainer
+                      dispatchThemeProvider={this.props.dispatchThemeProvider}
+                    />
+                  </Row>
+                  <Row>
+                    <Container>
+                      <OrderBookContainer />
+                      <ChartAndFormsWrapper>
+                        <Chart />
+                        <OrderForm />
+                      </ChartAndFormsWrapper>
+                    </Container>
+                  </Row>
+                </Row>
+              </ExchangeLeftContent>
+              {/* crypto Pairs  | trade history  | recent market activity */}
+              <ExchangeRightContent>
+                <Row>
+                  <CryptoPairsContainer />
                 </Row>
                 <Row>
-                  <Container>
-                    <OrderBookContainer />
-                    <ChartAndFormsWrapper>
-                      <Chart />
-                      <OrderForm />
-                    </ChartAndFormsWrapper>
-                  </Container>
+                  <TradeHistoryContainer />
                 </Row>
-              </Row>
-            </ExchangeLeftContent>
-            {/* crypto Pairs  | trade history  | recent market activity */}
-            <ExchangeRightContent>
-              <Row>
-                <CryptoPairsContainer />
-              </Row>
-              <Row>
-                <TradeHistoryContainer />
-              </Row>
-              <Row>recent market activity</Row>
-            </ExchangeRightContent>
-          </ExchangeContent>
-          {/* open orders   |    my 24h order history */}
-          <div>open orders | my 24h order history</div>
-        </ExchangeContentWrapper>
-      </StyledExchange>
+                <Row>recent market activity</Row>
+              </ExchangeRightContent>
+            </ExchangeContent>
+            {/* open orders   |    my 24h order history */}
+            <div>open orders | my 24h order history</div>
+          </ExchangeContentWrapper>
+        </StyledExchange>
+      </ThemeProvider>
     );
   }
 }
 
-export default Exchange;
+function mapStateToProps(state) {
+  return {
+    themeMode: state.uiState.theme.themeMode,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    dispatchThemeProvider: mode => ThemeProviderAction(dispatch, mode),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Exchange);

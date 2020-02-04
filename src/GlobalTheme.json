@@ -27,7 +27,7 @@
   "@table-expanded-row-bg": "transparent",
   "@select-dropdown-font-size": "12px",
   "@form-item-margin-bottom": "5px",
-  "@input-color": "rgb(51,51,51)",
+  "@input-color": "#333",
   "@input-number-hover-border-color": "#F0B90B",
   "@input-hover-border-color": "#F0B90B",
   "@tabs-horizontal-padding": "8px 16px",

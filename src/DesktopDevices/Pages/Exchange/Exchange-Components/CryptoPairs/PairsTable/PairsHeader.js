@@ -11,16 +11,21 @@ const PairsHeaderWrapper = styled.div`
 
 const StyledSearch = styled(Input.Search)`
   flex: 40%;
+
   & input {
     box-shadow: 0 0 0 0 #d9d9d9 !important;
     border-radius: 0px;
-
+    border-color: ${props => props.theme.colors.border.primary};
+    background-color: ${props => props.theme.colors.background.primary};
     :focus {
       border-color: #f0b90b !important;
     }
     :hover {
       border-color: #f0b90b !important;
     }
+  }
+  & .ant-input-search-icon {
+    color: ${props => props.theme.colors.font.primary};
   }
 `;
 
@@ -35,7 +40,7 @@ const RadioGroupWrapper = styled(Radio.Group)`
   & label {
     display: block;
     font-size: 12px;
-    color: #333333;
+    color: ${props => props.theme.colors.font.primary};
     margin: 0px;
   }
   /* radio border color */
@@ -48,8 +53,12 @@ const RadioGroupWrapper = styled(Radio.Group)`
       border: 1px solid #f0b90b !important;
     }
   }
-  & .ant-radio-inner:hover {
-    border: 1px solid #f0b90b !important;
+  & .ant-radio-inner {
+    /* dot background color */
+    background-color: ${props => props.theme.colors.background.primary};
+    :hover {
+      border: 1px solid #f0b90b !important;
+    }
   }
   & .ant-radio-checked .ant-radio-inner {
     border: 1px solid #f0b90b;
@@ -75,18 +84,18 @@ export default class PairsHeader extends Component {
     let searchedText = e.target.value;
     this.props.onSearchFilter(searchedText);
   };
-  render () {
+  render() {
     return (
       <PairsHeaderWrapper>
         <StyledSearch
-          placeholder='search ...'
+          placeholder="search ..."
           onChange={this.onSearchChange}
-          size='small'
+          size="small"
         />
         <RadioGroupWrapper
           onChange={this.onRadioChange}
           value={this.state.value}
-          size='small'
+          size="small"
         >
           <Radio value={1}>Change</Radio>
           <Radio value={2}>Volume</Radio>

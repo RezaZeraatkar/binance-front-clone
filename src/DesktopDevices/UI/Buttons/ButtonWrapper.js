@@ -8,9 +8,14 @@ const ButtonWrapper = styled.div`
     flex: 1 1 auto;
     font-size: 12px;
     border-radius: 0px;
-    color: rgb(51, 51, 51);
+    border: 1px solid ${props => props.theme.colors.border.primary};
+    background-color: ${props => props.theme.colors.background.primary};
+    color: ${props => props.theme.colors.font.primary};
     :not(:last-child) {
       margin-right: 3px;
+    }
+    :hover {
+      background-color: ${props => props.theme.colors.background.primary};
     }
   }
 `;

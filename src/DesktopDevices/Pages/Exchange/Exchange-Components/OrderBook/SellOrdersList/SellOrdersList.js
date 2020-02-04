@@ -45,6 +45,7 @@ export default function SellOrdersList(props) {
             showLastChangeStats={props.showLastChangeStats}
           />
         )}
+        scrollToBottom={props.scrollToBottom}
       />
     </TableWrapper>
   );

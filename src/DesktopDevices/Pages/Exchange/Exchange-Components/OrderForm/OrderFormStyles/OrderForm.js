@@ -11,7 +11,7 @@ const OrderForm = styled.div`
   margin: 15px 0px;
   padding: 0px 26px;
   &:first-child {
-    border-right: 1px solid rgb(226, 226, 226);
+    border-right: 1px solid ${props => props.theme.colors.border.primary};
   }
   /* form layouts */
   /* form item */
@@ -31,25 +31,9 @@ const OrderForm = styled.div`
     flex: 70%;
   }
 
-  /* inputs */
-  & .ant-input-number {
-    position: relative;
-    width: 100%;
-    font-size: 12px;
-    flex: 82%;
-    align-items: center;
-    border-radius: 0px;
-    & input {
-      color: rgb(51, 51, 51);
-    }
-  }
-  & .ant-input-number-focused {
-    box-shadow: none;
-    border-color: #f0b90b;
-  }
   /* labels */
   & .ant-form label {
-    color: #666666;
+    color: ${props => props.theme.colors.font.info};
     font-size: 13px;
   }
   & .ant-form-item-label {

@@ -22,11 +22,7 @@ function callback(key) {
   // console.log(key);
 }
 
-export default function orderBook({
-  orderBookData,
-  dailyStatsData,
-  isLoading,
-}) {
+export default function orderBook({ orderBookData, dailyStatsData }) {
   return (
     <TabsWrapper className="tabs-wrapper">
       <Tabs onChange={callback} type="card" defaultActiveKey="1">
@@ -104,6 +100,7 @@ export default function orderBook({
               noScroll
               fixedFooter
               header={true}
+              scrollToBottom={true}
             />
           </OrderBookWrapper>
         </TabPane>

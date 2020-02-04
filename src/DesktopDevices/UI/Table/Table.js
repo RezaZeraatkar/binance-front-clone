@@ -31,7 +31,7 @@ const TooltipContent = (
   <StyledTooltipContent>
     <div key="avgprice">
       <span>Avg.Price:</span>
-      <span>135451</span>
+      <span>&asymp; 135451</span>
     </div>
     <div key="sum">
       <span>Sum BTC:</span>
@@ -65,13 +65,24 @@ const StyledTable = styled.div`
   display: flex;
   flex: 100%;
   flex-direction: column;
-  color: #333333;
+  color: ${props => props.theme.colors.font.primary};
   box-sizing: border-box;
+  & .react-custom-scrollbars-thumb-vertical {
+    background-color: ${props => props.theme.colors.background.scrollTrack};
+  }
+  & .react-custom-scrollbars-track-vertical {
+    background-color: ${props =>
+      props.theme.colors.background.scrollThumb} !important;
+    width: 5px !important;
+    height: 100%;
+    right: 0px;
+    top: 0px;
+  }
 `;
 
 const Thead = styled.div`
   display: ${props => (props.header ? 'block' : 'none')};
-  color: #999999;
+  color: ${props => props.theme.colors.font.info};
   font-weight: normal;
   & div div {
     :first-child {
@@ -87,7 +98,7 @@ const Tbody = styled.div`
   position: relative;
   cursor: pointer;
   & ${props => selectChilds(props)} {
-    background-color: #fef9ee;
+    background-color: ${props => props.theme.colors.background.info};
     :nth-child(${props => props.to}) {
       ${props =>
         props.type === 'sell'
@@ -107,7 +118,8 @@ const Tr = styled.div`
   position: relative;
   display: flex;
   justify-content: space-between;
-  padding: 0 5px 1px 5px;
+  align-items: center;
+  padding: 0 7px 1px 7px;
 `;
 
 const Th = styled.div`
@@ -125,6 +137,9 @@ const Td = styled.div`
   :nth-child(3) {
     text-align: right;
   }
+  :nth-child(2) {
+    text-align: left;
+  }
 `;
 
 const VolumeIndicator = styled.div`
@@ -140,12 +155,16 @@ const VolumeIndicator = styled.div`
 class Table extends Component {
   constructor(props) {
     super(props);
+    this.scrollbars = React.createRef();
     this.state = {
       from: 0,
       to: 0,
+      mounted: false,
     };
     this.onRowClickedHandler.bind(this);
     this.onRowHoverHandler.bind(this);
+    this.renderThumbVertical.bind(this);
+    this.renderTrackVertical.bind(this);
   }
 
   onRowClickedHandler = (data, rowIndex) => {
@@ -194,11 +213,38 @@ class Table extends Component {
     console.log(position);
   }
 
+  renderThumbVertical({ style, ...props }) {
+    return (
+      <div
+        {...props}
+        style={{ ...style }}
+        className="react-custom-scrollbars-thumb-vertical"
+      />
+    );
+  }
+  renderTrackVertical({ style, ...props }) {
+    return (
+      <div
+        {...props}
+        style={{ ...style }}
+        className="react-custom-scrollbars-track-vertical"
+      />
+    );
+  }
+
   render() {
-    const { columns, dataSource, type, header, footer, title } = this.props;
+    const {
+      columns,
+      dataSource,
+      type,
+      header,
+      footer,
+      title,
+      scrollToBottom,
+    } = this.props;
     const { from, to } = this.state;
     return (
-      <StyledTable>
+      <StyledTable scrollToBottom={scrollToBottom}>
         {title ? title() : null}
         <Thead header={header}>
           <Tr>
@@ -207,7 +253,15 @@ class Table extends Component {
             ))}
           </Tr>
         </Thead>
-        <Scrollbars autoHeight autoHeightMin={437} autoHeightMax={880}>
+        <Scrollbars
+          autoHeight
+          autoHeightMin={437}
+          autoHeightMax={880}
+          renderThumbVertical={this.renderThumbVertical}
+          renderTrackVertical={this.renderTrackVertical}
+          hideTracksWhenNotNeeded
+          ref="scrollbars"
+        >
           <Tbody
             from={from}
             to={to}
@@ -250,6 +304,16 @@ class Table extends Component {
         {footer ? footer() : null}
       </StyledTable>
     );
+  }
+
+  componentDidMount() {
+    let { scrollbars } = this.refs;
+    if (this.props.scrollToBottom) {
+      scrollbars.scrollToBottom();
+    }
+    this.setState({
+      mounted: true,
+    });
   }
 }
 

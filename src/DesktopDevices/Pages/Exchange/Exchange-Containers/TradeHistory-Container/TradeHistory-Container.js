@@ -8,21 +8,21 @@ import TradingHistory from '../../Exchange-Components/TradingHistory/TradingHist
 import getTradeHistoryAction from '../../../../../ReduxStore/Actions/getTradeHistoryAction';
 
 class TradeHistoryContainer extends Component {
-  componentDidMount () {
+  componentDidMount() {
     this.props.getTradeHistory();
   }
-  render () {
+  render() {
     return <TradingHistory tradeHistoryData={this.props.tradeHistoryData} />;
   }
 }
 
-function mapStateToProps (state) {
+function mapStateToProps(state) {
   return {
     tradeHistoryData: state.tradeHistory,
   };
 }
 
-function mapDispatchToProps (dispatch) {
+function mapDispatchToProps(dispatch) {
   return {
     getTradeHistory: () => getTradeHistoryAction(dispatch),
   };

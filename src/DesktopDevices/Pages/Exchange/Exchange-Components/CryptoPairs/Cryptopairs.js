@@ -34,28 +34,28 @@ export default class Cryptopairs extends Component {
     }
   };
 
-  render () {
+  render() {
     const { pairsData } = this.props;
     console.log('[pairsData]: ', this.state);
     const isLoading = Object.keys(pairsData).length === 0;
 
     return (
-      <TabsWrapper className='tabs-wrapper' flex='100%'>
-        <Tabs onChange={this.callback} type='card' defaultActiveKey='3'>
+      <TabsWrapper className="tabs-wrapper" flex="100%">
+        <Tabs onChange={this.callback} type="card" defaultActiveKey="3">
           <TabPane
             tab={<FavoriteTabIcon isfavorite={`${this.state.isFavorite}`} />}
-            key='1'
+            key="1"
           >
             <WithLoading isLoading={isLoading}>
               <Favorites favorites={this.state.favorites} />
             </WithLoading>
           </TabPane>
-          <TabPane tab='BNB' key='2'>
+          <TabPane tab="BNB" key="2">
             <WithLoading isLoading={isLoading}>
               <BNB bnbData={pairsData} />
             </WithLoading>
           </TabPane>
-          <TabPane tab='BTC' key='3'>
+          <TabPane tab="BTC" key="3">
             <WithLoading isLoading={isLoading}>
               <BTC btcData={pairsData} />
             </WithLoading>
@@ -66,13 +66,13 @@ export default class Cryptopairs extends Component {
                 <AltsSelect altsData={pairsData} />
               </div>
             }
-            key='4'
+            key="4"
           >
             <WithLoading isLoading={isLoading}>
               <ALTS altsData={pairsData} />
             </WithLoading>
           </TabPane>
-          <TabPane tab={<UsdSelect usdData={pairsData} />} key='5'>
+          <TabPane tab={<UsdSelect usdData={pairsData} />} key="5">
             <WithLoading isLoading={isLoading}>
               <USD usdData={pairsData} />
             </WithLoading>

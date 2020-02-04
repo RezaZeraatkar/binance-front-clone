@@ -8,7 +8,7 @@ const GroupsWrapper = styled.div`
   align-items: center;
   & .groups-label {
     margin-right: 2px;
-    color: #999999;
+    color: ${props => props.theme.colors.font.info};
   }
 `;
 export default GroupsWrapper;

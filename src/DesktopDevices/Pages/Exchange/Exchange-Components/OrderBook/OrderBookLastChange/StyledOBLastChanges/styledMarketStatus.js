@@ -14,8 +14,8 @@ const text = <span>Market Status: Running</span>;
 
 const OrderBookLastChange = ({ children, className, marketStatus }) => {
   return (
-    <MarketStatusAlarm className={className} marketStatus='running'>
-      <Tooltip placement='right' title={text}>
+    <MarketStatusAlarm className={className} marketStatus="running">
+      <Tooltip placement="right" title={text}>
         {children}
       </Tooltip>
     </MarketStatusAlarm>

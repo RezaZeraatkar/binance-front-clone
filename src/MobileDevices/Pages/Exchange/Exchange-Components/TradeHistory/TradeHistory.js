@@ -65,21 +65,21 @@ const data = [];
 for (let i = 0; i < 10; i++) {
   data.push({
     key: i,
-    price: <ColorizedText sign='pos'>7,253.32</ColorizedText>,
+    price: <ColorizedText sign="pos">7,253.32</ColorizedText>,
     amount: <span>0.307198</span>,
     time: <span style={{ color: 'rgba(255,255,255,0.5)' }}>12:29:32</span>,
   });
 }
 export default class TradeHistory extends Component {
-  render () {
+  render() {
     return (
-      <CardTabsWrapper className='ant-tabs-trade-history'>
-        <Tabs onChange={this.callback} type='card'>
-          <TabPane tab='Trade History' key='1'>
+      <CardTabsWrapper className="ant-tabs-trade-history">
+        <Tabs onChange={this.callback} type="card">
+          <TabPane tab="Trade History" key="1">
             <TableWrapper>
               <TableCustomSettings>
                 <Table
-                  size='small'
+                  size="small"
                   columns={columns}
                   dataSource={data}
                   pagination={false}
@@ -88,7 +88,7 @@ export default class TradeHistory extends Component {
               </TableCustomSettings>
             </TableWrapper>
           </TabPane>
-          <TabPane tab='Trading Analysis' key='2'>
+          <TabPane tab="Trading Analysis" key="2">
             <span style={{ color: 'white' }}>Trading Analysis charts</span>
             <br />
             <span style={{ color: 'white' }}>Trading Analysis charts</span>

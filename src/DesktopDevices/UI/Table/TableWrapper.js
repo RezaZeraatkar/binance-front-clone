@@ -2,6 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 
 const TableWrapper = styled.div`
+  & .ant-table-body {
+    background-color: ${props =>
+      props.theme.colors.background.primary} !important;
+  }
   & .ant-table-wrapper {
     border-top: 0px;
   }
@@ -16,18 +20,22 @@ const TableWrapper = styled.div`
     border: 0px;
   }
   & .ant-table-wrapper thead th span {
-    color: #999999;
+    color: ${props => props.theme.colors.font.info};
     font-size: 12px;
   }
   & div.ant-table-wrappe div.ant-table-header {
     overflow-y: hidden;
+  }
+
+  & .ant-table-title {
+    border-bottom: 1px solid ${props => props.theme.colors.border.primary} !important;
   }
   /* table body styles */
 
   & .ant-table-wrapper .ant-table {
     border: 0;
     font-size: 12px;
-    color: #333333;
+    color: ${props => props.theme.colors.font.primary};
   }
   & .ant-table-wrapper .ant-table .ant-table-tbody tr {
     cursor: pointer;

@@ -8,6 +8,7 @@ import StopLimitFormContainer from './Containers/StopLimitForm-Container';
 import OCOFormContainer from './Containers/OCOForm-Container';
 import LimitTabs from './OrderForm-Components/Form/LimitTabs';
 import LimitInfo from './OrderForm-Components/LimitInfo/LimitInfo';
+import TradingRules from './OrderForm-Components/TradingRules/TradingRules';
 
 // styles
 import OrderFormsContainer from './OrderFormStyles/OrderFormsContainer';
@@ -21,68 +22,69 @@ const OCO_LIMIT_INFO =
   ' pairs is triggered, the other order will be cancelled. And if either of the order pairs is cancelled,' +
   'the other order will be cancelled, too.';
 
-function callback (key) {
+function callback(key) {
   console.log(key);
 }
 
-export default function OrderForm () {
+export default function OrderForm() {
   return (
-    <OrderFormsContainer className='order-forms-container'>
+    <OrderFormsContainer className="order-forms-container">
       <Tabs
         onChange={callback}
-        type='card'
-        defaultActiveKey='1'
-        className='top-tab'
+        type="card"
+        defaultActiveKey="1"
+        className="top-tab"
       >
-        <TabPane tab='Exchange' key='1'>
+        <TabPane tab="Exchange" key="1">
           <Tabs
             onChange={callback}
-            type='card'
-            className='order-form-tabs-container'
+            type="card"
+            className="order-form-tabs-container"
             tabBarGutter={3}
           >
-            <TabPane tab='Limit' key='1'>
+            <TabPane tab="Limit" key="1">
               <LimitFormContainer />
             </TabPane>
-            <TabPane tab='Market' key='2'>
+            <TabPane tab="Market" key="2">
               <MarketFormContainer />
             </TabPane>
             <TabPane
               tab={
                 <LimitTabs
-                  text='Stop-limit'
+                  text="Stop-limit"
                   infoContent={
                     <LimitInfo
                       text={STOP_LIMIT_INFO}
-                      url='https://binance.zendesk.com/hc/en-us/articles/115003372072'
+                      url="https://binance.zendesk.com/hc/en-us/articles/115003372072"
                     />
                   }
                 />
               }
-              key='3'
+              key="3"
             >
               <StopLimitFormContainer />
             </TabPane>
             <TabPane
               tab={
                 <LimitTabs
-                  text='OCO'
+                  text="OCO"
                   infoContent={
                     <LimitInfo
                       text={OCO_LIMIT_INFO}
-                      url='https://binance.zendesk.com/hc/en-us/articles/360032822231'
+                      url="https://binance.zendesk.com/hc/en-us/articles/360032822231"
                     />
                   }
-                  url=''
+                  url=""
                 />
               }
-              key='4'
+              key="4"
             >
               <OCOFormContainer />
             </TabPane>
           </Tabs>
         </TabPane>
       </Tabs>
+      <TradingRules />
     </OrderFormsContainer>
   );
 }

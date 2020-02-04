@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const OCOLimitCaptionWrapper = styled.div`
   font-weight: bold;
-  color: #333333;
+  color: ${props => props.theme.colors.font.primary};
   font-size: 12px;
   & svg {
     font-size: 10px;
@@ -12,10 +12,10 @@ const OCOLimitCaptionWrapper = styled.div`
   }
 `;
 
-export default function OCOLimitCaption ({ cap }) {
+export default function OCOLimitCaption({ cap }) {
   return (
     <OCOLimitCaptionWrapper>
-      <Icon type='right' /> {cap}
+      <Icon type="right" /> {cap}
     </OCOLimitCaptionWrapper>
   );
 }

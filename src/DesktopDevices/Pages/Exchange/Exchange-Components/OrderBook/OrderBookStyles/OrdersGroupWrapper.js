@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import Theme from '../../../../../../Theme/ThemeProvider';
 
 const OrdersGroupWrapper = styled.div`
   display: flex;
@@ -23,7 +22,7 @@ const OrdersGroupWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    color: ${props => (props.Active ? Theme.Colors.WarningColor : 'white')};
+    color: ${props => (props.Active ? '#F0B90B' : 'white')};
   }
 `;
 

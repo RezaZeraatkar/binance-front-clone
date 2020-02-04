@@ -1,8 +1,11 @@
 import React from 'react';
+import styled from 'styled-components';
 import moment from 'moment';
 
-export default function TimeFormatter ({ time }) {
-  return (
-    <div style={{ color: '#999999' }}>{moment(time).format('HH:mm:ss')}</div>
-  );
+const DIV = styled.div`
+  color: ${props => props.theme.colors.font.info};
+`;
+
+export default function TimeFormatter({ time }) {
+  return <DIV>{moment(time).format('HH:mm:ss')}</DIV>;
 }

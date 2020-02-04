@@ -7,18 +7,18 @@ import GroupsWrapper from './StyledGroupsWrapper';
 
 const { Option } = Select;
 
-function handleChange (value) {
+function handleChange(value) {
   console.log(`selected ${value}`);
 }
 
-export default function groups () {
+export default function groups() {
   return (
     <GroupsWrapper>
-      <div className='groups-label'>groups</div>
-      <StyledSelect defaultValue='2' onChange={handleChange} size='small'>
-        <Option value='0'>0 decimal</Option>
-        <Option value='1'>1 decimal</Option>
-        <Option value='2'>2 decimals</Option>
+      <div className="groups-label">groups</div>
+      <StyledSelect defaultValue="2" onChange={handleChange} size="small">
+        <Option value="0">0 decimals</Option>
+        <Option value="1">1 decimals</Option>
+        <Option value="2">2 decimals</Option>
       </StyledSelect>
     </GroupsWrapper>
   );

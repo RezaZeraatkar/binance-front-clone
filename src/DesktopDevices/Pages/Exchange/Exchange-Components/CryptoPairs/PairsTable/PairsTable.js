@@ -54,22 +54,21 @@ export default class PairsTable extends Component {
     console.log(searchedText);
   };
 
-  render () {
+  render() {
     const { data } = this.props;
-
     return (
       <TableWrapper>
         <CustomTableSettings>
           <Table
             scroll={{ y: 312 }}
-            size='small'
+            size="small"
             columns={this.columns}
             pagination={false}
             dataSource={pairsDataLoader(data)}
             title={() => (
               <PairsHeader onSearchFilter={this.onSearchFilterHandler} />
             )}
-            tableLayout='fixed'
+            tableLayout="fixed"
           />
         </CustomTableSettings>
       </TableWrapper>

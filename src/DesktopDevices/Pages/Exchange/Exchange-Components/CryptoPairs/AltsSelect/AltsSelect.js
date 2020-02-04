@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import StyledSelect from '../../../../../UI/Select/StyledSelect';
 
@@ -8,15 +8,16 @@ import StyledSelect from '../../../../../UI/Select/StyledSelect';
 
 const { Option } = StyledSelect;
 
-export default function AltsSelect ({ altsData }) {
-  // console.log('[ALTSDATA]: ', altsData['2']);
-  // const ALTSData = altsData['2'];
+export default function AltsSelect({ altsData }) {
+  let [options, setActiveOption] = useState(altsData);
+  console.log('ALTSDATA: ', altsData);
   return (
-    <StyledSelect defaultValue='ALTS' size='small'>
-      <Option value='ALTS'>ALTS</Option>
-      <Option value='ETH'>ETH</Option>
-      <Option value='TRX'>TRX</Option>
-      <Option value='XRP'>XRP</Option>
+    <StyledSelect defaultValue="ALTS" size="small">
+      {/* {options.map(item => (
+        <Option key={item} value={item}>
+          {item}
+        </Option>
+      ))} */}
     </StyledSelect>
   );
 }

@@ -1,20 +1,20 @@
 import React from 'react';
+import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-export default function OCOLimitInfo ({ text, url }) {
+const Span = styled.span`
+  color: ${props => props.theme.colors.font.primary};
+  font-size: 13px;
+  word-break: break-all;
+`;
+
+export default function OCOLimitInfo({ text, url }) {
   return (
-    <span
-      style={{
-        fontSize: 13,
-        color: '#333333',
-        wordBreak: 'break-word',
-      }}
-      className='test'
-    >
+    <Span>
       <p>{text}</p>
       <Link to={url} style={{ color: '#F0B90B', fontSize: 14 }}>
         view more
       </Link>
-    </span>
+    </Span>
   );
 }

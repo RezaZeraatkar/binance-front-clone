@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 const OrderBookLastChange = styled(Link)`
-  color: rgb(51, 51, 51);
+  color: ${props => props.theme.colors.font.primary};
   font-size: 0.768em;
   outline: none;
   text-decoration: underline;

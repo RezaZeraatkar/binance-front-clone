@@ -6,7 +6,6 @@ import FinancialChart from '../FinancialChart/FinancialChart';
 import TradeHistory from '../TradeHistory/TradeHistory';
 import RegisterOrder from '../RegisterOrder/RegisterOrder';
 import FooterOrderButtons from '../FooterOrderButtons/FooterOrderButtons';
-import Theme from '../../../../../Theme/ThemeProvider';
 
 const TabsWrapper = styled.div`
   margin-top: 64px;
@@ -38,8 +37,8 @@ const TabsWrapper = styled.div`
         flex-basis: 33%;
         margin-right: 0px;
         &.ant-tabs-tab-active {
-          color: ${Theme.Colors.WarningColor};
-          border-bottom: 3px solid ${Theme.Colors.WarningColor};
+          color: #f0b90b;
+          border-bottom: 3px solid #f0b90b;
         }
       }
     }
@@ -49,14 +48,14 @@ const TabsWrapper = styled.div`
 const { TabPane } = Tabs;
 
 export default class TopTabs extends Component {
-  callback (key) {
+  callback(key) {
     console.log(key);
   }
-  render () {
+  render() {
     return (
       <TabsWrapper>
-        <Tabs defaultActiveKey='1' onChange={this.callback}>
-          <TabPane tab='Charts' key='1'>
+        <Tabs defaultActiveKey="1" onChange={this.callback}>
+          <TabPane tab="Charts" key="1">
             <Row>
               <CurrencyLastChanges showToggle={this.props.showToggle} />
             </Row>
@@ -68,10 +67,10 @@ export default class TopTabs extends Component {
             </Row>
             <FooterOrderButtons />
           </TabPane>
-          <TabPane tab='Trade' key='2'>
+          <TabPane tab="Trade" key="2">
             <RegisterOrder showToggle={this.props.showToggle} />
           </TabPane>
-          <TabPane tab='Open Orders' key='3'>
+          <TabPane tab="Open Orders" key="3">
             Open Orders / My 24h Order History
           </TabPane>
         </Tabs>

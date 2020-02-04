@@ -42,7 +42,7 @@ const CardTabsWrapperFinancial = styled.div`
   }
 `;
 // Icon Wrapper Component
-function IconWrapper (props) {
+function IconWrapper(props) {
   return (
     <span>
       <Icon type={props.type} style={{ fontSize: '1rem' }} />
@@ -52,16 +52,16 @@ function IconWrapper (props) {
 }
 
 export default class FinancialChart extends Component {
-  callback (key) {
+  callback(key) {
     console.log(key);
   }
-  render () {
+  render() {
     return (
-      <CardTabsWrapperFinancial className='ant-tabs-chart'>
-        <Tabs onChange={this.callback} type='card'>
+      <CardTabsWrapperFinancial className="ant-tabs-chart">
+        <Tabs onChange={this.callback} type="card">
           <TabPane
-            tab={<IconWrapper type='bar-chart'>Candle</IconWrapper>}
-            key='1'
+            tab={<IconWrapper type="bar-chart">Candle</IconWrapper>}
+            key="1"
           >
             <span style={{ color: 'white' }}>Chart</span>
             <br />
@@ -87,8 +87,8 @@ export default class FinancialChart extends Component {
             <br />
           </TabPane>
           <TabPane
-            tab={<IconWrapper type='area-chart'>Depth</IconWrapper>}
-            key='2'
+            tab={<IconWrapper type="area-chart">Depth</IconWrapper>}
+            key="2"
           >
             <span style={{ color: 'white' }}>Depth</span>
           </TabPane>

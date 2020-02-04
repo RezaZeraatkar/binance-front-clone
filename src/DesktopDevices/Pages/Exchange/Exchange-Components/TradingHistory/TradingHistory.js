@@ -10,7 +10,7 @@ import TableWrapper from '../../../../UI/Table/TableWrapper';
 
 const CustomTableSettings = styled.div`
   & .ant-table-content {
-    border: 1px solid #e6e6e6;
+    border: 1px solid ${props => props.theme.colors.border.primary};
     border-top: 0px;
   }
 `;
@@ -46,13 +46,13 @@ for (let i = 0; i < 100; i++) {
   });
 }
 
-function TradeHistory ({ tradeHistoryData }) {
+function TradeHistory({ tradeHistoryData }) {
   return (
     <TableWrapper>
       <CustomTableSettings>
         <Table
           scroll={{ y: 312 }}
-          size='small'
+          size="small"
           columns={columns}
           pagination={false}
           dataSource={tradeHistoryDataLoader(tradeHistoryData)}

@@ -6,7 +6,7 @@ const SymbolWrapper = styled.div`
   align-items: baseline;
 `;
 
-export default function Symbol ({ symbolData }) {
+export default function Symbol({ symbolData }) {
   return (
     <SymbolWrapper>
       <div

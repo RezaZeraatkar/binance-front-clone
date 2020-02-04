@@ -7,7 +7,6 @@ const StyledLayout = styled.div`
     flex: 0 1 100% !important;
     min-width: 1349px;
     align-items: center;
-    background-color: #1e2126;
     & .ant-menu-item-selected {
       background-color: unset;
     }

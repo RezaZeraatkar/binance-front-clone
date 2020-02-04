@@ -28,96 +28,96 @@ class BuyOrderForm extends React.Component {
     console.log('changed', value);
   };
 
-  render () {
+  render() {
     const { whichForm } = this.props;
     return (
       <Form onSubmit={this.handleSubmit}>
         <Form.Item>
-          <Wallet type='Buy' what='BTC' wallet='USDT' />
+          <Wallet type="Buy" what="BTC" wallet="USDT" />
         </Form.Item>
         {whichForm === FormTypes.OCO ? (
           <Form.Item>
-            <OCOLimitCaption cap='Limit' />
+            <OCOLimitCaption cap="Limit" />
           </Form.Item>
         ) : null}
         {whichForm === FormTypes.STOP_LIMIT ? null : (
-          <Form.Item label='Price'>
+          <Form.Item label="Price">
             <InputNumber
               defaultValue={whichForm === FormTypes.MARKET ? 'Market' : 7965.18}
               min={0.01}
               step={0.01}
               formatter={value => `${value}`}
               onChange={this.onChange}
-              suffix='USDT'
-              size='small'
+              suffix="USDT"
+              size="small"
               disabled={whichForm === FormTypes.MARKET ? true : false}
             />
           </Form.Item>
         )}
         {whichForm === FormTypes.OCO ? (
           <Form.Item>
-            <OCOLimitCaption cap='Stop-Limit' />
+            <OCOLimitCaption cap="Stop-Limit" />
           </Form.Item>
         ) : null}
         {whichForm === FormTypes.OCO || whichForm === FormTypes.STOP_LIMIT ? (
-          <Form.Item label='Stop'>
+          <Form.Item label="Stop">
             <InputNumber
               defaultValue={7965.18}
               min={0.01}
               step={0.01}
               formatter={value => `${value}`}
               onChange={this.onChange}
-              suffix='USDT'
-              size='small'
+              suffix="USDT"
+              size="small"
             />
           </Form.Item>
         ) : null}
         {whichForm === FormTypes.OCO || whichForm === FormTypes.STOP_LIMIT ? (
-          <Form.Item label='Limit'>
+          <Form.Item label="Limit">
             <InputNumber
               defaultValue={7965.18}
               min={0.01}
               step={0.01}
               formatter={value => `${value}`}
               onChange={this.onChange}
-              suffix='USDT'
-              size='small'
+              suffix="USDT"
+              size="small"
             />
           </Form.Item>
         ) : null}
-        <Form.Item label='Amount'>
+        <Form.Item label="Amount">
           <InputNumber
             defaultValue={7965.18}
             min={0.01}
             step={0.01}
             formatter={value => `${value}`}
             onChange={this.onChange}
-            suffix='BTC'
-            size='small'
+            suffix="BTC"
+            size="small"
           />
         </Form.Item>
-        <Form.Item label='ratios' className='hiddenLabel'>
+        <Form.Item label="ratios" className="hiddenLabel">
           <RatioButtons />
         </Form.Item>
         {whichForm === FormTypes.MARKET ? null : (
-          <Form.Item label='Total'>
+          <Form.Item label="Total">
             <InputNumber
               defaultValue={7965.18}
               min={0.01}
               step={0.01}
               formatter={value => `${value}`}
               onChange={this.onChange}
-              size='small'
-              suffix='USDT'
+              size="small"
+              suffix="USDT"
             />
           </Form.Item>
         )}
         <Form.Item></Form.Item>
         <Form.Item>
-          <Row type='flex' justify='center'>
+          <Row type="flex" justify="center">
             <LinkConatiner>
-              <Link to='/login'>Log in</Link> Or{' '}
-              <Link to='/register'>Register now </Link>to trade
+              <Link to="/login">Log in</Link> Or{' '}
+              <Link to="/register">Register now </Link>to trade
             </LinkConatiner>
           </Row>
         </Form.Item>

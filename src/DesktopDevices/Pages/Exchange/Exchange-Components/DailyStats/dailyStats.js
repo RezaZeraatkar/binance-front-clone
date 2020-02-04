@@ -10,13 +10,17 @@ import ThemeMode from '../ThemeMode/ThemeMode';
 // Styles
 import { StyledDailyStats } from './styled-dailystats';
 
-export default function dailyStats ({ dailyStatsData, staticData }) {
+export default function dailyStats({
+  dailyStatsData,
+  staticData,
+  dispatchThemeProvider,
+}) {
   return (
     <StyledDailyStats>
-      <Row type='flex' justify='space-around'>
+      <Row type="flex" justify="space-around">
         <Symbol symbolData={dailyStatsData.symbol} />
         <DailyStat statsData={dailyStatsData} staticData={staticData} />
-        <ThemeMode />
+        <ThemeMode dispatchThemeProvider={dispatchThemeProvider} />
       </Row>
     </StyledDailyStats>
   );

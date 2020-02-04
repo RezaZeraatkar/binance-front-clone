@@ -9,7 +9,21 @@ const LimitTabsWrapper = styled.div`
   justify-content: space-between;
 `;
 
-export default function LimitTabs ({ text, infoContent, url }) {
+const SeperatorLine = styled.span`
+  color: ${props => props.theme.colors.font.primary};
+  margin-right: 5px;
+`;
+
+const StyledFaQuestionCircle = styled(FaQuestionCircle)`
+  color: ${props => props.theme.colors.font.primary};
+  background-color: ${props => props.theme.colors.background.primary};
+`;
+
+const StyledPopover = styled.div`
+  flex: 30%;
+`;
+
+export default function LimitTabs({ text, infoContent, url }) {
   return (
     <LimitTabsWrapper>
       <span style={{ marginRight: '8px' }}>{text}</span>
@@ -20,16 +34,17 @@ export default function LimitTabs ({ text, infoContent, url }) {
           alignItems: 'center',
         }}
       >
-        <span style={{ color: '#000', marginRight: 5 }}>|</span>
-        <Popover
-          className='pop-over-wrapper'
-          placement='bottom'
-          content={infoContent}
-          trigger='click'
-          style={{ flex: '30%' }}
-        >
-          <FaQuestionCircle style={{ color: '#000' }} />
-        </Popover>
+        <SeperatorLine>|</SeperatorLine>
+        <StyledPopover>
+          <Popover
+            className="pop-over-wrapper"
+            placement="bottom"
+            content={infoContent}
+            trigger="click"
+          >
+            <StyledFaQuestionCircle />
+          </Popover>
+        </StyledPopover>
       </div>
     </LimitTabsWrapper>
   );

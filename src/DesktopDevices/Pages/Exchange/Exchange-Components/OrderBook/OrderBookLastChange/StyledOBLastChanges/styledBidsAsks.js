@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FaLongArrowAltUp, FaLongArrowAltDown } from 'react-icons/fa';
 import numeral from 'numeral';
+
+import StyledArowIcons from './styledArowIcons';
 import ColorizedText from '../../../../../../UI/Typography/Text/ColorizedText';
 
 const StyledBidsAsks = styled.div`
@@ -10,32 +11,19 @@ const StyledBidsAsks = styled.div`
   font-size: 18px;
 `;
 
-const ArrowIcons = styled.span`
-  line-height: 0;
-  & svg:nth-child(2) {
-    display: none;
-  }
-`;
-
 const MatchedPrice = styled.span`
   font-size: 0.786em;
   font-weight: bold;
-  color: #333;
+  color: ${props => props.theme.colors.font.primary};
+  margin-left: 4px;
 `;
 
 function BidsAsks({ ordersData }) {
   return (
     <StyledBidsAsks>
-      <ColorizedText sign="pos" fontSize="18px">
+      <ColorizedText onData={ordersData.lastPrice} fontSize="18px">
         {numeral(ordersData.lastPrice).format('0.00')}
-        <ArrowIcons>
-          <FaLongArrowAltDown
-            style={{ fontSize: '0.876em', lineHeight: '100%' }}
-          />
-          <FaLongArrowAltUp
-            style={{ fontSize: '0.876em', lineHeight: '100%' }}
-          />
-        </ArrowIcons>
+        <StyledArowIcons onData={ordersData.lastPrice} />
       </ColorizedText>
       <MatchedPrice>
         {numeral(ordersData.lastPrice).format('$0,000.00')}

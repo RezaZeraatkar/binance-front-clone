@@ -6,7 +6,7 @@ const OrderBookLastChange = styled.div`
   justify-content: space-between;
   font-size: 18px;
   padding: 0 10px;
-  background-color: rgb(247, 247, 247);
+  background-color: ${props => props.theme.colors.background.darkish};
   height: 29px;
   line-height: 1;
 `;

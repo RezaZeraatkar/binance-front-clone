@@ -1,3 +1,40 @@
-function DarkTheme(type) {
-    switch
-}
+const darkMode = {
+  colors: {
+    font: {
+      primary: '#d4d4d4',
+      info: '#afafaf',
+      tooltip: '#ffffff',
+      success: '',
+      processing: '',
+      error: '',
+      highlight: '',
+      warning: '',
+      normal: '',
+    },
+    background: {
+      primary: '#1D1D1D',
+      info: '#2E291E',
+      darkish: '#262626',
+      highlight: '#666666',
+      normal: '#12161C',
+      scrollTrack: '#6E6E6E',
+      scrollThumb: '#333333',
+      tooltip: '#666666',
+      warning: '',
+      focused: '',
+      success: '',
+      error: '',
+    },
+    border: {
+      primary: '#333333',
+      info: '',
+      success: '',
+      processing: '',
+      error: '',
+      highlight: '',
+      warning: '',
+      normal: '',
+    },
+  },
+};
+export default darkMode;
