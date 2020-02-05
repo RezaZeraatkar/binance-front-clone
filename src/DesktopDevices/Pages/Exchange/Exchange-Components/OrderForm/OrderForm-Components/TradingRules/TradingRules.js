@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Popover } from 'antd';
 import styled from 'styled-components';
+
+// custom components
+import Popover from '../../../../../../UI/Popover/Popover';
 
 const StyledTradingRules = styled.div`
   position: absolute;
@@ -60,7 +62,7 @@ const content = (
         <div>3200 BTC</div>
       </div>
       <div>
-        <Link to="" style={{ color: '#f0b90b' }}>
+        <Link to="/trade-rule" style={{ color: '#f0b90b' }}>
           View More >
         </Link>
       </div>

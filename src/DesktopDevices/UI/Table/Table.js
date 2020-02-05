@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Tooltip } from 'antd';
 import styled from 'styled-components';
-import Scrollbars from 'react-custom-scrollbars';
 import PropTypes from 'prop-types';
+
+// styled components
+import Scrollbar from '../Scrollbar/Scrollbar';
 
 const StyledTooltip = styled(Tooltip)`
   & .ant-tooltip-open {
@@ -67,17 +69,6 @@ const StyledTable = styled.div`
   flex-direction: column;
   color: ${props => props.theme.colors.font.primary};
   box-sizing: border-box;
-  & .react-custom-scrollbars-thumb-vertical {
-    background-color: ${props => props.theme.colors.background.scrollTrack};
-  }
-  & .react-custom-scrollbars-track-vertical {
-    background-color: ${props =>
-      props.theme.colors.background.scrollThumb} !important;
-    width: 5px !important;
-    height: 100%;
-    right: 0px;
-    top: 0px;
-  }
 `;
 
 const Thead = styled.div`
@@ -155,16 +146,12 @@ const VolumeIndicator = styled.div`
 class Table extends Component {
   constructor(props) {
     super(props);
-    this.scrollbars = React.createRef();
     this.state = {
       from: 0,
       to: 0,
-      mounted: false,
     };
     this.onRowClickedHandler.bind(this);
     this.onRowHoverHandler.bind(this);
-    this.renderThumbVertical.bind(this);
-    this.renderTrackVertical.bind(this);
   }
 
   onRowClickedHandler = (data, rowIndex) => {
@@ -213,25 +200,6 @@ class Table extends Component {
     console.log(position);
   }
 
-  renderThumbVertical({ style, ...props }) {
-    return (
-      <div
-        {...props}
-        style={{ ...style }}
-        className="react-custom-scrollbars-thumb-vertical"
-      />
-    );
-  }
-  renderTrackVertical({ style, ...props }) {
-    return (
-      <div
-        {...props}
-        style={{ ...style }}
-        className="react-custom-scrollbars-track-vertical"
-      />
-    );
-  }
-
   render() {
     const {
       columns,
@@ -244,7 +212,7 @@ class Table extends Component {
     } = this.props;
     const { from, to } = this.state;
     return (
-      <StyledTable scrollToBottom={scrollToBottom}>
+      <StyledTable>
         {title ? title() : null}
         <Thead header={header}>
           <Tr>
@@ -253,14 +221,12 @@ class Table extends Component {
             ))}
           </Tr>
         </Thead>
-        <Scrollbars
+        <Scrollbar
           autoHeight
           autoHeightMin={437}
           autoHeightMax={880}
-          renderThumbVertical={this.renderThumbVertical}
-          renderTrackVertical={this.renderTrackVertical}
           hideTracksWhenNotNeeded
-          ref="scrollbars"
+          scrolltobottom={scrollToBottom}
         >
           <Tbody
             from={from}
@@ -300,20 +266,10 @@ class Table extends Component {
               );
             })}
           </Tbody>
-        </Scrollbars>
+        </Scrollbar>
         {footer ? footer() : null}
       </StyledTable>
     );
-  }
-
-  componentDidMount() {
-    let { scrollbars } = this.refs;
-    if (this.props.scrollToBottom) {
-      scrollbars.scrollToBottom();
-    }
-    this.setState({
-      mounted: true,
-    });
   }
 }
 

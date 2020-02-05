@@ -8,6 +8,7 @@ import { Row } from 'antd';
 import InfoBar from './Exchange-Components/InfoBar/InfoBar';
 import Chart from './Exchange-Components/Chart/Chart';
 import OrderForm from './Exchange-Components/OrderForm/OrderForm';
+import RecentMarketActivity from './Exchange-Components/RecentMarketActivity/RecentMarketActivity';
 
 // Exchange-Containers
 import DailyStatsContainer from './Exchange-Containers/DailyStats-Container/dailyStats-Container';
@@ -84,7 +85,9 @@ class Exchange extends Component {
                 <Row>
                   <TradeHistoryContainer />
                 </Row>
-                <Row>recent market activity</Row>
+                <Row>
+                  <RecentMarketActivity />
+                </Row>
               </ExchangeRightContent>
             </ExchangeContent>
             {/* open orders   |    my 24h order history */}

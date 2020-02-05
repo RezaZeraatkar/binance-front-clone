@@ -3,7 +3,7 @@ const lightMode = {
     font: {
       primary: '#333333',
       info: '#999999',
-      tooltip: '#000000',
+      tooltip: '#ffffff',
       success: '',
       processing: '',
       error: '',

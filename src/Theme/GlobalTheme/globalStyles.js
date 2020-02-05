@@ -41,6 +41,11 @@ export const GlobalStyles = createGlobalStyle`
       width: auto !important;
     }
   }
+  & .popover-recent-market-activity-overlay .ant-popover-inner-content{
+    font-size: 12px;
+    padding: 12px 15px !important;
+    color: ${props => props.theme.colors.font.primary}
+  }
 
   /* ToolTip */
   & .ant-tooltip-inner {

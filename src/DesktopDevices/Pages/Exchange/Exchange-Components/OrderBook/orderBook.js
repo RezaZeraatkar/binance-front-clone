@@ -15,6 +15,23 @@ import TabsWrapper from '../../../../UI/Tabs/TabsWrapper';
 import ordersSvg from '../../../../assets/ordersSvg.svg';
 import asksSvg from '../../../../assets/asksSvg.svg';
 import bidsSvg from '../../../../assets/bidsSvg.svg';
+import styled from 'styled-components';
+
+function Svg({ children }) {
+  const Wrapper = styled.span`
+    height: 22px;
+    & input {
+      height: 22px;
+      width: 30px;
+      padding: 1px;
+      margin-bottom: 3px;
+      :focus {
+        outline: none;
+      }
+    }
+  `;
+  return <Wrapper>{children}</Wrapper>;
+}
 
 const { TabPane } = Tabs;
 
@@ -28,12 +45,9 @@ export default function orderBook({ orderBookData, dailyStatsData }) {
       <Tabs onChange={callback} type="card" defaultActiveKey="1">
         <TabPane
           tab={
-            <input
-              type="image"
-              src={ordersSvg}
-              alt="orders"
-              style={{ height: '22px', width: '30px' }}
-            />
+            <Svg>
+              <input type="image" src={ordersSvg} alt="orders" />
+            </Svg>
           }
           key="1"
         >
@@ -58,12 +72,9 @@ export default function orderBook({ orderBookData, dailyStatsData }) {
         </TabPane>
         <TabPane
           tab={
-            <input
-              type="image"
-              src={asksSvg}
-              alt="asks"
-              style={{ height: '22px', width: '30px' }}
-            />
+            <Svg>
+              <input type="image" src={asksSvg} alt="asks" />
+            </Svg>
           }
           key="2"
         >
@@ -81,12 +92,9 @@ export default function orderBook({ orderBookData, dailyStatsData }) {
         </TabPane>
         <TabPane
           tab={
-            <input
-              type="image"
-              src={bidsSvg}
-              alt="bids"
-              style={{ height: '22px', width: '30px' }}
-            />
+            <Svg>
+              <input type="image" src={bidsSvg} alt="asks" />
+            </Svg>
           }
           key="3"
         >
@@ -100,7 +108,7 @@ export default function orderBook({ orderBookData, dailyStatsData }) {
               noScroll
               fixedFooter
               header={true}
-              scrollToBottom={true}
+              scrollToBottom="true"
             />
           </OrderBookWrapper>
         </TabPane>

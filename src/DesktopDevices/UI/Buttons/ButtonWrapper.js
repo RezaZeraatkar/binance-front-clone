@@ -11,6 +11,9 @@ const ButtonWrapper = styled.div`
     border: 1px solid ${props => props.theme.colors.border.primary};
     background-color: ${props => props.theme.colors.background.primary};
     color: ${props => props.theme.colors.font.primary};
+    :focus {
+      background-color: unset !important;
+    }
     :not(:last-child) {
       margin-right: 3px;
     }
