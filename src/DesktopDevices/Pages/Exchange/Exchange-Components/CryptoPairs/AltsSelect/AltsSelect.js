@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import StyledSelect from '../../../../../UI/Select/StyledSelect';
 
@@ -6,13 +6,12 @@ import StyledSelect from '../../../../../UI/Select/StyledSelect';
 //   console.log(`selected ${value}`);
 // }
 
-const { Option } = StyledSelect;
+// const { Option } = StyledSelect;
 
 export default function AltsSelect({ altsData }) {
-  let [options, setActiveOption] = useState(altsData);
-  console.log('ALTSDATA: ', altsData);
+  // let [options, setActiveOption] = useState(altsData);
   return (
-    <StyledSelect defaultValue="ALTS" size="small">
+    <StyledSelect defaultValue="ALTS" size="small" className="active-select">
       {/* {options.map(item => (
         <Option key={item} value={item}>
           {item}

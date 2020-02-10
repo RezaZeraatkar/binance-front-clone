@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 // Components
 import PairsTable from '../PairsTable/PairsTable';
+import pairsDataLoader from '../pairsDataLoader/pairsDataLoader';
 
-export default function BNB ({ bnbData }) {
-  return <PairsTable data={bnbData['0']} />;
+export default function BNB({ bnbData }) {
+  // Prepare data for pairs table
+  const data = useMemo(() => pairsDataLoader(bnbData), [bnbData]);
+  return <PairsTable data={data} />;
 }

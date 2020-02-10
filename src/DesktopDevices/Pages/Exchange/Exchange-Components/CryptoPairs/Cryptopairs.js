@@ -36,49 +36,50 @@ export default class Cryptopairs extends Component {
 
   render() {
     const { pairsData } = this.props;
-    console.log('[pairsData]: ', this.state);
     const isLoading = Object.keys(pairsData).length === 0;
 
     return (
-      <TabsWrapper className="tabs-wrapper" flex="100%">
-        <Tabs onChange={this.callback} type="card" defaultActiveKey="3">
-          <TabPane
-            tab={<FavoriteTabIcon isfavorite={`${this.state.isFavorite}`} />}
-            key="1"
-          >
-            <WithLoading isLoading={isLoading}>
-              <Favorites favorites={this.state.favorites} />
-            </WithLoading>
-          </TabPane>
-          <TabPane tab="BNB" key="2">
-            <WithLoading isLoading={isLoading}>
-              <BNB bnbData={pairsData} />
-            </WithLoading>
-          </TabPane>
-          <TabPane tab="BTC" key="3">
-            <WithLoading isLoading={isLoading}>
-              <BTC btcData={pairsData} />
-            </WithLoading>
-          </TabPane>
-          <TabPane
-            tab={
-              <div>
-                <AltsSelect altsData={pairsData} />
-              </div>
-            }
-            key="4"
-          >
-            <WithLoading isLoading={isLoading}>
-              <ALTS altsData={pairsData} />
-            </WithLoading>
-          </TabPane>
-          <TabPane tab={<UsdSelect usdData={pairsData} />} key="5">
-            <WithLoading isLoading={isLoading}>
-              <USD usdData={pairsData} />
-            </WithLoading>
-          </TabPane>
-        </Tabs>
-      </TabsWrapper>
+      <div id="custom-tab">
+        <TabsWrapper className="tabs-wrapper" flex="100%">
+          <Tabs onChange={this.callback} type="card" defaultActiveKey="3">
+            <TabPane
+              tab={<FavoriteTabIcon isfavorite={`${this.state.isFavorite}`} />}
+              key="1"
+            >
+              <WithLoading isLoading={isLoading}>
+                <Favorites favorites={this.state.favorites} />
+              </WithLoading>
+            </TabPane>
+            <TabPane tab="BNB" key="2">
+              <WithLoading isLoading={isLoading}>
+                <BNB bnbData={pairsData[0]} />
+              </WithLoading>
+            </TabPane>
+            <TabPane tab="BTC" key="3">
+              <WithLoading isLoading={isLoading}>
+                <BTC btcData={pairsData[1]} />
+              </WithLoading>
+            </TabPane>
+            <TabPane
+              tab={
+                <div>
+                  <AltsSelect altsData={pairsData[2]} />
+                </div>
+              }
+              key="4"
+            >
+              <WithLoading isLoading={isLoading}>
+                <ALTS altsData={pairsData[2]} />
+              </WithLoading>
+            </TabPane>
+            <TabPane tab={<UsdSelect usdData={pairsData[3]} />} key="5">
+              <WithLoading isLoading={isLoading}>
+                <USD usdData={pairsData[3]} />
+              </WithLoading>
+            </TabPane>
+          </Tabs>
+        </TabsWrapper>
+      </div>
     );
   }
 }

@@ -58,4 +58,7 @@ export const GlobalStyles = createGlobalStyle`
   & .ant-tooltip-arrow::before {
     background-color: ${props => props.theme.colors.background.tooltip};
   }
+  /* Tabs */
+  /* pairs table select active tabs */
+  
 }`;

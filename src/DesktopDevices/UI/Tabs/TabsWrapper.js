@@ -57,7 +57,6 @@ const TabsWrapper = styled.div`
     }
     & .ant-tabs-tab-active {
       outline: 0px !important;
-      height: 22px !important;
       color: #f0b90b !important;
       border: 1px solid #f0b90b !important;
       border-radius: 0px 0px 0px 0px;

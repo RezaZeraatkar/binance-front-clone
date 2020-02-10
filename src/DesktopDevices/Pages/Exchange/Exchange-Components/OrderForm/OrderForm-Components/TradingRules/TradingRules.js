@@ -21,6 +21,7 @@ const Contnet = styled.div`
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    flex: 0 0 100%;
     /* Row */
     & > div {
       display: flex;

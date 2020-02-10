@@ -31,10 +31,16 @@ const Content = styled.div`
 
 export default function Collapse({ title, content, onPanelClick }) {
   const [open, setOpen] = useState(false);
-  const [visibleContent, setVisibleContent] = useState(content.splice(0, 2));
-  const [inCollapseContent, setInCollapseContent] = useState(content.splice(3));
+  const [visibleContent, setVisibleContent] = useState(content.slice(0, 2));
+  const [inCollapseContent, setInCollapseContent] = useState(content.slice(3));
   function handleCollapseToggle() {
-    setOpen(!open);
+    if (open) {
+      setInCollapseContent(content.slice(3));
+      setOpen(!open);
+    } else {
+      setVisibleContent(content.slice(0, 2));
+      setOpen(!open);
+    }
   }
 
   return (

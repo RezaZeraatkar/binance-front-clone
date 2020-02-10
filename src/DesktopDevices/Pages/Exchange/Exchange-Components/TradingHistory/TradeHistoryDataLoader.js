@@ -5,13 +5,13 @@ import React from 'react';
 import TimeFormatter from '../../../../UI/Time/TimeFormatter';
 // import ColorizedText from '../../../../../../UI/Typography/Text/ColorizedText';
 
-function tradeHistoryDataLoader (data) {
+function tradeHistoryDataLoader(data) {
   if (Object.keys(data).length !== 0) {
-    const tableRow = Object.values(data).map(matchedPrice => {
+    const tableRow = Object.values(data).map((matchedPrice, idx) => {
       return {
-        key: `${matchedPrice.id}`,
+        key: idx,
         price: matchedPrice.price,
-        qty: matchedPrice.qty,
+        amount: matchedPrice.qty,
         time: <TimeFormatter time={matchedPrice.time} />,
       };
     });

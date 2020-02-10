@@ -5,9 +5,9 @@ import styled from 'styled-components';
 // Custom Components
 import Collapse from '../../../../UI/Collapse/Collapse';
 import Popover from '../../../../UI/Popover/Popover';
+import { Title } from '../../../../UI/Typography/Header/Headers';
 
 const StyledRenderMarketActivity = styled.div`
-  margin-top: 10px;
   border-top: 0;
   border-left: 0;
   border-right: 0;
@@ -50,11 +50,9 @@ function MockDataMaker() {
   return mockData;
 }
 
-const Title = (
+const HistoryTitle = (
   <span style={{ display: 'flex', alignItems: 'center' }}>
-    <span style={{ marginRight: '5px', fontWeight: 'bold' }}>
-      Recent Market Activity
-    </span>
+    <Title>Recent Market Activity</Title>
     <Popover
       content="Notable movements in recent market activity shown below."
       overlayClassName="popover-recent-market-activity-overlay"
@@ -97,7 +95,7 @@ function RecentMarketActivity() {
   return (
     <StyledRenderMarketActivity>
       <Collapse
-        title={Title}
+        title={HistoryTitle}
         content={ContentMaker(mockData)}
         onPanelClick={onPanelClick}
       ></Collapse>

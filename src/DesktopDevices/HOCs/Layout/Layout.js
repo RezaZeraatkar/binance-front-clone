@@ -15,8 +15,10 @@ export default function Layout({ children }) {
       <Header>
         <NavHeader />
       </Header>
-      <Content style={{ userSelect: 'none' }}>{children}</Content>
-      <Footer>Footer</Footer>
+      <Content style={{ userSelect: 'none', minWidth: '1349px' }}>
+        {children}
+      </Content>
+      <Footer style={{ minWidth: '1349px' }}>Footer</Footer>
     </StyledLayout>
   );
 }

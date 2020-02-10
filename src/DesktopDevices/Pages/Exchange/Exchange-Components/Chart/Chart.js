@@ -11,11 +11,11 @@ export default class Chart extends Component {
           display: 'flex',
         }}
       >
-        <img
+        {/* <img
           src={ChartPic}
           alt="chart temp pic"
           style={{ width: '100%', height: 'auto' }}
-        />
+        /> */}
       </div>
     );
   }

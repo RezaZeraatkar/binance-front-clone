@@ -1,12 +1,12 @@
 import React from 'react';
 // import numeral from 'numeral';
 
-import FavoriteIcon from '../FavoriteIcon';
+import FavoriteIcon from './FavoriteIcon';
 
 // // Styles
 // import ColorizedText from '../../../../../../UI/Typography/Text/ColorizedText';
 
-function pairsDataLoader (data) {
+function pairsDataLoader(data) {
   let allPairs = [];
   const tableRow = Object.keys(data).map(symbol => {
     if (symbol === 'ALTS' || symbol === 'USD') {
@@ -15,7 +15,13 @@ function pairsDataLoader (data) {
       });
       return allPairs.map(pair => ({
         key: `${pair.symbol}`,
-        favorite: <FavoriteIcon id={pair.symbol} />,
+        favorites: (
+          <FavoriteIcon
+            id={pair.symbol}
+            symbol={pair.symbol}
+            isFavorite={pair.isFavorite}
+          />
+        ),
         pair: `${pair.symbol}`,
         price: pair.lastPrice,
         change: pair.priceChangePercent,
@@ -24,7 +30,13 @@ function pairsDataLoader (data) {
       return data[symbol].map(pair => {
         return {
           key: `${pair.symbol}`,
-          favorite: <FavoriteIcon id={pair.symbol} />,
+          favorites: (
+            <FavoriteIcon
+              id={pair.symbol}
+              symbol={pair.symbol}
+              isFavorite={pair.isFavorite}
+            />
+          ),
           pair: `${pair.symbol}`,
           price: pair.lastPrice,
           change: pair.priceChangePercent,

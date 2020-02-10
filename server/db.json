@@ -4,7 +4,7 @@
       "BNB": [
         {
           "symbol": "ADABNB",
-          "isFavorite": "false",
+          "isFavorite": "true",
           "priceChange": "0.00004400",
           "priceChangePercent": "1.857",
           "weightedAvgPrice": "0.00242360",
