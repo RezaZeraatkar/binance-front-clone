@@ -8,7 +8,20 @@ import './index.css';
 import DesktopApp from './DesktopDevices/DesktopApp';
 import * as serviceWorker from './serviceWorker';
 
-const store = configureStore();
+const getPersitedThemeMode = () => {
+  const themeMode = window.localStorage.getItem('theme') || 'LIGHT_MODE';
+  return themeMode;
+};
+
+const persistedState = {
+  uiState: {
+    theme: {
+      themeMode: getPersitedThemeMode(),
+    },
+  },
+};
+
+const store = configureStore(persistedState);
 
 ReactDOM.render(
   <Provider store={store}>
