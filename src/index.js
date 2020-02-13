@@ -6,17 +6,13 @@ import configureStore from './ReduxStore/ConfigureStore';
 import './index.css';
 // import MobileApp from './MobileDevices/MobileApp';
 import DesktopApp from './DesktopDevices/DesktopApp';
+import loadPersistedState from './DesktopDevices/utils/loadPersistedState';
 import * as serviceWorker from './serviceWorker';
-
-const getPersitedThemeMode = () => {
-  const themeMode = window.localStorage.getItem('theme') || 'LIGHT_MODE';
-  return themeMode;
-};
 
 const persistedState = {
   uiState: {
     theme: {
-      themeMode: getPersitedThemeMode(),
+      themeMode: loadPersistedState(),
     },
   },
 };

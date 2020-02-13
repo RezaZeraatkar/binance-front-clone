@@ -31,16 +31,6 @@ import ExchangeRightContent from './StyledExchange/ExchangeRightContent';
 import ChartAndFormsWrapper from './StyledExchange/ChartAndFormsWrapper';
 
 class Exchange extends Component {
-  componentDidMount() {
-    // set theme mode on initial render (theme is equal to either LIGHT_MODE or DARK_MODE)
-    let theme = window.localStorage.getItem('theme');
-    if (theme) {
-      this.props.dispatchThemeProvider(theme);
-    } else {
-      // if mode not available on localStorage
-      this.props.dispatchThemeProvider('LIGHT_MODE');
-    }
-  }
   render() {
     const themeMode =
       this.props.themeMode === 'LIGHT_MODE' ? lightMode : darkMode;
