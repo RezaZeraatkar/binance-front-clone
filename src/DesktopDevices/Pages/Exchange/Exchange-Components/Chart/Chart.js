@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ChartPic from '../../../../assets/chartpic.png';
 
 export default class Chart extends Component {
   render() {

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Tabs } from 'antd';
+import styled from 'styled-components';
 
 // Components
 import Favorites from '../../Exchange-Components/CryptoPairs/Favorites/Favorites';
@@ -15,24 +16,48 @@ import UsdSelect from './Usd$Select/Usd$Select';
 import TabsWrapper from '../../../../UI/Tabs/TabsWrapper';
 import FavoriteTabIcon from '../../../../UI/Icon/FavoriteTabIcon';
 
+const CustomizeTabs = styled.div`
+  & div .ant-tabs-tab-active {
+    :nth-child(5) {
+      border: 0px !important;
+    }
+    :nth-child(4) {
+      border: 0px !important;
+    }
+  }
+`;
+
 const { TabPane } = Tabs;
 
 export default class Cryptopairs extends Component {
-  state = {
-    favorites: [],
-    isfavorite: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      favorites: [],
+      isfavorite: false,
+      activeSelect: null,
+    };
+    this.onActiveSelectHandler.bind(this);
+  }
 
   callback = key => {
     // change favorite color if selected
     if (key === '1') {
-      console.log(key);
       this.setState({ isFavorite: true });
     } else {
-      console.log(key);
       this.setState({ isFavorite: false });
     }
+    // change active class from select options
+    if (key < 4) {
+      this.setState({ activeSelect: false });
+    }
   };
+
+  onActiveSelectHandler(activeTab) {
+    // activeTab<Number>
+    // select border on active option
+    this.setState({ activeSelect: activeTab });
+  }
 
   render() {
     const { pairsData } = this.props;
@@ -41,43 +66,56 @@ export default class Cryptopairs extends Component {
     return (
       <div id="custom-tab">
         <TabsWrapper className="tabs-wrapper" flex="100%">
-          <Tabs onChange={this.callback} type="card" defaultActiveKey="3">
-            <TabPane
-              tab={<FavoriteTabIcon isfavorite={`${this.state.isFavorite}`} />}
-              key="1"
-            >
-              <WithLoading isLoading={isLoading}>
-                <Favorites favorites={this.state.favorites} />
-              </WithLoading>
-            </TabPane>
-            <TabPane tab="BNB" key="2">
-              <WithLoading isLoading={isLoading}>
-                <BNB bnbData={pairsData[0]} />
-              </WithLoading>
-            </TabPane>
-            <TabPane tab="BTC" key="3">
-              <WithLoading isLoading={isLoading}>
-                <BTC btcData={pairsData[1]} />
-              </WithLoading>
-            </TabPane>
-            <TabPane
-              tab={
-                <div>
-                  <AltsSelect altsData={pairsData[2]} />
-                </div>
-              }
-              key="4"
-            >
-              <WithLoading isLoading={isLoading}>
-                <ALTS altsData={pairsData[2]} />
-              </WithLoading>
-            </TabPane>
-            <TabPane tab={<UsdSelect usdData={pairsData[3]} />} key="5">
-              <WithLoading isLoading={isLoading}>
+          <CustomizeTabs>
+            <Tabs onChange={this.callback} type="card" defaultActiveKey="3">
+              <TabPane
+                tab={
+                  <FavoriteTabIcon isfavorite={`${this.state.isFavorite}`} />
+                }
+                key="1"
+              >
+                <WithLoading isLoading={isLoading}>
+                  <Favorites favorites={this.state.favorites} />
+                </WithLoading>
+              </TabPane>
+              <TabPane tab="BNB" key="2">
+                <WithLoading isLoading={isLoading}>
+                  <BNB bnbData={pairsData[0]} />
+                </WithLoading>
+              </TabPane>
+              <TabPane tab="BTC" key="3">
+                <WithLoading isLoading={isLoading}>
+                  <BTC btcData={pairsData[1]} />
+                </WithLoading>
+              </TabPane>
+              <TabPane
+                tab={
+                  <AltsSelect
+                    altsData={pairsData[2]}
+                    active={this.state.activeSelect === 4 ? true : false}
+                    onActiveOption={this.onActiveSelectHandler.bind(this)}
+                  />
+                }
+                key="4"
+              >
+                <WithLoading isLoading={isLoading}>
+                  <ALTS altsData={pairsData[2]} />
+                </WithLoading>
+              </TabPane>
+              <TabPane
+                tab={
+                  <UsdSelect
+                    usdData={pairsData[3]}
+                    active={this.state.activeSelect === 5 ? true : false}
+                    onActiveOption={this.onActiveSelectHandler.bind(this)}
+                  />
+                }
+                key="5"
+              >
                 <USD usdData={pairsData[3]} />
-              </WithLoading>
-            </TabPane>
-          </Tabs>
+              </TabPane>
+            </Tabs>
+          </CustomizeTabs>
         </TabsWrapper>
       </div>
     );

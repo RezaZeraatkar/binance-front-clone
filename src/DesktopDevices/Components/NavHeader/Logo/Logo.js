@@ -7,10 +7,10 @@ const StyledLogo = styled.div`
   font-size: 1rem;
 `;
 
-export default function Logo () {
+export default function Logo() {
   return (
     <StyledLogo>
-      <Link to='/' style={{ color: '#F0B91C' }}>
+      <Link to="/" style={{ color: '#F0B91C', outline: 'none' }}>
         BINANCE
       </Link>
     </StyledLogo>

@@ -2,6 +2,8 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
   body {
+    /* Body */
+    background-color: ${props => props.theme.colors.background.primary};
     /* HEADER LAUOUT */
     & .ant-layout-header {
       background-color: ${props =>
@@ -46,7 +48,12 @@ export const GlobalStyles = createGlobalStyle`
     padding: 12px 15px !important;
     color: ${props => props.theme.colors.font.primary}
   }
-
+  & .popover-password-info .ant-popover-inner-content {
+    padding: 0 !important;
+    & p {
+      margin: 0;
+    }
+  }
   /* ToolTip */
   & .ant-tooltip-inner {
     background-color: ${props => props.theme.colors.background.tooltip};

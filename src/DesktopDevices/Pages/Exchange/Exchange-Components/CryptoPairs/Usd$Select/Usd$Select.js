@@ -1,20 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import StyledSelect from '../../../../../UI/Select/StyledSelect';
-import { func } from 'prop-types';
-
-// function handleChange (value) {
-//   console.log(`selected ${value}`);
-// }
 
 const { Option } = StyledSelect;
 
-export default function Usd$Select({ usdData }) {
+export default function Usd$Select({ usdData, active, onActiveOption }) {
   // console.log('[USDDATA]: ', usdData['3']);
   // const ALTSData = usdData['3'];
+  function handleChange(value) {
+    const selectedTab = 5;
+    onActiveOption(selectedTab);
+  }
 
   return (
-    <StyledSelect defaultValue="USD$" size="small" className="active-select">
+    <StyledSelect
+      defaultValue="USD$"
+      size="small"
+      active={active}
+      onSelect={handleChange}
+    >
       <Option value="USD$">USD$</Option>
       <Option value="USDT">USDT</Option>
       <Option value="BUSD">BUSD</Option>

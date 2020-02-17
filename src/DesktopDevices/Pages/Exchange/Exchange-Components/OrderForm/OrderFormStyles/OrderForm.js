@@ -10,6 +10,7 @@ const OrderForm = styled.div`
   flex: 1 1 100%;
   margin: 15px 0px;
   padding: 0px 26px;
+
   &:first-child {
     border-right: 1px solid ${props => props.theme.colors.border.primary};
   }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 // Components
@@ -94,7 +94,7 @@ export default function Table({ columns, data, showHeader }) {
   const [filteredData, setFilteredData] = useState([]);
   useEffect(() => {
     setFilteredData(data);
-  }, []);
+  }, [data]);
 
   // filter based on Search input
   const [filterSearchInput, setFilterSearchInput] = useState('');
@@ -132,10 +132,11 @@ export default function Table({ columns, data, showHeader }) {
         const val2 = b[column].toLowerCase();
         if (val1 < val2) {
           return -1;
-        } else {
+        } else if (val1 > val2) {
           return 1;
+        } else {
+          return 0;
         }
-        return 0;
       } else {
         // for other columns which are type of number
         return a[column] - b[column];
