@@ -10,6 +10,13 @@ export const Footer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  flex-wrap: wrap;
+
+  & > div {
+    :not(:last-child) {
+      margin: 0 25px;
+    }
+  }
 `;
 
 export const FooterTitle = styled.div`
@@ -37,7 +44,7 @@ export const StyledLink = styled(Link)`
   }
 `;
 
-export const Right = styled.div`
+export const Rights = styled.div`
   display: flex;
   align-items: center;
   color: #848e9c;

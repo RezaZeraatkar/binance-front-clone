@@ -11,7 +11,7 @@ import {
   FooterCol,
   StyledLink,
   Footer,
-  Right,
+  Rights,
 } from './Styles/StyledFooter';
 
 // footer text data
@@ -35,7 +35,7 @@ export default function NavFooter() {
         ))}
         <Community />
       </Footer>
-      <Right>© 2017 - 2020 Binance.com. All rights reserved</Right>
+      <Rights>© 2017 - 2020 Binance.com. All rights reserved</Rights>
     </FooterWrapper>
   );
 }
