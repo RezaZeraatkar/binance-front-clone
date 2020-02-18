@@ -57,7 +57,7 @@ const menuItems = (
   </Menu>
 );
 
-export default function Currency () {
+export default function Currency() {
   return (
     <Dropdown overlay={menuItems}>
       <StyledDropDown>
@@ -77,7 +77,7 @@ export default function Currency () {
             <div style={{ paddingRight: '8px', display: 'inline-block' }}>
               EUR
             </div>
-            <Icon type='down' style={{ margin: '0' }} />
+            <Icon type="down" style={{ margin: '0' }} />
           </div>
         </StyledSelcetedOption>
       </StyledDropDown>

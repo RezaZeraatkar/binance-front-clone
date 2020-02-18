@@ -7,8 +7,6 @@ const SelcetedOption = styled.div({
   minWidth: 0,
   cursor: 'pointer',
   flexShrink: 0,
-  paddingLeft: '8px',
-  paddingRight: '24px',
   height: '48px',
   alignItems: 'center',
   textAlign: 'center',

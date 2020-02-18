@@ -1,11 +1,14 @@
 import styled from 'styled-components';
 
 const MenuWrapper = styled.div`
+  position: relative;
   display: flex;
-  background-color: transparent;
   justify-content: space-between;
-  width: 100%;
+  align-items: center;
   flex: 1 1 100%;
+  width: 100%;
+  background-color: transparent;
+  padding-left: 24px;
   & .ant-menu-item-active a:hover,
   *:hover {
     color: #ccc;
