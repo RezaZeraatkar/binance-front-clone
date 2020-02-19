@@ -90,11 +90,13 @@ export default class Cryptopairs extends Component {
               </TabPane>
               <TabPane
                 tab={
-                  <AltsSelect
-                    altsData={pairsData[2]}
-                    active={this.state.activeSelect === 4 ? true : false}
-                    onActiveOption={this.onActiveSelectHandler.bind(this)}
-                  />
+                  <div>
+                    <AltsSelect
+                      altsData={pairsData[2]}
+                      active={this.state.activeSelect === 4 ? true : false}
+                      onActiveOption={this.onActiveSelectHandler.bind(this)}
+                    />
+                  </div>
                 }
                 key="4"
               >

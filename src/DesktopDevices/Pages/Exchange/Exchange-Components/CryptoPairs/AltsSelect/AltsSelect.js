@@ -6,7 +6,7 @@ import StyledSelect from '../../../../../UI/Select/StyledSelect';
 //   console.log(`selected ${value}`);
 // }
 
-// const { Option } = StyledSelect;
+const { Option } = StyledSelect;
 
 export default function AltsSelect({ altsData, active, onActiveOption }) {
   // let [options, setActiveOption] = useState(altsData);
@@ -19,8 +19,11 @@ export default function AltsSelect({ altsData, active, onActiveOption }) {
       defaultValue="ALTS"
       size="small"
       active={active}
-      onSelect={handleChange}
+      onFocus={handleChange}
     >
+      <Option key="ALTS" value="ALTS">
+        ALTS
+      </Option>
       {/* {options.map(item => (
         <Option key={item} value={item}>
           {item}

@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 const styledSelect = styled(Select)`
   & .ant-select-selection {
-    ${props => console.log('[from Styled select: ', props.active)}
     border-color: ${props =>
       props.active
         ? props.theme.colors.font.favorite

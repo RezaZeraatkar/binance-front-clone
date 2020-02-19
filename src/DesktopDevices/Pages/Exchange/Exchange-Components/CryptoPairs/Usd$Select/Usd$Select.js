@@ -17,7 +17,7 @@ export default function Usd$Select({ usdData, active, onActiveOption }) {
       defaultValue="USD$"
       size="small"
       active={active}
-      onSelect={handleChange}
+      onFocus={handleChange}
     >
       <Option value="USD$">USD$</Option>
       <Option value="USDT">USDT</Option>

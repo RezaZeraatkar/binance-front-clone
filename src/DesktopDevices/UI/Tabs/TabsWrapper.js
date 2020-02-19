@@ -14,7 +14,7 @@ const TabsWrapper = styled.div`
   & .ant-tabs-bar {
     background-color: ${props => props.theme.colors.background.darkish};
     margin: 0px;
-    height: 35px;
+    height: 30px;
     font-size: 12px;
     padding: 4px;
     border-bottom: 0px;
