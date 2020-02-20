@@ -4,21 +4,12 @@ import StyledSelect from '../../../../../UI/Select/StyledSelect';
 
 const { Option } = StyledSelect;
 
-export default function Usd$Select({ usdData, active, onActiveOption }) {
+export default function Usd$Select({ usdData, active }) {
   // console.log('[USDDATA]: ', usdData['3']);
   // const ALTSData = usdData['3'];
-  function handleChange(value) {
-    const selectedTab = 5;
-    onActiveOption(selectedTab);
-  }
 
   return (
-    <StyledSelect
-      defaultValue="USD$"
-      size="small"
-      active={active}
-      onFocus={handleChange}
-    >
+    <StyledSelect defaultValue="USD$" size="small" active={active === '5'}>
       <Option value="USD$">USD$</Option>
       <Option value="USDT">USDT</Option>
       <Option value="BUSD">BUSD</Option>

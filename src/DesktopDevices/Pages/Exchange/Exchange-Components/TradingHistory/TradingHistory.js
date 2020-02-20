@@ -1,9 +1,14 @@
 import React from 'react';
+import styled from 'styled-components';
 
 // Components;
 import TradingHistoryTable from './TradingHistoryTable';
 import TradinHistoryDataLoader from './TradeHistoryDataLoader';
 import { Title } from '../../../../UI/Typography/Header/Headers';
+
+const StyleTradeHistory = styled.div`
+  min-height: 356px;
+`;
 
 function TradeHistory({ tradeHistoryData }) {
   const columns = [
@@ -25,14 +30,14 @@ function TradeHistory({ tradeHistoryData }) {
   ];
 
   return (
-    <>
+    <StyleTradeHistory>
       <Title>Trading History</Title>
       <TradingHistoryTable
         columns={columns}
         data={TradinHistoryDataLoader(tradeHistoryData)}
         showHeader="false"
       />
-    </>
+    </StyleTradeHistory>
   );
 }
 

@@ -16,108 +16,84 @@ import UsdSelect from './Usd$Select/Usd$Select';
 import TabsWrapper from '../../../../UI/Tabs/TabsWrapper';
 import FavoriteTabIcon from '../../../../UI/Icon/FavoriteTabIcon';
 
-const CustomizeTabs = styled.div`
-  & div .ant-tabs-tab-active {
-    :nth-child(5) {
-      border: 0px !important;
-    }
-    :nth-child(4) {
-      border: 0px !important;
-    }
-  }
+const { TabPane } = Tabs;
+
+const Buttons = styled.div`
+  ${props => console.log(props)}
+  display: flex;
+  align-items: center;
+  border: 1px solid
+    ${props => (props.active ? '#f5bc00' : props.theme.colors.border.primary)};
+  color: ${props =>
+    props.active ? '#f5bc00' : props.theme.colors.font.primary};
+  justify-content: center;
 `;
 
-const { TabPane } = Tabs;
+function BnbTab({ active }) {
+  return <Buttons active={active === '2' ? true : false}>BNB</Buttons>;
+}
+
+function BtcTab({ active }) {
+  return <Buttons active={active === '3' ? true : false}>BNB</Buttons>;
+}
 
 export default class Cryptopairs extends Component {
   constructor(props) {
     super(props);
     this.state = {
       favorites: [],
-      isfavorite: false,
-      activeSelect: null,
+      activeKey: '3', // default active tab on first render
     };
-    this.onActiveSelectHandler.bind(this);
   }
 
   callback = key => {
-    // change favorite color if selected
-    if (key === '1') {
-      this.setState({ isFavorite: true });
-    } else {
-      this.setState({ isFavorite: false });
-    }
-    // change active class from select options
-    if (key < 4) {
-      this.setState({ activeSelect: false });
-    }
+    // active state color on tabs change
+    this.setState({ activeKey: key });
   };
-
-  onActiveSelectHandler(activeTab) {
-    // activeTab<Number>
-    // select border on active option
-    this.setState({ activeSelect: activeTab });
-  }
 
   render() {
     const { pairsData } = this.props;
+    const { activeKey } = this.state;
     const isLoading = Object.keys(pairsData).length === 0;
 
     return (
       <div id="custom-tab">
         <TabsWrapper className="tabs-wrapper" flex="100%">
-          <CustomizeTabs>
-            <Tabs onChange={this.callback} type="card" defaultActiveKey="3">
-              <TabPane
-                tab={
-                  <FavoriteTabIcon isfavorite={`${this.state.isFavorite}`} />
-                }
-                key="1"
-              >
-                <WithLoading isLoading={isLoading}>
-                  <Favorites favorites={this.state.favorites} />
-                </WithLoading>
-              </TabPane>
-              <TabPane tab="BNB" key="2">
-                <WithLoading isLoading={isLoading}>
-                  <BNB bnbData={pairsData[0]} />
-                </WithLoading>
-              </TabPane>
-              <TabPane tab="BTC" key="3">
-                <WithLoading isLoading={isLoading}>
-                  <BTC btcData={pairsData[1]} />
-                </WithLoading>
-              </TabPane>
-              <TabPane
-                tab={
-                  <div>
-                    <AltsSelect
-                      altsData={pairsData[2]}
-                      active={this.state.activeSelect === 4 ? true : false}
-                      onActiveOption={this.onActiveSelectHandler.bind(this)}
-                    />
-                  </div>
-                }
-                key="4"
-              >
-                <WithLoading isLoading={isLoading}>
-                  <ALTS altsData={pairsData[2]} />
-                </WithLoading>
-              </TabPane>
-              <TabPane
-                tab={
-                  <UsdSelect
-                    usdData={pairsData[3]}
-                    active={this.state.activeSelect === 5 ? true : false}
-                    onActiveOption={this.onActiveSelectHandler.bind(this)}
-                  />
-                }
-                key="5"
-              >
-                <USD usdData={pairsData[3]} />
-              </TabPane>
-            </Tabs>
-          </CustomizeTabs>
+          <Tabs type="card" onTabClick={this.callback}>
+            <TabPane tab={<FavoriteTabIcon active={activeKey} />} key="1">
+              <WithLoading isLoading={isLoading}>
+                <Favorites favorites={this.state.favorites} />
+              </WithLoading>
+            </TabPane>
+            <TabPane tab={<BnbTab active={activeKey} />} key="2">
+              <WithLoading isLoading={isLoading}>
+                <BNB bnbData={pairsData[0]} />
+              </WithLoading>
+            </TabPane>
+            <TabPane tab={<BtcTab active={activeKey} />} key="3">
+              <WithLoading isLoading={isLoading}>
+                <BTC btcData={pairsData[1]} />
+              </WithLoading>
+            </TabPane>
+            <TabPane
+              tab={
+                <div>
+                  <AltsSelect altsData={pairsData[2]} active={activeKey} />
+                </div>
+              }
+              key="4"
+            >
+              <WithLoading isLoading={isLoading}>
+                <ALTS altsData={pairsData[2]} />
+              </WithLoading>
+            </TabPane>
+            <TabPane
+              tab={<UsdSelect usdData={pairsData[3]} active={activeKey} />}
+              key="5"
+            >
+              <USD usdData={pairsData[3]} />
+            </TabPane>
+          </Tabs>
         </TabsWrapper>
       </div>
     );

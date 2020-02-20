@@ -8,19 +8,9 @@ import StyledSelect from '../../../../../UI/Select/StyledSelect';
 
 const { Option } = StyledSelect;
 
-export default function AltsSelect({ altsData, active, onActiveOption }) {
-  // let [options, setActiveOption] = useState(altsData);
-  function handleChange(value) {
-    const selectedTab = 4;
-    onActiveOption(selectedTab);
-  }
+export default function AltsSelect({ altsData, active }) {
   return (
-    <StyledSelect
-      defaultValue="ALTS"
-      size="small"
-      active={active}
-      onFocus={handleChange}
-    >
+    <StyledSelect defaultValue="ALTS" size="small" active={active === '4'}>
       <Option key="ALTS" value="ALTS">
         ALTS
       </Option>

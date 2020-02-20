@@ -9,11 +9,9 @@ const OrderFormsContainer = styled.div`
   & .top-tab {
     & .ant-tabs-bar {
       margin-bottom: 0;
-      border-bottom: 1px solid ${props => props.theme.colors.border.primary} !important;
       background-color: ${props => props.theme.colors.background.primary};
     }
   }
-
   & .ant-tabs-tab {
     border: 1px solid ${props => props.theme.colors.border.primary} !important;
     color: ${props => props.theme.colors.font.primary} !important;
@@ -26,7 +24,6 @@ const OrderFormsContainer = styled.div`
     border-bottom: 0px !important;
     border-radius: 0px !important;
   }
-
   /* Inner Tabs -- Limit, market, stop limit */
 
   & .order-form-tabs-container {

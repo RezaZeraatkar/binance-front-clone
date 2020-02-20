@@ -8,9 +8,9 @@ import OrderFormsWrapper from '../../OrderFormStyles/OrderFormsWrapper';
 import OrderForms from '../../OrderFormStyles/OrderForms';
 import OrderForm from '../../OrderFormStyles/OrderForm';
 
-export default function Form ({ whichForm }) {
+export default function Form({ whichForm }) {
   return (
-    <OrderFormsWrapper className='order-forms-wrapper'>
+    <OrderFormsWrapper className="order-forms-wrapper">
       <OrderForms>
         <OrderForm>
           <BuyOrderForm whichForm={whichForm} />

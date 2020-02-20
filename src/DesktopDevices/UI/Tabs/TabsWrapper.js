@@ -44,7 +44,7 @@ const TabsWrapper = styled.div`
       padding: 0 !important;
       background-color: ${props =>
         props.theme.colors.background.primary} !important;
-      border: 1px solid ${props => props.theme.colors.border.primary} !important;
+      border: 0px !important;
       font-size: 12px;
       color: ${props => props.theme.colors.font.primary};
       border-radius: 0px !important;
@@ -58,7 +58,6 @@ const TabsWrapper = styled.div`
     & .ant-tabs-tab-active {
       outline: none !important;
       color: #f0b90b !important;
-      border: 1px solid #f0b90b !important;
       border-radius: 0px 0px 0px 0px;
     }
   }
