@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Tabs } from 'antd';
 // import { Scrollbars } from 'react-custom-scrollbars';
 
@@ -16,6 +16,11 @@ import ordersSvg from '../../../../assets/ordersSvg.svg';
 import asksSvg from '../../../../assets/asksSvg.svg';
 import bidsSvg from '../../../../assets/bidsSvg.svg';
 import styled from 'styled-components';
+
+const SvgWrraper = styled.div`
+  border: 1px solid
+    ${props => (props.active ? '#f5bc00' : props.theme.colors.border.primary)};
+`;
 
 function Svg({ children }) {
   const Wrapper = styled.span`
@@ -35,19 +40,22 @@ function Svg({ children }) {
 
 const { TabPane } = Tabs;
 
-function callback(key) {
-  // console.log(key);
-}
+const OrderBook = ({ orderBookData, dailyStatsData }) => {
+  const [activeKey, setActiveKey] = useState('1');
+  function callback(key) {
+    setActiveKey(key);
+  }
 
-export default function orderBook({ orderBookData, dailyStatsData }) {
   return (
     <TabsWrapper className="tabs-wrapper">
-      <Tabs onChange={callback} type="card" defaultActiveKey="1">
+      <Tabs onChange={callback} type="card" defaultActiveKey={activeKey}>
         <TabPane
           tab={
-            <Svg>
-              <input type="image" src={ordersSvg} alt="orders" />
-            </Svg>
+            <SvgWrraper active={activeKey === '1'}>
+              <Svg>
+                <input type="image" src={ordersSvg} alt="orders" />
+              </Svg>
+            </SvgWrraper>
           }
           key="1"
         >
@@ -72,9 +80,11 @@ export default function orderBook({ orderBookData, dailyStatsData }) {
         </TabPane>
         <TabPane
           tab={
-            <Svg>
-              <input type="image" src={asksSvg} alt="asks" />
-            </Svg>
+            <SvgWrraper active={activeKey === '2'}>
+              <Svg>
+                <input type="image" src={asksSvg} alt="asks" />
+              </Svg>
+            </SvgWrraper>
           }
           key="2"
         >
@@ -92,9 +102,11 @@ export default function orderBook({ orderBookData, dailyStatsData }) {
         </TabPane>
         <TabPane
           tab={
-            <Svg>
-              <input type="image" src={bidsSvg} alt="asks" />
-            </Svg>
+            <SvgWrraper active={activeKey === '3'}>
+              <Svg>
+                <input type="image" src={bidsSvg} alt="asks" />
+              </Svg>
+            </SvgWrraper>
           }
           key="3"
         >
@@ -117,4 +129,6 @@ export default function orderBook({ orderBookData, dailyStatsData }) {
       <Groups />
     </TabsWrapper>
   );
-}
+};
+
+export default OrderBook;
