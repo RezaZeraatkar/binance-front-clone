@@ -19,7 +19,6 @@ import FavoriteTabIcon from '../../../../UI/Icon/FavoriteTabIcon';
 const { TabPane } = Tabs;
 
 const Buttons = styled.div`
-  ${props => console.log(props)}
   display: flex;
   align-items: center;
   border: 1px solid
@@ -34,7 +33,7 @@ function BnbTab({ active }) {
 }
 
 function BtcTab({ active }) {
-  return <Buttons active={active === '3' ? true : false}>BNB</Buttons>;
+  return <Buttons active={active === '3' ? true : false}>BTC</Buttons>;
 }
 
 export default class Cryptopairs extends Component {
@@ -59,7 +58,11 @@ export default class Cryptopairs extends Component {
     return (
       <div id="custom-tab">
         <TabsWrapper className="tabs-wrapper" flex="100%">
-          <Tabs type="card" onTabClick={this.callback}>
+          <Tabs
+            type="card"
+            onTabClick={this.callback}
+            defaultActiveKey={activeKey}
+          >
             <TabPane tab={<FavoriteTabIcon active={activeKey} />} key="1">
               <WithLoading isLoading={isLoading}>
                 <Favorites favorites={this.state.favorites} />
