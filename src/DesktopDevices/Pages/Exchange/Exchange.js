@@ -20,7 +20,7 @@ import TradeHistoryContainer from './Exchange-Containers/TradeHistory-Container/
 import ThemeProviderAction from '../../../ReduxStore/Ui/ThemeProvider/actions';
 
 // Styles
-import { GlobalStyles } from '../../../Theme/GlobalTheme/globalStyles';
+import { ExchangeGlobalStyles } from './StyledExchange/ExchangeGlobalStyles';
 import { darkMode, lightMode } from '../../../Theme';
 import StyledExchange from './StyledExchange/StyledExchange';
 import ExchangeContentWrapper from './StyledExchange/ExchangeContentWrapper';
@@ -36,7 +36,7 @@ class Exchange extends Component {
       this.props.themeMode === 'LIGHT_MODE' ? lightMode : darkMode;
     return (
       <ThemeProvider theme={themeMode}>
-        <GlobalStyles />
+        <ExchangeGlobalStyles />
         <StyledExchange className="ds-styled-exchange">
           {/* Info Bar */}
           <Row type="flex" style={{ width: '100%' }}>

@@ -1,7 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
 
-export const GlobalStyles = createGlobalStyle`
+export const ExchangeGlobalStyles = createGlobalStyle`
   body {
+    min-width: 1200px;
     /* Body */
     background-color: ${props => props.theme.colors.background.primary};
     /* HEADER LAUOUT */

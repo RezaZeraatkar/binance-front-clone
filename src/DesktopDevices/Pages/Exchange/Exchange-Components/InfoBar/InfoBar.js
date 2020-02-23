@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const InfoBarWrapper = styled.div`
   background-color: #262626;
   display: flex;
-  flex: 1 0 auto;
+  flex: 1 1 auto;
 `;
 
 const StyledInfoBarItems = styled.div`
@@ -13,8 +13,6 @@ const StyledInfoBarItems = styled.div`
   justify-content: space-between;
   position: relative;
   margin: auto;
-  max-width: 1460px;
-  min-width: 987px;
   color: #b6b7b6;
 `;
 
