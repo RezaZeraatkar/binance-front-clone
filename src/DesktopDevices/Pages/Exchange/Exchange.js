@@ -4,12 +4,6 @@ import { connect } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import { Row } from 'antd';
 
-// Exchange-Components
-import InfoBar from './Exchange-Components/InfoBar/InfoBar';
-import Chart from './Exchange-Components/Chart/Chart';
-import OrderForm from './Exchange-Components/OrderForm/OrderForm';
-import RecentMarketActivity from './Exchange-Components/RecentMarketActivity/RecentMarketActivity';
-
 // Exchange-Containers
 import DailyStatsContainer from './Exchange-Containers/DailyStats-Container/dailyStats-Container';
 import OrderBookContainer from './Exchange-Containers/OrderBook-Container/OrderBook-Container';
@@ -18,6 +12,14 @@ import TradeHistoryContainer from './Exchange-Containers/TradeHistory-Container/
 
 // Actions
 import ThemeProviderAction from '../../../ReduxStore/Ui/ThemeProvider/actions';
+
+// Exchange-Components
+import InfoBar from './Exchange-Components/InfoBar/InfoBar';
+import Chart from './Exchange-Components/Chart/Chart';
+import OrderForm from './Exchange-Components/OrderForm/OrderForm';
+import RecentMarketActivity from './Exchange-Components/RecentMarketActivity/RecentMarketActivity';
+import OpenOrders from './Exchange-Components/OpenOrders/OpenOrders';
+import OrdersHistory from './Exchange-Components/OrdersHistory/OrdersHistory';
 
 // Styles
 import { ExchangeGlobalStyles } from './StyledExchange/ExchangeGlobalStyles';
@@ -81,7 +83,8 @@ class Exchange extends Component {
               </ExchangeRightContent>
             </ExchangeContent>
             {/* open orders   |    my 24h order history */}
-            <div>open orders | my 24h order history</div>
+            <OpenOrders />
+            <OrdersHistory />
           </ExchangeContentWrapper>
         </StyledExchange>
       </ThemeProvider>
