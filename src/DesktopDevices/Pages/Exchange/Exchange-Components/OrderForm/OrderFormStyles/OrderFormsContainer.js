@@ -10,6 +10,7 @@ const OrderFormsContainer = styled.div`
     & .ant-tabs-bar {
       margin-bottom: 0;
       background-color: ${props => props.theme.colors.background.primary};
+      border-bottom: 1px solid ${props => props.theme.colors.border.primary};
     }
   }
   & .ant-tabs-tab {

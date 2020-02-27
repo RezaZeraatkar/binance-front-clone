@@ -51,6 +51,7 @@ function OrderBookDataLoader(props) {
       .map((ask, i) => {
         return {
           key: i,
+          priceVal: ask.price,
           price: (
             <IsPositive sign="-" fontSize="12px" fontWeight="normal">
               {numeral(ask.price).format('0.00')}
@@ -67,6 +68,7 @@ function OrderBookDataLoader(props) {
     [normAsks, normBids] = normalizeData(asks, bids);
     tableRowTemplate = normBids.slice(0, limit - 1).map((bid, i) => ({
       key: i,
+      priceVal: bid.price,
       price: (
         <IsPositive sign="+" fontSize="12px" fontWeight="normal">
           {numeral(bid.price).format('0.00')}

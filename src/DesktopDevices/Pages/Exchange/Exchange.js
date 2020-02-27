@@ -18,8 +18,8 @@ import InfoBar from './Exchange-Components/InfoBar/InfoBar';
 import Chart from './Exchange-Components/Chart/Chart';
 import OrderForm from './Exchange-Components/OrderForm/OrderForm';
 import RecentMarketActivity from './Exchange-Components/RecentMarketActivity/RecentMarketActivity';
-import OpenOrders from './Exchange-Components/OpenOrders/OpenOrders';
-import OrdersHistory from './Exchange-Components/OrdersHistory/OrdersHistory';
+import OpenOrders from './Exchange-Components/Orders/OpenOrders/OpenOrders';
+import OrdersHistory from './Exchange-Components/Orders/OrdersHistory/OrdersHistory';
 
 // Styles
 import { ExchangeGlobalStyles } from './StyledExchange/ExchangeGlobalStyles';

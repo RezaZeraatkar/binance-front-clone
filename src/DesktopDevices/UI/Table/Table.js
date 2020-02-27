@@ -6,12 +6,6 @@ import PropTypes from 'prop-types';
 // styled components
 import Scrollbar from '../Scrollbar/Scrollbar';
 
-const StyledTooltip = styled(Tooltip)`
-  & .ant-tooltip-open {
-    background-color: black;
-  }
-`;
-
 const StyledTooltipContent = styled.div`
   display: flex;
   flex-direction: column;
@@ -29,19 +23,25 @@ const StyledTooltipContent = styled.div`
   }
 `;
 
-const TooltipContent = (
+const TooltipContent = ({
+  baseAsset,
+  quoteAsset,
+  avgPrice,
+  baseAssetSum,
+  quoteAssetSum,
+}) => (
   <StyledTooltipContent>
     <div key="avgprice">
       <span>Avg.Price:</span>
-      <span>&asymp; 135451</span>
+      <span>&asymp; {avgPrice}</span>
     </div>
     <div key="sum">
-      <span>Sum BTC:</span>
-      <span>135451455685</span>
+      <span>Sum {quoteAsset}:</span>
+      <span>{quoteAssetSum}</span>
     </div>
     <div>
-      <span key="totalsum">Sum USDT:</span>
-      <span>135451455685</span>
+      <span key="totalsum">Sum {baseAsset}:</span>
+      <span>{baseAssetSum}</span>
     </div>
   </StyledTooltipContent>
 );
@@ -184,7 +184,7 @@ class Table extends Component {
     };
   }
 
-  onTableHoverBox(data, rowIndex) {
+  onTableHoverBox(record, rowIndex) {
     let { from, to } = this.boxTranslateCoordinates(rowIndex);
     this.setState({
       from,
@@ -192,12 +192,47 @@ class Table extends Component {
     });
   }
 
-  onMouseLeaveHanller() {
+  onMouseLeaveHandler() {
     this.setState({ from: 0, to: 0 });
   }
 
-  handleScrollFrame(position) {
-    console.log(position);
+  calculateTooltipStats(dataSource, from, to) {
+    let avgPrice = 0;
+    let baseAssetSum = 0;
+    let quoteAssetSum = 0;
+    if (from === 0 || to === 0) {
+      return {
+        avgPrice,
+        baseAssetSum,
+        quoteAssetSum,
+      };
+    } else {
+      if (this.props.type === 'sell') {
+        for (let i = to; i <= from; i++) {
+          console.log(dataSource[i - 1]);
+          baseAssetSum += parseFloat(dataSource[i - 1].total);
+          quoteAssetSum += parseFloat(dataSource[i - 1].amount);
+          avgPrice += parseFloat(dataSource[i - 1].priceVal);
+        }
+        return {
+          avgPrice,
+          baseAssetSum,
+          quoteAssetSum,
+        };
+      } else if (this.props.type === 'buy') {
+        for (let i = from; i <= to; i++) {
+          console.log(dataSource[i - 1]);
+          baseAssetSum += parseFloat(dataSource[i - 1].total);
+          quoteAssetSum += parseFloat(dataSource[i - 1].amount);
+          avgPrice += parseFloat(dataSource[i - 1].priceVal);
+        }
+        return {
+          avgPrice,
+          baseAssetSum,
+          quoteAssetSum,
+        };
+      }
+    }
   }
 
   render() {
@@ -211,6 +246,12 @@ class Table extends Component {
       scrollToBottom,
     } = this.props;
     const { from, to } = this.state;
+    // calculate tooltip statistics
+    const {
+      avgPrice,
+      baseAssetSum,
+      quoteAssetSum,
+    } = this.calculateTooltipStats(dataSource, from, to);
     return (
       <StyledTable>
         {title ? title() : null}
@@ -232,15 +273,24 @@ class Table extends Component {
             from={from}
             to={to}
             type={type}
-            onMouseLeave={this.onMouseLeaveHanller.bind(this)}
+            onMouseLeave={this.onMouseLeaveHandler.bind(this)}
           >
             {dataSource.map(record => {
               return (
-                <StyledTooltip
+                <Tooltip
                   placement="right"
-                  title={TooltipContent}
-                  onScrollFrame={this.handleScrollFrame}
+                  title={() => (
+                    <TooltipContent
+                      baseAsset={'USDT'}
+                      quoteAsset={'BTC'}
+                      avgPrice={avgPrice}
+                      baseAssetSum={baseAssetSum}
+                      quoteAssetSum={quoteAssetSum}
+                    />
+                  )}
                   key={record.key}
+                  mouseEnterDelay={0}
+                  mouseLeaveDelay={0}
                 >
                   <Tr
                     id={record.key}
@@ -262,7 +312,7 @@ class Table extends Component {
                     ))}
                     <VolumeIndicator width={record.width} type={type} />
                   </Tr>
-                </StyledTooltip>
+                </Tooltip>
               );
             })}
           </Tbody>
