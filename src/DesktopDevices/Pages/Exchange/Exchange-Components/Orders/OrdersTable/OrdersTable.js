@@ -48,7 +48,7 @@ export default function OrdersTable({ columns, dataSource }) {
         <Tr>
           {columns.map(col =>
             typeof col.render === 'function' && col.render ? (
-              <Th>
+              <Th key={col.key}>
                 <span>{col.render()}</span>
               </Th>
             ) : (
