@@ -17,7 +17,7 @@ const Thead = styled.div`
   border: 1px solid ${props => props.theme.colors.border.primary};
 `;
 const Th = styled.div`
-  flex: auto;
+  flex: 1 0 auto;
   margin: 0 6px;
   :not(:last-child) {
     border-right: 1px solid ${props => props.theme.colors.border.primary};
@@ -33,7 +33,7 @@ const Tbody = styled.div`
   display: none;
 `;
 const Td = styled.div`
-  flex: auto;
+  flex: 1 0 auto;
   color: ${props => props.theme.colors.font.primary};
   margin: 0 6px;
   height: 100%;
