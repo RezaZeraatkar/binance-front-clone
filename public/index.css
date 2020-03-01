@@ -2,6 +2,13 @@ html {
   font-size: 18px;
 }
 
+.ant-popover-inner-content {
+  min-width: 220px !important;
+  width: 220px !important;
+  padding: 16px !important;
+  box-shadow: rgba(0, 0, 0, 0.176) 0px 6px 12px;
+}
+
 @media only screen and (min-width: 378px) {
   html {
     font-size: 20px;
