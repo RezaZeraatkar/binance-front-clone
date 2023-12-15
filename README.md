@@ -1,4 +1,4 @@
-# Binance-Clone
+# Binance-Clone[Deprecated][API verification needed]
 <div style="display: flex; justify-content: space-between; width: 100%;">
   <img src="https://res.cloudinary.com/db7v5ycxn/image/upload/v1702666156/github-readme-images/tft5abzbzygp3mbzspxf.png" height="48%" width="48%" alt="binance-exchange">
   <img src="https://res.cloudinary.com/db7v5ycxn/image/upload/v1702666156/github-readme-images/xgwesrupj9opnlhoqeuk.png" height="48%" width="48%" alt="binance-exchange">
