@@ -3,7 +3,11 @@ let cors = require('cors');
 let Binance = require('binance-api-node').default;
 
 let app = express();
-let client = Binance();
+let client = Binance({
+  apiKey: 'xxx',
+  apiSecret: 'xxx',
+  getTime: xxx,
+});
 
 // middlewares
 app.use(cors());
