@@ -1,4 +1,6 @@
 # Binance-Clone
+<img src="https://res.cloudinary.com/db7v5ycxn/image/upload/v1702666156/github-readme-images/tft5abzbzygp3mbzspxf.png" height="50%" width="50%" alt="binance-exchange">
+<img src="https://res.cloudinary.com/db7v5ycxn/image/upload/v1702666156/github-readme-images/xgwesrupj9opnlhoqeuk.png" height="50%" width="50%" alt="binance-exchange">
 
 ## Prerequisites
 
